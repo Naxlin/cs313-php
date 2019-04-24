@@ -17,13 +17,14 @@ h1 {
 	text-align: center;
 	font-size: 10em;
 	color: #262626;
+	text-transform: unset;
 	background-image: linear-gradient(to right, #f00, #ff0, #0ff, #0f0, #00f);
 	-webkit-background-clip: text;
 	animation: animate 20s linear infinite;
 	background-size: 1000%;
 }
 
-@keyframes {
+/*@keyframes {
 	0% {
 		background-position: 0% 100%;
 	}
@@ -33,4 +34,4 @@ h1 {
 	100% {
 		background-position: 0% 100%;
 	}
-}
+}*/
