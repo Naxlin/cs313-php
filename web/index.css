@@ -1,0 +1,326 @@
+ Tag Selector */
+* {
+	box-sizing: border-box;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+body {
+	background-color: navajowhite;
+	overflow-x: hidden;
+}
+
+footer {
+	background-color: #d89957;
+	box-shadow: 0 4px 50px -4px rgba(168, 86, 0, 1);
+	border-top: 5px solid black;
+	margin-left: -10px;
+	margin-right: -10px;
+	text-align: center;
+}
+
+h1 {
+	font-size: 2.5em;
+	height: 100px;
+	line-height: 100px;
+	text-align: center;
+	text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+/* Classes */
+.assign-container {
+	padding-bottom: 30px;
+	width: 30%;
+}
+
+.assign-heading {
+	background-color: #f2b14b;
+	border: 2px solid black;
+	border-radius: 10px;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.center {
+	margin: 0 auto;
+}
+
+.flexbox-col {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	width: 100%;
+}
+
+.flex-item {
+	background-color: mediumturquoise;
+	border-right: 1px solid black;
+	font-size: 1.5em;
+	padding: 30px;
+	padding-bottom: 8px;
+	padding-top: 8px;
+}
+
+.flex-item:hover {
+	background-color: #31faf3;
+	transition-duration: .35s;
+}
+
+.flex-item-footer {
+	border: none;
+	border-bottom: 1px solid black;
+	font-size: 1em;
+	padding: 0px;
+	padding-bottom: 8px;
+	padding-top: 8px;
+	width: 100%;
+}
+
+.flexbox-row {
+	align-content: flex-start;
+	align-items: center;
+	background-color: #a85600;
+	border: 2px solid black;
+	border-top: 4px solid black;
+	display: flex;
+	flex-direction: row;
+	margin-left: -10px;
+	margin-right: -10px;
+}
+
+.float-clear {
+	clear: both;
+}
+
+.float-left {
+	float: left;
+}
+
+.float-right {
+	float: right;
+}
+
+.footer-container {
+	background-color: mediumturquoise;
+	box-shadow: 
+		12px 0 16px -4px rgba(168, 86, 0, 0.8),
+		12px 0 16px -4px rgba(168, 86, 0, 0.8), 
+		-12px 0 8px -4px rgba(168, 86, 0, 0.8),
+		-12px 0 8px -4px rgba(168, 86, 0, 0.8);
+	width: 40%;
+}
+
+.footer-credit {
+	background-color: mediumturquoise;
+	margin: 0 auto;
+	padding: 0px;
+	padding-bottom: 20px;
+	padding-top: 20px;
+}
+
+.footer-container * {
+ 	width: 100%;
+}
+
+.header-awakening {
+	background-color: mediumturquoise;
+	border-radius: 25px;
+	margin: 25px auto;
+}
+
+.header-container {
+	background-color: #d89957;
+	color: #31faf3;
+	margin-bottom: -27px;
+	margin-left: -10px;
+	margin-right: -10px;
+	margin-top: -27px;
+}
+
+.header-img-left {
+	height: 100px;
+	margin: 0px;
+	margin-left: 17px;
+	padding: 0px;
+}
+
+.header-img-right {
+	height: 100px;
+	margin: 0px;
+	margin-right: 17px;
+	padding: 0px;
+	visibility: hidden;
+}
+
+.index-h3 {
+	text-align: left;
+	margin-left: 100px;
+}
+
+.index-p {
+	text-align: left;
+	margin-left: 120px;
+}
+
+.item {
+	background-color: mediumturquoise;
+	border: 1px solid black;
+	border-radius: 25px;
+	display: block;
+	font-size: 1.3em;
+	margin: 11px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	width: 75%;
+}
+
+.item:hover {
+	background-color: #31faf3;
+	border: 2px solid black;
+	margin: 10px;
+	transition-duration: .35s;
+}
+
+.page-container {
+	text-align: center;
+	/*height: 600px;*/
+	width: 100%;
+}
+
+.row {
+	justify-content: space-around;
+	display: flex;
+	flex-direction: row;
+}
+
+.team-container {
+	width: 30%;
+}
+
+.width-fourty {
+	width: 40%;
+}
+
+.width-full {
+	width: 100%;
+}
+
+.width-seventy {
+	width: 70%;
+}
+
+/* Priority - Classes */
+.active {
+	background-color: #f2b14b;
+}
+
+.active:hover {
+	background-color: #f2b14b;
+}
+
+/* IDs */
+#awakening {
+	width: 200px;
+}
+
+#needs-calculation {
+	background-color: mediumturquoise;
+	border-radius: 25px;
+	margin: 25px auto;
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+	/*By Tag*/
+	h1 {
+		font-size: 6vw;
+	}
+
+	h3 {
+		font-size: 1.1em;
+	}
+
+	p {
+		font-size: 1.17em;
+	}
+} 
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+	/*By Tag*/
+	h1 {
+		font-size: 2em;
+	}
+
+	h2, h3 {
+		font-size: 1.5em;
+	}
+
+	p {
+		font-size: 1.3em;
+	}
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+	/*By Tag*/
+	h1 {
+		font-size: 2.5em;
+	}
+
+	h2, h3 {
+		font-size: 2em;
+	}
+}
+
+
+/* CSS - Cascading Style Sheet */
+/* Palette color codes */
+/* Palette URL: http://paletton.com/#uid=1000u0kqmx3gfJwlxBFvBsYxGmq */
+
+/* Feel free to copy&paste color codes to your application */
+/* Red, Blue, and Green Scheme */
+/* As RGBa codes */
+.rgba-primary-0 { color: rgba(255, 45, 45,1) }	/* Main Primary color */
+.rgba-primary-1 { color: rgba(255,125,125,1) }
+.rgba-primary-2 { color: rgba(255, 83, 83,1) }
+.rgba-primary-3 { color: rgba(226,  5,  5,1) }
+.rgba-primary-4 { color: rgba(176,  0,  0,1) }
+.rgba-secondary-1-0 { color: rgba( 29,144,155,1) }	/* Main Secondary color (1) */
+.rgba-secondary-1-1 { color: rgba( 99,190,198,1) }
+.rgba-secondary-1-2 { color: rgba( 58,163,173,1) }
+.rgba-secondary-1-3 { color: rgba(  5,126,137,1) }
+.rgba-secondary-1-4 { color: rgba(  1, 98,107,1) }
+.rgba-secondary-2-0 { color: rgba(178,239, 42,1) }	/* Main Secondary color (2) */
+.rgba-secondary-2-1 { color: rgba(207,246,121,1) }
+.rgba-secondary-2-2 { color: rgba(191,242, 79,1) }
+.rgba-secondary-2-3 { color: rgba(147,212,  4,1) }
+.rgba-secondary-2-4 { color: rgba(114,165,  0,1) }
+
+/* Parchment Scheme */
+/* As RGBa codes */
+.rgba-primary-0 { color: rgba(244,149, 71,1) }	/* Main Primary color */
+.rgba-primary-1 { color: rgba(255,213,178,1) }
+.rgba-primary-2 { color: rgba(255,180,118,1) }
+.rgba-primary-3 { color: rgba(215,109, 20,1) }
+.rgba-primary-4 { color: rgba(157, 72,  1,1) }
+.rgba-secondary-1-0 { color: rgba(244, 75, 71,1) }	/* Main Secondary color (1) */
+.rgba-secondary-1-1 { color: rgba(255,180,178,1) }
+.rgba-secondary-1-2 { color: rgba(255,122,118,1) }
+.rgba-secondary-1-3 { color: rgba(215, 25, 20,1) }
+.rgba-secondary-1-4 { color: rgba(157,  5,  1,1) }
+.rgba-secondary-2-0 { color: rgba(244,185, 71,1) }	/* Main Secondary color (2) */
+.rgba-secondary-2-1 { color: rgba(255,229,178,1) }
+.rgba-secondary-2-2 { color: rgba(255,209,118,1) }
+.rgba-secondary-2-3 { color: rgba(215,149, 20,1) }
+.rgba-secondary-2-4 { color: rgba(157,104,  1,1) }
+
+/* Generated by Paletton.com © 2002-2014 */
+/* http://paletton.com 
