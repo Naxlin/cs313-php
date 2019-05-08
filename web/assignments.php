@@ -35,8 +35,8 @@
 				<a href="team02/home.php" class="item">
 					<div>Thayne Inc.</div>
 				</a>
-				<a href="" class="item">
-					<div>Coming Soon</div>
+				<a href="team03/form.php" class="item">
+					<div>Student Info</div>
 				</a>
 			</nav>
 		</div>
