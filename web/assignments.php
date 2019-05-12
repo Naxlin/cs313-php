@@ -5,6 +5,7 @@
 <head>
 	<title>Assignments</title>
 	<script type="text/javascript" src="index.js"></script>
+	<link rel="shortcut icon" type="image/png" href="../Fairy Tail Guild Icon.ico"/>
 	<!-- DEBUG LINE REMOVE OR COMMENT OUT BEFORE NORMAL PAGE USE -->
 	<!-- <meta http-equiv="refresh" content="1" >  -->
 </head>
@@ -18,8 +19,8 @@
 				<a href="solo01/hello.php" class="item">
 					<div>Hello World</div>
 				</a>
-				<a href="" class="item">
-					<div>Coming Soon</div>
+				<a href="./solo02/index.php" class="item">
+					<div>Mincraft Emporium</div>
 				</a>
 				<a href="" class="item">
 					<div>Coming Soon</div>

@@ -1,0 +1,158 @@
+* {
+	box-sizing: border-box;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+body {
+	background-color: mediumturquoise;
+}
+
+img {
+	margin: 10px auto;
+}
+
+h1 {
+	background-color: #c9fffa;
+	border-radius: 5px;
+	font-size: 2.5em;
+	margin: 10px auto;
+	margin-bottom: 30px;
+	margin-top: 30px;
+	text-align: center;
+	text-shadow: -2px 0 #322f2f, 0 2px white, 2px 0 white, 0 -2px #322f2f;
+	width: 50%;
+}
+
+h4 {
+	font-size: 1.5em;
+}
+
+hr {
+	background-color: white;
+	border: none;
+}
+
+p {
+	font-size: 1.2em;
+}
+
+span {
+	margin: 20px;
+	margin-top: 0px;
+}
+
+.address-container {
+	padding-top: 20px;
+}
+
+.confirmation {
+	background-color: #322f2f;
+	color: white;
+	text-align: center;
+	margin: 10px auto;
+	padding: 10px;
+	width: 90%;
+}
+
+.item {
+	background-color: #322f2f;
+	color: white;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 49%;
+}
+
+.item * {
+	width: 45%;
+	height: 25px;
+}
+
+.item label {
+	text-align: right;
+	margin-right: 25px;
+	width: 30%;
+}
+
+.item input {
+	width: 60%;
+}
+
+.item hr {
+	height: 1px;
+	width: 100%;
+}
+
+.item h2 {
+	width: 90%;
+}
+
+.cart-link {
+	background-color: #c9fffa;
+	border-radius: 10px;
+	float: right;
+	margin-bottom: 0px;
+	margin-right: 22px;
+	margin-top: -5px;
+	padding: 10px;
+}
+
+.node {
+	text-align: center;
+	background-color: #322f2f;
+	color: white;
+	margin: 10px auto;
+	width: 17.5%;
+}
+
+.node:hover {
+	background-color: lightgray;
+	color: black;
+	transition-duration: .3s;
+}
+
+.node-cart {
+	text-align: center;
+	background-color: #322f2f;
+	color: white;
+	margin: 10px auto;
+	padding-bottom: 20px;
+	width: 30%;
+}
+
+.in-cart {
+	background-color: lightgray;
+	color: black;
+}
+
+.node-list {
+	clear: both;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.page-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.shipping-title {
+	margin-top: 50px;
+}
+
+#clear {
+	margin-right: 5px;
+}
+
+#submit {
+	margin-left: 5px;
+}

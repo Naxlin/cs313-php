@@ -1,0 +1,182 @@
+{
+    "Amulet of Emergency Shielding": {
+        "price": "$358.13",
+        "img": "Amulet_of_Emergency_Shielding.gif"
+    },
+    "Arcane Bore": {
+        "price": "$512.30",
+        "img": "Arcane_Bore.png"
+    },
+    "Autonomous Activator": {
+        "price": "$249.09",
+        "img": "Autonomous_Activator.png"
+    },
+    "Awakened Draconium Ingot": {
+        "price": "$437.03",
+        "img": "Awakened_Draconium_Ingot.png"
+    },
+    "Balanced Shard": {
+        "price": "$253.46",
+        "img": "Balanced_Shard.png"
+    },
+    "Blaze Powder": {
+        "price": "$613.96",
+        "img": "Blaze_Powder.png"
+    },
+    "Bow of the Wyvern": {
+        "price": "$931.92",
+        "img": "Bow_of_the_Wyvern.png"
+    },
+    "Coal": {
+        "price": "$454.16",
+        "img": "Coal.png"
+    },
+    "Copper Singularity": {
+        "price": "$104.83",
+        "img": "Copper_Singularity.png"
+    },
+    "Diamond": {
+        "price": "$200.28",
+        "img": "Diamond.png"
+    },
+    "Draconic Boots": {
+        "price": "$279.64",
+        "img": "Draconic_Boots.png"
+    },
+    "Draconic Bow": {
+        "price": "$39.06",
+        "img": "Draconic_Bow.png"
+    },
+    "Draconic Chestplate": {
+        "price": "$643.57",
+        "img": "Draconic_Chestplate.png"
+    },
+    "Draconic Helm": {
+        "price": "$70.47",
+        "img": "Draconic_Helm.png"
+    },
+    "Draconic Leggings": {
+        "price": "$529.47",
+        "img": "Draconic_Leggings.png"
+    },
+    "Dragon Heart": {
+        "price": "$762.56",
+        "img": "Dragon_Heart.png"
+    },
+    "Ender Arrow": {
+        "price": "$290.49",
+        "img": "Ender_Arrow.png"
+    },
+    "Endest Pearl": {
+        "price": "$812.50",
+        "img": "Endest_Pearl.gif"
+    },
+    "Eternal Singularity": {
+        "price": "$700.04",
+        "img": "Eternal_Singularity.png"
+    },
+    "Glowstone Dust": {
+        "price": "$471.37",
+        "img": "Glowstone_Dust.png"
+    },
+    "Golden Singularity": {
+        "price": "$786.61",
+        "img": "Golden_Singularity.png"
+    },
+    "Hardened Jetpack": {
+        "price": "$410.84",
+        "img": "Hardened_Jetpack.png"
+    },
+    "Infinity Catalyst": {
+        "price": "$278.31",
+        "img": "Infinity_Catalyst.gif"
+    },
+    "Infinity Ingot": {
+        "price": "$196.77",
+        "img": "Infinity_Ingot.gif"
+    },
+    "Iron Ingot": {
+        "price": "$244.50",
+        "img": "Iron_Ingot.png"
+    },
+    "Iron Singularity": {
+        "price": "$179.34",
+        "img": "Iron_Singularity.png"
+    },
+    "Lapis Lazuli": {
+        "price": "$665.49",
+        "img": "Lapis_Lazuli.png"
+    },
+    "Lapis Singularity": {
+        "price": "$668.16",
+        "img": "Lapis_Singularity.png"
+    },
+    "Leaden Singularity": {
+        "price": "$351.36",
+        "img": "Leaden_Singularity.png"
+    },
+    "Leadstone Jetpack": {
+        "price": "$278.24",
+        "img": "Leadstone_Jetpack.png"
+    },
+    "Nether Quartz": {
+        "price": "$536.36",
+        "img": "Nether_Quartz.png"
+    },
+    "Nether Quartz Singularity": {
+        "price": "$685.67",
+        "img": "Nether_Quartz_Singularity.png"
+    },
+    "Nickel Singularity": {
+        "price": "$384.74",
+        "img": "Nickel_Singularity.png"
+    },
+    "Pickaxe of the Wyvern": {
+        "price": "$43.02",
+        "img": "Pickaxe_of_the_Wyvern.png"
+    },
+    "Redstone Dust": {
+        "price": "$897.20",
+        "img": "Redstone_Dust.png"
+    },
+    "Redstone Singularity": {
+        "price": "$521.24",
+        "img": "Redstone_Singularity.png"
+    },
+    "Reinforced Jetpack": {
+        "price": "$86.25",
+        "img": "Reinforced_Jetpack.png"
+    },
+    "Resonant Jetpack": {
+        "price": "$306.48",
+        "img": "Resonant_Jetpack.png"
+    },
+    "Safety Match": {
+        "price": "$705.00",
+        "img": "Safety_Match.png"
+    },
+    "Shovel of the Wyvern": {
+        "price": "$969.46",
+        "img": "Shovel_of_the_Wyvern.png"
+    },
+    "Silverwood Sapling": {
+        "price": "$753.95",
+        "img": "Silverwood_Sapling.png"
+    },
+    "Silver Singularity": {
+        "price": "$520.84",
+        "img": "Silver_Singularity.png"
+    },
+    "Steel Ingot": {
+        "price": "$237.52",
+        "img": "Steel_Ingot.png"
+    },
+    "Sword of the Wyvern": {
+        "price": "$103.06",
+        "img": "Sword_of_the_Wyvern.png"
+    },
+    "Thaumium Golem": {
+        "price": "$7.49",
+        "img": "Thaumium_Golem.png"
+    }
+}
