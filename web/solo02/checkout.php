@@ -44,7 +44,7 @@
 			<input type="text" name="state" id="state" required>
 			<label for="country">Country: </label>
 			<input type="text" name="country" id="country" required>
-			<button id='clear' type="clear">Clear Address</button>
+			<button id='reset' type="reset">Clear Address</button>
 			<button id='submit' type="submit">Make Purchase</button>
 		</form>
 	</div>
