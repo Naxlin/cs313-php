@@ -1,4 +1,3 @@
-
 -- The database structure:
 CREATE TABLE aspects (
 	aspect_id SERIAL PRIMARY KEY,
@@ -78,8 +77,7 @@ CREATE TABLE part_types (
 
 CREATE TABLE stat_types (
 	stat_id SERIAL PRIMARY KEY,
-	stat_name varchar NOT NULL,
-	stat_desc text NOT NULL
+	stat_name varchar NOT NULL
 );
 
 CREATE TABLE tinkers (
@@ -91,8 +89,139 @@ CREATE TABLE tinkers (
 );
 
 
+-- The database insertions:
+INSERT INTO aspects (aspect_name, compound) VALUES 
+('aspect_name', FALSE),
+('aspect_name', FALSE),
+('aspect_name', FALSE),
+('aspect_name', FALSE);
 
 
+-- INSERTED
+INSERT INTO stat_types (stat_name) VALUES 
+('Attack'),
+('Durability'),
+('Durability Modifier'),
+('Mining Speed'),
+('Mining Level'),
+('Usage Speed'),
+('Break Chance'),
+('Accuracy'),
+('Draw Speed'),
+('Arrow Speed'),
+('Weight');
+
+-- INSERTED
+INSERT INTO materials (material_name) VALUES 
+('Oureclase'),
+('Prometheum'),
+('Mystic Silver'),
+('Tartarite'),
+('Desichalkos'),
+('Eximite'),
+('Certus Quartz'),
+('Ender Amethyst'),
+('Manasteel'),
+('Terrasteel'),
+('Elementium'),
+('Amethyst'),
+('Peridot'),
+('Ruby'),
+('Sapphire'),
+('Dark Steel'),
+('Void Metal'),
+('Draconium'),
+('Awakened Draconium'),
+('Glue'),
+('Tear Jerker'),
+('Enderium'),
+('Signalum'),
+('Lumium'),
+('Constantan'),
+('Angmallen'),
+('Damascus Steel'),
+('Hepatizon'),
+('Brass'),
+('Electrum'),
+('Platinum'),
+('Silver'),
+('Amordrine'),
+('Ceruclase'),
+('Ignatius'),
+('Inolashite'),
+('Kalendrite'),
+('Midasium'),
+('Sanguinite'),
+('Shadow Iron'),
+('Shadow Steel'),
+('Vulcanite'),
+('Vyroxeres'),
+('Adamantine'),
+('Astral Silver'),
+('Atlarus'),
+('Black Steel'),
+('Carmot'),
+('Celenegil'),
+('Deep Iron'),
+('Haderoth'),
+('Mithril'),
+('Orichalcum'),
+('Wooden'),
+('Stone'),
+('Iron'),
+('Flint'),
+('Bone'),
+('Obsidian'),
+('Netherrack'),
+('Green Slime'),
+('Cobalt'),
+('Ardite'),
+('Manyullyn'),
+('Copper'),
+('Bronze'),
+('Alumite'),
+('Steel'),
+('Blue Slime'),
+('Lead'),
+('Ferrous'),
+('Invar'),
+('Magical Wooden'),
+('Plastic'),
+('Pink Slime'),
+('Neutronium'),
+('Infinity'),
+('Thaumium');
+
+-- INSERTED
+INSERT INTO part_types (part_name) VALUES 
+('Tool Rod'),
+('Tool Binding'),
+('Tough Rod'),
+('Tough Binding'),
+('Pickaxe Head'),
+('Shovel Head'),
+('Axe Head'),
+('Scythe Head'),
+('Hammer Head'),
+('Excavator Head'),
+('Broadaxe Head'),
+('Large Plate'),
+('Pan'),
+('Wide Board'),
+('Chisel Head'),
+('Knife Blade'),
+('Sword Blade'),
+('Large Blade'),
+('Crossbar'),
+('Hand Guard'),
+('Wide Guard'),
+('Arrowhead'),
+('Fletching'),
+('Bow Limb'),
+('Bowstring'),
+('Crossbow Limb'),
+('Crossbow Body'),
+('Shuriken');
 
 
 
