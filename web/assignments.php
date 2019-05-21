@@ -39,6 +39,9 @@
 				<a href="team03/form.php" class="item">
 					<div>Student Info</div>
 				</a>
+				<a href="team05/scriptureForm.php" class="item">
+					<div>Scripture Page</div>
+				</a>
 			</nav>
 		</div>
 	</div>
