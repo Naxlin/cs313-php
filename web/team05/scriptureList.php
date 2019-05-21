@@ -28,9 +28,9 @@
 
     }
 
-    function details($obj) {
-        $name = $obj['name'];
-    }
+    // function details($obj) {
+    //     $name = $obj['name'];
+    // }
 
     function scripture($obj) {
         $book = $obj['book'];
@@ -40,32 +40,17 @@
         if ($book === "") {
             $sql = 'SELECT * FROM scriptures';
             $stmt = $db->prepare($sql);
+            $stmt->execute();
             $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
         } else if ($book !== "") {
             $sql = 'SELECT (book, chapter, verse) FROM scriptures WHERE book LIKE :book';
             $stmt = $db->prepare($sql);            
-            $stmt->bindParam(':book', $book + '%', PDO::PARAM_STR);
+            $stmt->bindParam(':book', $book . '%', PDO::PARAM_STR);
+            $stmt->execute();
             $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
         echo $list === "" ? "No book with that name." : $list;
     }
-
-    function testConnection() {
-        $server = "localhost";
-        $db = "test";
-        $user = "naxlin";
-        $pass = "Iskirra1";
-        $dsn = "mysql:host=$server;dbname=$db;charset=utf8mb4";
-        $options = array(PDO::ATTR_EMULATE_PREPARES=>false,PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-
-        try {
-            $testLink = new PDO($dsn, $user, $pass, $options);
-            return $testLink;
-        } catch(PDOException $ex) {
-            echo "An Error occured!";
-        }
-    }
-
 ?>
 
 
