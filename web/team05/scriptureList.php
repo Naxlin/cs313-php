@@ -35,6 +35,7 @@
         $book = $obj['book'];
         $book = strtolower($book);    
         $list = '';
+        $compiled_list = '<ul class="scripture-list">';
         $db = connect();    
         if ($book === '') {
             $sql = 'SELECT (book, chapter, verse) FROM scriptures';
@@ -48,8 +49,12 @@
             $stmt->execute();
             $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
-        echo json_encode($list);
-         // === '' ? 'No book with that name.' : $list;
+        foreach ($list as $row) {
+            $compiled_list += '<li class="scripture">' . $row['book'] . 
+                              ' ' . $row['chapter'] . ':' . $row['verse'];
+        }
+        $compiled_list += '</ul>'
+        echo json_encode($compiled_list);
     }
 ?>
 
