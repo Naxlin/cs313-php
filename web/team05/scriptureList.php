@@ -34,18 +34,21 @@
         $db = connect();    
         $sql = 'SELECT (book, chapter, verse, content) FROM scriptures WHERE id = :id';
         $stmt = $db->prepare($sql);            
-        $stmt->bindValue(':id', $id, PDO::PARAM_STR);
+        $stmt->bindValue(':book', $id, PDO::PARAM_STR);
         $stmt->execute();
-        $details = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $details = $stmt->fetch(PDO::FETCH_ASSOC);
 
         foreach ($details as $row => $item) {
-            echo $details;
-            echo $row;
-            echo $item;
             $items = explode(',', $item['row']);
-            $compiled_details = $compiled_details . '<li id="' . substr($items[3], 0, -1) . 
-                             '" class="scripture" onclick="showScriptureDetails(this.id)">' . 
-                             5 . ' ' . $items[1] . ':' . $items[2];
+            $bookName = '';
+            if ($items[0] === '(d&c') {
+                $bookName = 'Doctrine and Covenants';
+            } else {
+                $bookName = ucfirst(substr($items[0], 1));
+            }
+            $compiled_list = $compiled_list . '<h4 class="detail-heading">' . 
+                             $bookName . ' ' . $items[1] . ':' . $items[2] . '</h4>' .
+                             '<p class="detail-body">' . substr($items[3], 0, -1) . '</p>';
         }
         $compiled_details = $compiled_details . '</div>';
         echo json_encode($compiled_details);
@@ -79,7 +82,7 @@
             }
             $compiled_list = $compiled_list . '<li id="' . substr($items[3], 0, -1) . 
                              '" class="scripture" onclick="showScriptureDetails(this.id)">' . 
-                             $bookName . ' ' . $items[1] . ':' . $items[2];
+                             $bookName . ' ' . $items[1] . ':' . $items[2] . '</li>';
         }
         $compiled_list = $compiled_list . '</ul>';
         echo json_encode($compiled_list);
