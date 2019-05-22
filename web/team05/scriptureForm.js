@@ -7,8 +7,7 @@ function showScriptures(book) {
             if (rows.length == 0) { 
                 document.getElementById("scriptures").innerHTML = "";
             } else {
-                // parse the json result here.
-                document.getElementById("scriptures").innerHTML = this.responseText;
+                document.getElementById("scriptures").innerHTML = JSON.parse(this.responseText);;
             }
         }
     }
