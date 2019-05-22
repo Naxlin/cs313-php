@@ -3,7 +3,8 @@ function showScriptures(book) {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             console.log(this.responseText);
-            if (this.reponseText.length == 0) { 
+            var rows = JSON.parse(this.responseText);
+            if (rows.length == 0) { 
                 document.getElementById("scriptures").innerHTML = "";
             } else {
                 // parse the json reult here.

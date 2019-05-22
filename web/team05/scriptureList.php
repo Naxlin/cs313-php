@@ -37,7 +37,7 @@
         $list = '';
         $db = connect();    
         if ($book === '') {
-            $sql = 'SELECT * FROM scriptures';
+            $sql = 'SELECT (book, chapter, verse) FROM scriptures';
             $stmt = $db->prepare($sql);
             $stmt->execute();
             $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
