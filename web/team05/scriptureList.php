@@ -28,7 +28,27 @@
     }
 
     function details($obj) {
-    //     $name = $obj['name'];
+        $id = $obj['scriptureId'];
+        $details = '';
+        $compiled_details = '<div class="scripture-details">';
+        $db = connect();    
+        $sql = 'SELECT (book, chapter, verse, content) FROM scriptures WHERE id = :id';
+        $stmt = $db->prepare($sql);            
+        $stmt->bindValue(':book', $id, PDO::PARAM_STR);
+        $stmt->execute();
+        $details = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        foreach ($details as $row => $item) {
+            echo $details;
+            echo $row;
+            echo $item;
+            $items = explode(',', $item['row']);
+            $compiled_details = $compiled_details . '<li id="' . substr($items[3], 0, -1) . 
+                             '" class="scripture" onclick="showScriptureDetails(this.id)">' . 
+                             5 . ' ' . $items[1] . ':' . $items[2];
+        }
+        $compiled_details = $compiled_details . '</div>';
+        echo json_encode($compiled_details);
     }
 
     function scripture($obj) {
@@ -38,12 +58,12 @@
         $compiled_list = '<ul class="scripture-list">';
         $db = connect();    
         if ($book === '') {
-            $sql = 'SELECT (book, chapter, verse) FROM scriptures';
+            $sql = 'SELECT (book, chapter, verse, id) FROM scriptures';
             $stmt = $db->prepare($sql);
             $stmt->execute();
             $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
         } else if ($book !== '') {
-            $sql = 'SELECT (book, chapter, verse) FROM scriptures WHERE book LIKE :book';
+            $sql = 'SELECT (book, chapter, verse, id) FROM scriptures WHERE book LIKE :book';
             $stmt = $db->prepare($sql);            
             $stmt->bindValue(':book', "%$book%", PDO::PARAM_STR);
             $stmt->execute();
@@ -57,8 +77,9 @@
             } else {
                 $bookName = ucfirst(substr($items[0], 1));
             }
-            $compiled_list = $compiled_list . '<li class="scripture">' . $bookName . 
-                              ' ' . $items[1] . ':' . substr($items[2], 0, -1);
+            $compiled_list = $compiled_list . '<li id="' . substr($items[3], 0, -1) . 
+                             '" class="scripture" onclick="showScriptureDetails(this.id)">' . 
+                             $bookName . ' ' . $items[1] . ':' . $items[2];
         }
         $compiled_list = $compiled_list . '</ul>';
         echo json_encode($compiled_list);

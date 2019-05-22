@@ -20,7 +20,12 @@ function showScriptureDetails(scriptureId) {
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 console.log(this.responseText);
-                document.getElementById("scriptureDetails").innerHTML = this.responseText;
+                var rows = JSON.parse(this.responseText);
+                if (rows.length == 0) { 
+                    document.getElementById("scriptureDetails").innerHTML = "";
+                } else {
+                    document.getElementById("scriptureDetails").innerHTML = JSON.parse(this.responseText);
+                }
             }
         }
         request = {"cmd":"details", "scriptureId": scriptureId};
