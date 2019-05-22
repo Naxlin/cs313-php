@@ -53,8 +53,8 @@
                 $compiled_details = $compiled_details . ',' . $items[$i];
             } 
         }
-        $compiled_details = $compiled_details . '</p></div>';
-        echo json_encode(substr($compiled_details, 0, -1));
+        $compiled_details = substr($compiled_details, 0, -1) . '</p></div>';
+        echo json_encode($compiled_details);
     }
 
     function scripture($obj) {
