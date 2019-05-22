@@ -50,6 +50,8 @@
             $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
         foreach ($list as $row => $item) {
+            print $row;
+            print $item;
             $compiled_list = $compiled_list . '<li class="scripture">' . $item['book'] . 
                               ' ' . $item['chapter'] . ':' . $item['verse'];
         }
