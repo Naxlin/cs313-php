@@ -48,7 +48,7 @@
             }
             $compiled_details = $compiled_details . '<h4 class="detail-heading">' . 
                              $bookName . ' ' . $items[1] . ':' . $items[2] . '</h4>' .
-                             '<p class="detail-body">' . substr($items[3], 0, -1) . '</p>';
+                             '<p class="detail-body">' . substr($items[3], 0) . '</p>';
         }
         $compiled_details = $compiled_details . '</div>';
         echo json_encode($compiled_details);
