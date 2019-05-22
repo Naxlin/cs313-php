@@ -53,7 +53,7 @@
             $compiled_list += '<li class="scripture">' . $row['book'] . 
                               ' ' . $row['chapter'] . ':' . $row['verse'];
         }
-        $compiled_list += '</ul>'
+        $compiled_list += '</ul>';
         echo json_encode($compiled_list);
     }
 ?>
