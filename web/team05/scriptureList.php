@@ -34,7 +34,7 @@
         $db = connect();    
         $sql = 'SELECT (book, chapter, verse, content) FROM scriptures WHERE id = :id';
         $stmt = $db->prepare($sql);            
-        $stmt->bindValue(':book', $id, PDO::PARAM_STR);
+        $stmt->bindValue(':id', $id, PDO::PARAM_STR);
         $stmt->execute();
         $details = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
