@@ -41,7 +41,7 @@
             $sql = 'SELECT (book, chapter, verse) FROM scriptures';
             $stmt = $db->prepare($sql);
             $stmt->execute();
-            while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
             {
               $compiled_list = $compiled_list . '<li class="scripture">' . $row['book'] . 
                               ' ' . $row['chapter'] . ':' . $row['verse'];
@@ -52,7 +52,7 @@
             $stmt = $db->prepare($sql);            
             $stmt->bindValue(':book', "%$book%", PDO::PARAM_STR);
             $stmt->execute();
-            while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
             {
               $compiled_list = $compiled_list . '<li class="scripture">' . $row['book'] . 
                               ' ' . $row['chapter'] . ':' . $row['verse'];
