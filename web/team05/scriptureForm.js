@@ -1,18 +1,18 @@
 function showScriptures(book) {
-    if (book.length == 0) { 
-        document.getElementById("scriptures").innerHTML = "";
-        return;
-    } else {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                console.log(this.responseText);
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+            if (this.reponseText.length == 0) { 
+                document.getElementById("scriptures").innerHTML = "";
+            } else {
+                // parse the json reult here.
                 document.getElementById("scriptures").innerHTML = this.responseText;
             }
         }
-        request = {"cmd":"scripture", "book": book};
-        xmlhttpSend(xmlhttp, request);
     }
+    request = {"cmd":"scripture", "book": book};
+    xmlhttpSend(xmlhttp, request);
 }
 
 function showScriptureDetails(scriptureId) {
