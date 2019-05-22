@@ -46,7 +46,7 @@
             } else {
                 $bookName = ucfirst(substr($items[0], 1));
             }
-            $compiled_list = $compiled_list . '<h4 class="detail-heading">' . 
+            $compiled_details = $compiled_details . '<h4 class="detail-heading">' . 
                              $bookName . ' ' . $items[1] . ':' . $items[2] . '</h4>' .
                              '<p class="detail-body">' . substr($items[3], 0, -1) . '</p>';
         }
