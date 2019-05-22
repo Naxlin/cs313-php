@@ -52,7 +52,7 @@
         foreach ($list as $row => $item) {
             $items = explode(',', $item['row']);
             $bookName = '';
-            if ($items[0] == 'd&c') {
+            if ($items[0] === 'd&c') {
                 $bookName = 'Doctrine and Covenants';
             } else {
                 $bookName = ucfirst(substr($items[0], 1));
