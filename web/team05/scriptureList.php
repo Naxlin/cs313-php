@@ -50,8 +50,8 @@
             $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
         foreach ($list as $row) {
-            $compiled_list = $compiled_list . '<li class="scripture">' . $row['book'] . 
-                              ' ' . $row['chapter'] . ':' . $row['verse'];
+            $compiled_list = $compiled_list . '<li class="scripture">' . $row[0] . 
+                              ' ' . $row[1] . ':' . $row[2];
         }
         $compiled_list = $compiled_list . '</ul>';
         echo json_encode($compiled_list);
