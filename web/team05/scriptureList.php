@@ -42,11 +42,11 @@
             $stmt->execute();
             $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
         } else if ($book !== '') {
-            // $sql = 'SELECT (book, chapter, verse) FROM scriptures WHERE book LIKE :book';
-            // $stmt = $db->prepare($sql);            
-            // $stmt->bindParam(':book', '%' . $book . '%', PDO::PARAM_STR);
-            // $stmt->execute();
-            // $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $sql = 'SELECT (book, chapter, verse) FROM scriptures WHERE book LIKE :book';
+            $stmt = $db->prepare($sql);            
+            $stmt->bindParam(':book', '%' . $book . '%', PDO::PARAM_STR);
+            $stmt->execute();
+            $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
         echo $list;
          // === '' ? 'No book with that name.' : $list;
