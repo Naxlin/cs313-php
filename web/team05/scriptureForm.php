@@ -4,10 +4,12 @@
 	<title>PHP Database Connection Example</title>
 </head>
 <body>
+	<h1>Scripture Finder</h1>
 	<!--This is where the form that allows you to search for a scripture by book will go. The displayed scriptures will be links that will open content in the scripture details section-->
 	<div id="scriptureList">
 		<form> 
-			Book: <input type="text" onkeyup="showHint(this.value)">
+			Book: <input type="text" onkeyup="showScriptures(this.value)">
+
 		</form>
 		<p>Scriptures: <span id="scriptures"></span></p>
 	</div>
