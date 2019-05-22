@@ -50,9 +50,11 @@
             $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
         foreach ($list as $row => $item) {
-            echo json_encode($item);
-            $compiled_list = $compiled_list . '<li class="scripture">' . $item['book'] . 
-                              ' ' . $item['chapter'] . ':' . $item['verse'];
+            echo json_encode($item['row']);
+            $items = explode(',', $item['row']);
+            echo $items;
+            $compiled_list = $compiled_list . '<li class="scripture">' . $items[0] . 
+                              ' ' . $items[1] . ':' . $items[2];
         }
         $compiled_list = $compiled_list . '</ul>';
         echo json_encode($compiled_list);
