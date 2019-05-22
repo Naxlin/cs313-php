@@ -51,7 +51,13 @@
         }
         foreach ($list as $row => $item) {
             $items = explode(',', $item['row']);
-            $compiled_list = $compiled_list . '<li class="scripture">' . substr($items[0], 1) . 
+            $bookName = '';
+            if ($items[0] == 'd&c') {
+                $bookName = 'Doctrine and Covenants';
+            } else {
+                $bookName = ucfirst(substr($items[0], 1));
+            }
+            $compiled_list = $compiled_list . '<li class="scripture">' . $bookName . 
                               ' ' . $items[1] . ':' . substr($items[2], 0, -1);
         }
         $compiled_list = $compiled_list . '</ul>';
