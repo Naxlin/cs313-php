@@ -32,10 +32,10 @@
     }
 
     function scripture($obj) {
-        // $book = $obj['book'];
-        // $book = strtolower($book);    
-        // $list = '';
-        // $db = connect();    
+        $book = $obj['book'];
+        $book = strtolower($book);    
+        $list = '';
+        $db = connect();    
         // if ($book === ') {
         //     $sql = 'SELECT * FROM scriptures';
         //     $stmt = $db->prepare($sql);
