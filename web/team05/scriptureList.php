@@ -48,7 +48,7 @@
             $stmt->execute();
             $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
-        echo $list;
+        echo json_encode($list);
          // === '' ? 'No book with that name.' : $list;
     }
 ?>

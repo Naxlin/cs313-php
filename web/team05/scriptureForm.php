@@ -3,7 +3,7 @@
 <head>
 	<title>PHP Database Connection Example</title>
 </head>
-<body>
+<body onload="showScriptures('')">
 	<h1>Scripture Finder</h1>
 	<!--This is where the form that allows you to search for a scripture by book will go. The displayed scriptures will be links that will open content in the scripture details section-->
 	<div id="scriptureList">
