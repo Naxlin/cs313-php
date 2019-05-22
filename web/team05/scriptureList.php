@@ -36,7 +36,7 @@
         $stmt = $db->prepare($sql);            
         $stmt->bindValue(':book', $id, PDO::PARAM_STR);
         $stmt->execute();
-        $details = $stmt->fetch(PDO::FETCH_ASSOC);
+        $details = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($details as $row => $item) {
             echo $details;
