@@ -41,19 +41,25 @@
             $sql = 'SELECT (book, chapter, verse) FROM scriptures';
             $stmt = $db->prepare($sql);
             $stmt->execute();
-            $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+            {
+              $compiled_list = $compiled_list . '<li class="scripture">' . $row['book'] . 
+                              ' ' . $row['chapter'] . ':' . $row['verse'];
+            }
+            // $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
         } else if ($book !== '') {
             $sql = 'SELECT (book, chapter, verse) FROM scriptures WHERE book LIKE :book';
             $stmt = $db->prepare($sql);            
             $stmt->bindValue(':book', "%$book%", PDO::PARAM_STR);
             $stmt->execute();
-            $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+            {
+              $compiled_list = $compiled_list . '<li class="scripture">' . $row['book'] . 
+                              ' ' . $row['chapter'] . ':' . $row['verse'];
+            }
+            // $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
-        foreach ($list as $row => $item) {
-            echo json_encode($item);
-            $compiled_list = $compiled_list . '<li class="scripture">' . $item['book'] . 
-                              ' ' . $item['chapter'] . ':' . $item['verse'];
-        }
+            
         $compiled_list = $compiled_list . '</ul>';
         echo json_encode($compiled_list);
     }
