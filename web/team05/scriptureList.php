@@ -33,35 +33,23 @@
     // }
 
     function scripture($obj) {
-        $book = $obj['book'];
-        $book = strtolower($book);    
-        $list = "";
-        $db = connect();    
-        if ($book === "") {
-            $sql = 'SELECT * FROM scriptures';
-            $stmt = $db->prepare($sql);
-            $stmt->execute();
-            $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        } else if ($book !== "") {
-            $sql = 'SELECT (book, chapter, verse) FROM scriptures WHERE book LIKE :book';
-            $stmt = $db->prepare($sql);            
-            $stmt->bindParam(':book', '%' . $book . '%', PDO::PARAM_STR);
-            $stmt->execute();
-            $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        }
-        echo $list === "" ? "No book with that name." : $list;
+        // $book = $obj['book'];
+        // $book = strtolower($book);    
+        // $list = "";
+        // $db = connect();    
+        // if ($book === "") {
+        //     $sql = 'SELECT * FROM scriptures';
+        //     $stmt = $db->prepare($sql);
+        //     $stmt->execute();
+        //     $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        // } else if ($book !== "") {
+        //     $sql = 'SELECT (book, chapter, verse) FROM scriptures WHERE book LIKE :book';
+        //     $stmt = $db->prepare($sql);            
+        //     $stmt->bindParam(':book', '%' . $book . '%', PDO::PARAM_STR);
+        //     $stmt->execute();
+        //     $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        // }
+        // echo $list === "" ? "No book with that name." : $list;
     }
 ?>
 
-
-<!-- 
-            $len=strlen($book);
-            foreach($a as $name) {
-                if (stristr($book, substr($name, 0, $len))) {
-                    if ($hint === "") {
-                        $hint = $name;
-                    } else {
-                        $hint .= ", $name";
-                    }
-                }
-            } -->
