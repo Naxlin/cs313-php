@@ -48,10 +48,13 @@
             }
             $compiled_details = $compiled_details . '<h4 class="detail-heading">' . 
                              $bookName . ' ' . $items[1] . ':' . $items[2] . '</h4>' .
-                             '<p class="detail-body">' . substr($items[3], 0) . '</p>';
+                             '<p class="detail-body">' . $items[3];
+            for ($i=4; $i < sizeof($items); $i++) { 
+                $compiled_details = $compiled_details . ',' . $items[$i];
+            } 
         }
-        $compiled_details = $compiled_details . '</div>';
-        echo json_encode($compiled_details);
+        $compiled_details = $compiled_details . '</p></div>';
+        echo json_encode(substr($compiled_details, 0, -1));
     }
 
     function scripture($obj) {
