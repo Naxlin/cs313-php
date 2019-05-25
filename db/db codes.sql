@@ -107,6 +107,8 @@ CREATE TABLE tinkers (
 
 
 -- The database insertions:
+
+
 INSERT INTO material_traits (level, material, trait) VALUES
 (1, 22, 1),
 (2, 36, 2),

@@ -1,4 +1,4 @@
- Tag Selector */
+/* Tag Selector */
 * {
 	box-sizing: border-box;
 }
@@ -42,8 +42,45 @@ h1 {
 	border-radius: 10px;
 }
 
+.awakening-desc {
+	background-color: mediumturquoise;
+	border-radius: 15px;
+	margin: 20px auto;
+	margin-bottom: 35px;
+	padding: 20px;
+	width: 70%;
+}
+
 .bold {
 	font-weight: bold;
+}
+
+.button-calc {
+	background-color: mediumturquoise;
+	border: 1px solid black;
+	border-radius: 5px;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 1.5em;
+	height: 45px;
+	line-height: 42px;
+	margin: 0 auto;
+	margin-bottom: 40px;
+	width: 33.33%;
+}
+
+.button-calc:hover {
+	background-color: #31faf3;
+	transition-duration: .35s;
+}
+
+.calculator-container {
+	text-align: center;
+}
+
+.calc-list {
+	display: flex;
+	flex-direction: row;
 }
 
 .center {
@@ -216,6 +253,14 @@ h1 {
 }
 
 /* Priority - Classes */
+.calc-active {
+	background-color: #f2b14b;
+}
+
+.calc-active:hover {
+	background-color: #f2b14b;
+}
+
 .active {
 	background-color: #f2b14b;
 }
