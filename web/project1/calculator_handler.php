@@ -32,14 +32,14 @@
         $list = '';
         $comp_list = '';
         $db = connect();
-        $sql = 'SELECT (singularity_name, compound, item_cost, item) FROM singularities WHERE singularity_name LIKE :name';
+        $sql = 'SELECT * FROM singularities WHERE singularity_name LIKE :name';
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':name', "%$name%", PDO::PARAM_STR);
         $stmt->execute();
         $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach ($list as $row => $item) {
             $items = explode(',', $item['row']);
-            $comp_list = $comp_list . substr($items[0], 1) . ' ' . $items[1] . ' ' . $items[2] . ' ';
+            $comp_list = $comp_list . substr($items[0], 1) . ' ' . $items[1] . ' ' . $items[2] . ' ' . $items[3] . ' ' . $items[4];
         }
         // $compiled_list = $compiled_list . '</ul>';
         echo "singularity - " . $comp_list;
@@ -52,7 +52,7 @@
         // $db = connect();
         // $sql = 'SELECT (item, aspect, amount) FROM thaumcraft WHERE aspect LIKE :name';
         // $stmt = $db->prepare($sql);
-        // $stmt->bindValue(':name', "%$name%", PDO:PARAM_STR);
+        // $stmt->bindValue(':name', "%$name%", PDO::PARAM_STR);
         // $stmt->execute();
         // $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
         // foreach ($list as $row => $item) {
@@ -70,7 +70,7 @@
         // $db = connect();
         // $sql = 'SELECT (part, stat, material, level) FROM tinkers WHERE part LIKE :part AND material LIKE :material';
         // $stmt = $db->prepare($sql);
-        // $stmt->bindValue(':name', "%$name%", PDO:PARAM_STR);
+        // $stmt->bindValue(':name', "%$name%", PDO::PARAM_STR);
         // $stmt->execute();
         // $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
         // foreach ($list as $row => $item) {
