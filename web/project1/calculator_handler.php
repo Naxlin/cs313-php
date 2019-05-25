@@ -37,10 +37,10 @@
         $stmt->bindValue(':name', "%$name%", PDO:PARAM_STR);
         $stmt->execute();
         $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        foreach ($list as $row => $item) {
-            $items = explode(',', $item['row']);
-            $comp_list = $comp_list . substr($items[0], 1) . ' ' . $items[1] . ' ' . $items[2] . ' ';
-        }
+        // foreach ($list as $row => $item) {
+        //     $items = explode(',', $item['row']);
+        //     $comp_list = $comp_list . substr($items[0], 1) . ' ' . $items[1] . ' ' . $items[2] . ' ';
+        // }
         // $compiled_list = $compiled_list . '</ul>';
         echo "singularity - " . $comp_list;
     }
