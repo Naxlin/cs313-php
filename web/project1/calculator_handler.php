@@ -46,39 +46,39 @@
     }
 
     function thaumcraft($obj) {
-        $name = $obj['name'];
-        $list = '';
-        $comp_list = '';
-        $db = connect();
-        $sql = 'SELECT (item, aspect, amount) FROM thaumcraft WHERE aspect LIKE :name';
-        $stmt = $db->prepare($sql);
-        $stmt->bindValue(':name', "%$name%", PDO:PARAM_STR);
-        $stmt->execute();
-        $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        foreach ($list as $row => $item) {
-            $items = explode(',', $item['row']);
-            $comp_list = $comp_list . substr($items[0], 1) . ' ' . $items[1] . ' ' . $items[2] . ' ';
-        }
+        // $name = $obj['name'];
+        // $list = '';
+        // $comp_list = '';
+        // $db = connect();
+        // $sql = 'SELECT (item, aspect, amount) FROM thaumcraft WHERE aspect LIKE :name';
+        // $stmt = $db->prepare($sql);
+        // $stmt->bindValue(':name', "%$name%", PDO:PARAM_STR);
+        // $stmt->execute();
+        // $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        // foreach ($list as $row => $item) {
+        //     $items = explode(',', $item['row']);
+        //     $comp_list = $comp_list . substr($items[0], 1) . ' ' . $items[1] . ' ' . $items[2] . ' ';
+        // }
         // $compiled_list = $compiled_list . '</ul>';
-        echo "thaumcraft - " . $comp_list;
+        echo "thaumcraft - "; //. $comp_list;
     }
 
     function tinkers($obj) {
-        $name = $obj['name'];
-        $list = '';
-        $comp_list = '';
-        $db = connect();
-        $sql = 'SELECT (part, stat, material, level) FROM tinkers WHERE part LIKE :part AND material LIKE :material';
-        $stmt = $db->prepare($sql);
-        $stmt->bindValue(':name', "%$name%", PDO:PARAM_STR);
-        $stmt->execute();
-        $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        foreach ($list as $row => $item) {
-            $items = explode(',', $item['row']);
-            $comp_list = $comp_list . substr($items[0], 1) . ' ' . $items[1] . ' ' . $items[2] . ' ' . substr($items[3], 0, -1) . ' ';
-        }
+        // $name = $obj['name'];
+        // $list = '';
+        // $comp_list = '';
+        // $db = connect();
+        // $sql = 'SELECT (part, stat, material, level) FROM tinkers WHERE part LIKE :part AND material LIKE :material';
+        // $stmt = $db->prepare($sql);
+        // $stmt->bindValue(':name', "%$name%", PDO:PARAM_STR);
+        // $stmt->execute();
+        // $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        // foreach ($list as $row => $item) {
+        //     $items = explode(',', $item['row']);
+        //     $comp_list = $comp_list . substr($items[0], 1) . ' ' . $items[1] . ' ' . $items[2] . ' ' . substr($items[3], 0, -1) . ' ';
+        // }
         // $compiled_list = $compiled_list . '</ul>';
-        echo "tinkers - " . $comp_list;
+        echo "tinkers - ";// . $comp_list;
     }
 ?>
 
