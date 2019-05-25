@@ -57,11 +57,23 @@ CREATE TABLE materials (
 	material_name varchar NOT NULL
 );
 
-CREATE TABLE attributes (
-	attribute_id SERIAL PRIMARY KEY,
-	attribute_name varchar NOT NULL,
-	attribute_desc text NOT NULL
+CREATE TABLE modifiers (
+	modifier_id SERIAL PRIMARY KEY,
+	modifier_name varchar NOT NULL,
+	modifier_desc text NOT NULL
 );
+
+ALTER TABLE modifiers RENAME TO traits;
+
+ALTER TABLE traits
+RENAME COLUMN modifier_id TO trait_id;
+
+ALTER TABLE traits
+RENAME COLUMN modifier_name TO trait_name;
+
+ALTER TABLE traits
+RENAME COLUMN modifier_desc TO trait_desc;
+
 
 CREATE TABLE material_attributes (
 	mat_att_id SERIAL PRIMARY KEY,
@@ -69,6 +81,11 @@ CREATE TABLE material_attributes (
 	material int NOT NULL references materials(material_id),
 	attribute int NOT NULL references attributes(attribute_id)
 );
+
+ALTER TABLE material_attributes RENAME TO material_traits;
+
+ALTER TABLE material_traits
+RENAME COLUMN attribute TO trait;
 
 CREATE TABLE part_types (
 	part_id SERIAL PRIMARY KEY,
@@ -90,6 +107,69 @@ CREATE TABLE tinkers (
 
 
 -- The database insertions:
+INSERT INTO material_traits (level, material, trait) VALUES
+(1, 22, 1),
+(2, 36, 2),
+(1, 35, 3),
+(1, 34, 4),
+(1, 33, 5),
+(2, 31, 1),
+(1, 30, 1),
+(2, 27, 1),
+(1, 25, 1),
+(1, 39, 6),
+(1, 40, 7),
+(1, 40, 1),
+(2, 41, 7),
+(2, 41, 1),
+(2, 42, 3),
+(1, 43, 2),
+(2, 44, 1),
+(2, 47, 1),
+(3, 59, 1),
+(1, 56, 1),
+(1, 55, 8),
+(1, 50, 1),
+(1, 60, 8),
+(1, 61, 9),
+(1, 69, 10),
+(1, 75, 11),
+(2, 62, 1),
+(2, 63, 8),
+(1, 66, 1),
+(2, 67, 1),
+(2, 68, 1),
+(1, 70, 1),
+(1, 71, 1),
+(1, 72, 1),
+(1, 73, 13),
+(1, 74, 14),
+(1, 76, 15),
+(1, 77, 16),
+(1, 77, 17),
+(1, 78, 18),
+(1, 79, 12);
+
+INSERT INTO traits (trait_name, trait_desc) VALUES
+('Reinforced', '10% chance per level of not using durability'),
+('Poison', 'Poisons the enemy'),
+('Ignite', 'Catches the enemy on fire'),
+('Slowness', 'Causes the enemy to move slowly'),
+('Life Steal', 'Steals a heart per level per hit'),
+('Wither', 'Inflicts wither on the enemy'),
+('Weakness', 'Causes weakness on the enemy'),
+('Stonebound', 'The tool mines faster as it wears out, but does less damage'),
+('Slimy Green', 'After block break or after hit, chance to spawn a Green slime'),
+('Slimy Blue', 'After block break or after hit, chance to spawn a Blue slime'),
+('Slimy Pink', 'After block break or after hit, chance to spawn a Pink slime'),
+('Jagged', 'The tool does more damage as it wears out, but mines slower'),
+('Modifiable', 'Gives 1 Modifier per piece or 8 total if only material'),
+('Tough', 'Unknown effect, presumably similar to Reinforced'),
+('Supermassive', 'Potentially Knockback'),
+('Cosmic', 'Powers of the Universe, or maybe just some modifiers'),
+('Unbreakable', 'The tools effective durability is infinite'),
+('Thaumic', 'One extra modifier, two extra for 3 pieces or full tool');
+
 -- INSERTED
 INSERT INTO aspect_parents (aspect, father, mother) VALUES 
 (7, 3, 5),
