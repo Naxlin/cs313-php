@@ -32,15 +32,21 @@
         $list = '';
         $comp_list = '';
         $db = connect();
-        $sql = 'SELECT (singularity_id, singularity_name, compound, item_cost, item) FROM singularities WHERE singularity_name LIKE :name';
+        $sql = 'SELECT (*) FROM singularities WHERE singularity_name LIKE :name';
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':name', "%$name%", PDO::PARAM_STR);
         $stmt->execute();
         $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach ($list as $row => $item) {
             $items = explode(',', $item['row']);
-            $comp_list = $comp_list . substr($items[0], 1) . ' ' . $items[1] . ' ' . $items[2] . ' ' . $items[3] . ' ' . $items[4];
+            $comp_list = $comp_list . substr($items[0], 1) . ' ' . $items[1] . ' ' . $items[2] . ' ' . $items[3] . ' ' . substr($items[4], 0, -1) . ' ';
         }
+        // $sql = 'SELECT (singularity, singularity_name, compound, item_cost, item) FROM singularity_parents WHERE singularity = :singularity_id';
+        // $stmt = $db->prepare($sql);
+        // $stmt->bindValue(':name', $, PDO::PARAM_STR);
+        // $stmt->execute();
+        // $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        // $parents = $stmt->fetchAll(PDO::FETCH_ASSOC);
         // $compiled_list = $compiled_list . '</ul>';
         echo "singularity - " . $comp_list;
     }
