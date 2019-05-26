@@ -30,7 +30,6 @@
     function singularity($obj) {
         $name = $obj['name'];
         $l = array();
-        $parents;
         $singularities;
         $comp_list = '<ul class="singularity-list">';
         $db = connect();
@@ -55,28 +54,23 @@
             $stmt->execute();
             $name = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            $comp_list = $comp_list . '<li class="singularity">' . $l[$id]['name'] . ' - ' . json_encode($name) . ' : ' . $l[$id]['cost'];
+            $comp_list = $comp_list . '<li class="singularity">' . $l[$id]['name'] . ' - ' . $name['item_name'] . ' : ' . $l[$id]['cost'];
 
             if ($l[$id]['comp'] == 't') {
-                $comp_list = $comp_list . '<ul class="parents">';
                 $sql = 'SELECT (parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9) FROM singularity_parents WHERE singularity = :singularity_id';
                 $stmt = $db->prepare($sql);
                 $stmt->bindValue(':singularity_id', (int) $id, PDO::PARAM_INT);
                 $stmt->execute();
-                $parents = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                foreach ($parents as $a => $li) {
-                    $t1 = explode(',', $li['row']);
-                    $comp_list = $comp_list . '<li class="parent">' . $l[substr($t1[0], 1)]['name'] . '</li>';
-                    $comp_list = $comp_list . '<li class="parent">' . $l[$t1[1]]['name'] . '</li>';
-                    $comp_list = $comp_list . '<li class="parent">' . $l[$t1[2]]['name'] . '</li>';
-                    $comp_list = $comp_list . '<li class="parent">' . $l[$t1[3]]['name'] . '</li>';
-                    $comp_list = $comp_list . '<li class="parent">' . $l[$t1[4]]['name'] . '</li>';
-                    $comp_list = $comp_list . '<li class="parent">' . $l[$t1[5]]['name'] . '</li>';
-                    $comp_list = $comp_list . '<li class="parent">' . $l[$t1[6]]['name'] . '</li>';
-                    $comp_list = $comp_list . '<li class="parent">' . $l[$t1[7]]['name'] . '</li>';
-                    $comp_list = $comp_list . '<li class="parent">' . $l[substr($t1[8], 0, -1)]['name'] . '</li>';
-                }
-                $comp_list = $comp_list . '</ul>';
+                $p = $stmt->fetch(PDO::FETCH_ASSOC);
+                $comp_list = $comp_list . '<ul class="parents"><li class="parent">' . $l[$p['parent1']]['name'] . '</li>';
+                $comp_list = $comp_list . '<li class="parent">' . $l[$p['parent2']]['name'] . '</li>';
+                $comp_list = $comp_list . '<li class="parent">' . $l[$p['parent3']]['name'] . '</li>';
+                $comp_list = $comp_list . '<li class="parent">' . $l[$p['parent4']]['name'] . '</li>';
+                $comp_list = $comp_list . '<li class="parent">' . $l[$p['parent5']]['name'] . '</li>';
+                $comp_list = $comp_list . '<li class="parent">' . $l[$p['parent6']]['name'] . '</li>';
+                $comp_list = $comp_list . '<li class="parent">' . $l[$p['parent7']]['name'] . '</li>';
+                $comp_list = $comp_list . '<li class="parent">' . $l[$p['parent8']]['name'] . '</li>';
+                $comp_list = $comp_list . '<li class="parent">' . $l[$p['parent9']]['name'] . '</li></ul>';
             }
             $comp_list = $comp_list . '</li>';
         }
