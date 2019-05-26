@@ -53,8 +53,10 @@
             $stmt->bindValue(':id', (int) $l[$id]['item'], PDO::PARAM_INT);
             $stmt->execute();
             $name = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            $comp_list = $comp_list . '<li class="singularity">' . substr($l[$id]['name'], 1, -1) . ' - ' . $name['item_name'] . ' : ' . $l[$id]['cost'];
+            $name = $name['item_name'];
+            if ($name != 'No Item') {
+                $comp_list = $comp_list . '<li class="singularity">' . substr($l[$id]['name'], 1, -1) . ' - ' . $name . ' : ' . $l[$id]['cost'];
+            }
 
             if ($l[$id]['comp'] == 't') {
                 $sql = 'SELECT (parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9) FROM singularity_parents WHERE singularity = :singularity_id';
