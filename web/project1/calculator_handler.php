@@ -82,7 +82,7 @@
             $comp_list = $comp_list . '</div>';
         }
         $reply = $reply . '</select>';
-        echo $comp_list;
+        echo $reply . $comp_list;
     }
 
     function thaumcraft($obj) {
