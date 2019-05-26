@@ -33,7 +33,7 @@
         $name = $obj['name'];
         $parents;
         $singularities;
-        $comp_list = '';
+        $comp_list = '<ul class="singularity-list">';
         $db = connect();
         $sql = 'SELECT (singularity_id, singularity_name, compound, item_cost, item) FROM singularities WHERE singularity_name LIKE :name';
         $stmt = $db->prepare($sql);
@@ -48,16 +48,24 @@
             $cost = $items[3];
             $item = substr($items[4], 0, -1);
 
-            $comp_list = $comp_list . $id . ' ' . $name . ' ' . $compound . ' ' . $cost . ' ' . $item . '\n';
-        }
-        // echo json_encode($singularities);
+            $comp_list = $comp_list . '<li class="singularity">' . $name . ' - ' . $item . ' : ' . $cost;
 
-            // $sql = 'SELECT * FROM singularity_parents WHERE singularity = :singularity_id';
-            // $stmt = $db->prepare($sql);
-            // $stmt->bindValue(':singularity_id', 1, PDO::PARAM_INT);
-            // $stmt->setFetchMode(PDO::FETCH_INTO, $parents);
-            // $stmt->execute();
-            // $parents = $stmt->fetchAll(PDO::FETCH_CLASS, "Parents");
+            if ($compound == 't') {
+                $comp_list = $comp_list . '<ul class"parents"> some parents would go here.';
+                $sql = 'SELECT * FROM singularity_parents WHERE singularity = :singularity_id';
+                $stmt = $db->prepare($sql);
+                $stmt->bindValue(':singularity_id', $id, PDO::PARAM_INT);
+                $stmt->execute();
+                $parents = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                // foreach ($parents as $row => $item) {
+                    
+                // }
+                $comp_list = $comp_list . '</ul>';
+            }
+
+            $comp_list = $comp_list . '</li>';
+
+        }
         echo $comp_list;
     }
 
