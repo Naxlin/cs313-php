@@ -47,7 +47,6 @@
                 "cost" => $items[3], 
                 "item" => substr($items[4], 0, -1)
             );
-            $comp_list = $comp_list . $l[$id]['comp'];
 
             $sql = 'SELECT (item_name) FROM items WHERE item_id = :id';
             $stmt = $db->prepare($sql);
@@ -65,7 +64,7 @@
                 $stmt->bindValue(':singularity_id', (int) $id, PDO::PARAM_INT);
                 $stmt->execute();
                 $p = $stmt->fetch(PDO::FETCH_ASSOC);
-                $comp_list = $comp_list . $p;
+                $comp_list = $comp_list . json_encode($p);
                 $comp_list = $comp_list . '<ul class="parents"><li class="parent">' . $l[$p['parent1']]['name'] . '</li>';
                 $comp_list = $comp_list . '<li class="parent">' . $l[$p['parent2']]['name'] . '</li>';
                 $comp_list = $comp_list . '<li class="parent">' . $l[$p['parent3']]['name'] . '</li>';
