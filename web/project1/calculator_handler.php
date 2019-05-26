@@ -79,7 +79,7 @@
             $parents = $stmt->fetchAll(PDO::FETCH_CLASS, "Parents");
             
         // }
-        echo json_encode($singularities);
+        echo $singularities;
     }
 
     function thaumcraft($obj) {
