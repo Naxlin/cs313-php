@@ -30,6 +30,11 @@ h1 {
 	text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
+h5 {
+	font-size: 2em;
+
+}
+
 /* Classes */
 .assign-container {
 	padding-bottom: 30px;
@@ -230,10 +235,23 @@ h1 {
 	width: 100%;
 }
 
+.parent {
+	font-size: 1.25em;
+}
+
 .row {
 	justify-content: space-around;
 	display: flex;
 	flex-direction: row;
+}
+
+.singularity {
+	text-align: left;
+}
+
+.singularity-list {
+	height: 40px;
+	line-height: 40px;
 }
 
 .team-container {
