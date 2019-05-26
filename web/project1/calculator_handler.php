@@ -69,17 +69,20 @@
         $stmt->setFetchMode(PDO::FETCH_INTO, $singularities);
         $stmt->execute();
         $singularities = $stmt->fetchAll(PDO::FETCH_CLASS, 'Singularity');
-        $singularities = json_encode($singularities);
-        $singularities = json_decode($singularities);
-        foreach ($singularities as $row) {
-            echo $row;
+        echo count($singularities);
+
+        // $singularities = json_encode($singularities);
+        // $singularities = json_decode($singularities);
+
+        // foreach ($singularities as $row) {
+            // echo $row;
             // $sql = 'SELECT * FROM singularity_parents WHERE singularity = :singularity_id';
             // $stmt = $db->prepare($sql);
             // $stmt->bindValue(':singularity_id', 1, PDO::PARAM_INT);
             // $stmt->setFetchMode(PDO::FETCH_INTO, $parents);
             // $stmt->execute();
             // $parents = $stmt->fetchAll(PDO::FETCH_CLASS, "Parents");
-        }
+        // }
         // echo $singularities;
     }
 
