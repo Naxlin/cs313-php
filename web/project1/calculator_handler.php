@@ -9,9 +9,9 @@
 
     class Rows
     {
-        protected $cols;
-        function __set($name, $value) { $this->cols[$name] = $value; }
-        function __get($name) { return $this->cols[$name]; }
+        public $rows;
+        function __set($col, $value) { $this->rows[$col] = $value; }
+        function __get($col) { return $this->rows[$col]; }
     }
 
     class Parents {
@@ -69,7 +69,9 @@
         $stmt->setFetchMode(PDO::FETCH_INTO, $singularities);
         $stmt->execute();
         $singularities = $stmt->fetchAll(PDO::FETCH_CLASS, 'Singularity');
-        echo $singularities;
+        echo json_encode($singularities);
+
+        
             // $sql = 'SELECT * FROM singularity_parents WHERE singularity = :singularity_id';
             // $stmt = $db->prepare($sql);
             // $stmt->bindValue(':singularity_id', 1, PDO::PARAM_INT);
