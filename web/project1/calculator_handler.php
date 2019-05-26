@@ -49,7 +49,7 @@
                 "item" => substr($items[4], 0, -1)
             );
 
-            // $comp_list = $comp_list . '<li class="singularity">' . substring($l[$id]['name'], 1, -1) . ' - ' . $l[$id]['item'] . ' : ' . $l[$id]['cost'];
+            $comp_list = $comp_list . '<li class="singularity">' . $l[$id]['name'] . ' - ' . $l[$id]['item'] . ' : ' . $l[$id]['cost'];
 
             if ($l[$id]['comp'] == 't') {
                 $comp_list = $comp_list . '<ul class="parents">';
