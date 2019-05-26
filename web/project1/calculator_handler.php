@@ -9,7 +9,7 @@
 
     class Rows
     {
-        protected $cols;
+        public $cols;
         function __set($name, $value) { $this->cols[$name] = $value; }
         function __get($name) { return $this->cols[$name]; }
     }
@@ -70,11 +70,9 @@
         $stmt->execute();
         $singularities = $stmt->fetchAll(PDO::FETCH_CLASS, 'Singularity');
 
-        for ($i=1; $i < count($singularities); $i++) { 
-            echo $singularities[$i];
-        }
-
-
+        foreach ($singularities as $key => $value) {
+            echo $key . ' -> ' . $value;
+        }        
             // $sql = 'SELECT * FROM singularity_parents WHERE singularity = :singularity_id';
             // $stmt = $db->prepare($sql);
             // $stmt->bindValue(':singularity_id', 1, PDO::PARAM_INT);
