@@ -245,6 +245,10 @@ h5 {
 	flex-direction: row;
 }
 
+.sing-item {
+	margin-left: 25px;
+}
+
 .singularity {
 	margin-bottom: 50px;
 	padding-left: 100px;
