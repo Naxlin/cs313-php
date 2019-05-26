@@ -66,15 +66,15 @@
                 $p = $stmt->fetch(PDO::FETCH_ASSOC);
                 $help = explode(',', $p['row']);
                 $comp_list = $comp_list . json_encode($help);
-                $comp_list = $comp_list . '<ul class="parents"><li class="parent">' . $l[substr($help[0], 1)]['name'] . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . $l[$help[1]]['name'] . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . $l[$help[2]]['name'] . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . $l[$help[3]]['name'] . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . $l[$help[4]]['name'] . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . $l[$help[5]]['name'] . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . $l[$help[6]]['name'] . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . $l[$help[7]]['name'] . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . $l[substr($help[8], 0, -1)]['name'] . '</li></ul>';
+                $comp_list = $comp_list . '<ul class="parents"><li class="parent">' . substr($l[substr($help[0], 1)]['name'], 1, -1) . '</li>';
+                $comp_list = $comp_list . '<li class="parent">' . substr($l[$help[1]]['name'], 1, -1) . '</li>';
+                $comp_list = $comp_list . '<li class="parent">' . substr($l[$help[2]]['name'], 1, -1) . '</li>';
+                $comp_list = $comp_list . '<li class="parent">' . substr($l[$help[3]]['name'], 1, -1) . '</li>';
+                $comp_list = $comp_list . '<li class="parent">' . substr($l[$help[4]]['name'], 1, -1) . '</li>';
+                $comp_list = $comp_list . '<li class="parent">' . substr($l[$help[5]]['name'], 1, -1) . '</li>';
+                $comp_list = $comp_list . '<li class="parent">' . substr($l[$help[6]]['name'], 1, -1) . '</li>';
+                $comp_list = $comp_list . '<li class="parent">' . substr($l[$help[7]]['name'], 1, -1) . '</li>';
+                $comp_list = $comp_list . '<li class="parent">' . substr($l[substr($help[8], 0, -1)]['name'], 1, -1) . '</li></ul>';
             }
             $comp_list = $comp_list . '</li>';
         }
