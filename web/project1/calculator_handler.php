@@ -41,6 +41,7 @@
         foreach ($singularities as $row => $item) {
             $items = explode(',', $item['row']);
             $id = substr($items[0], 1);
+            $comp_list = $comp_list . $id;
             $l[$id] = array(
                 "name" => $items[1], 
                 "comp" => $items[2], 
