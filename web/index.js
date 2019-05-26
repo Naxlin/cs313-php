@@ -21,6 +21,7 @@ function getSingularity(name) {
         if (this.readyState == 4 && this.status == 200) {
 			getId("singularity1").innerHTML = this.responseText;
 			getId("IronSingularity").classList.remove('inactive');
+			lastSingularity = 0;
         }
     }
     request = {"cmd":"singularity", "name": name};
