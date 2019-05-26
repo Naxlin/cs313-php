@@ -25,13 +25,13 @@
             $dbOpts = parse_url($dbUrl);
 
             $dbHost = $dbOpts['host'];
-            echo $dbHost;
+            echo $dbHost . '\n';
             $dbPort = $dbOpts['port'];
-            echo $dbPort;
+            echo $dbPort . '\n';
             $dbUser = $dbOpts['user'];
-            echo $dbUser;
+            echo $dbUser . '\n';
             $dbPassword = $dbOpts['pass'];
-            echo $dbPassword;
+            echo $dbPassword . '\n';
             $dbName = ltrim($dbOpts['path'],'/');
 
             $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
