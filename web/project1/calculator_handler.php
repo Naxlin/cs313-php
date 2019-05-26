@@ -2,7 +2,7 @@
     $requestString = $_REQUEST['request'];
     $request = json_decode($requestString, true);
 
-    $commandMap = array('singularity'=>'singularity', 'thaumcraft'=>'thaumcraft', 'tinkers'=>'tinkers');
+    $commandMap = array('setup'=>'setup', 'singularity'=>'singularity', 'thaumcraft'=>'thaumcraft', 'tinkers'=>'tinkers');
     $commandMap[$request['cmd']]($request);
 
     class Parents {
@@ -25,9 +25,13 @@
             $dbOpts = parse_url($dbUrl);
 
             $dbHost = $dbOpts['host'];
+            echo $dbHost;
             $dbPort = $dbOpts['port'];
+            echo $dbPort;
             $dbUser = $dbOpts['user'];
+            echo $dbUser;
             $dbPassword = $dbOpts['pass'];
+            echo $dbPassword;
             $dbName = ltrim($dbOpts['path'],'/');
 
             $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
@@ -55,15 +59,15 @@
             $id = substr($items[0], 1);
             $comp_list = $comp_list . $id . ' ' . $items[1] . ' ' . $items[2] . ' ' . $items[3] . ' ' . substr($items[4], 0, -1) . ' ';
 
-            if ($items[2] == t) {
-                $sql = 'SELECT (parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9) FROM singularity_parents WHERE singularity = :singularity_id';
-                $stmt = $db->prepare($sql);
-                $stmt->bindValue(':singularity_id', $id, PDO::PARAM_INT);
-                $stmt->setFetchMode(PDO::FETCH_CLASS), 'Parents');
-                $stmt->execute();
-                $parents = $stmt->fetch();
-                echo $parents;
-            }
+            // if ($items[2] == t) {
+            //     $sql = 'SELECT (parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9) FROM singularity_parents WHERE singularity = :singularity_id';
+            //     $stm = $db->prepare($sql);
+            //     $stm->bindValue(':singularity_id', $id, PDO::PARAM_INT);
+            //     $stm->setFetchMode(PDO::FETCH_CLASS), 'Parents');
+            //     $stm->execute();
+            //     $parents = $stm->fetch();
+            //     echo $parents;
+            // }
         }
         
         // $compiled_list = $compiled_list . '</ul>';
