@@ -61,15 +61,14 @@
                 foreach ($parents as $a => $li) {
                     $t1 = explode(',', $li['row']);
                     $comp_list = $comp_list . '<li class="parent">' . $l[substr($t1[0], 1)]['name'] . '</li>';
-                    // $comp_list = $comp_list . '<li class="parent">' . substring($stuffs[0], 1) . '</li>';
-                    // $comp_list = $comp_list . '<li class="parent">' . $stuffs[1] . '</li>';
-                    // $comp_list = $comp_list . '<li class="parent">' . $stuffs[2] . '</li>';
-                    // $comp_list = $comp_list . '<li class="parent">' . $stuffs[3] . '</li>';
-                    // $comp_list = $comp_list . '<li class="parent">' . $stuffs[4] . '</li>';
-                    // $comp_list = $comp_list . '<li class="parent">' . $stuffs[5] . '</li>';
-                    // $comp_list = $comp_list . '<li class="parent">' . $stuffs[6] . '</li>';
-                    // $comp_list = $comp_list . '<li class="parent">' . $stuffs[7] . '</li>';
-                    // $comp_list = $comp_list . '<li class="parent">' . substring($stuffs[8], 0, -1) . '</li>';
+                    $comp_list = $comp_list . '<li class="parent">' . $t1[1] . '</li>';
+                    $comp_list = $comp_list . '<li class="parent">' . $t1[2] . '</li>';
+                    $comp_list = $comp_list . '<li class="parent">' . $t1[3] . '</li>';
+                    $comp_list = $comp_list . '<li class="parent">' . $t1[4] . '</li>';
+                    $comp_list = $comp_list . '<li class="parent">' . $t1[5] . '</li>';
+                    $comp_list = $comp_list . '<li class="parent">' . $t1[6] . '</li>';
+                    $comp_list = $comp_list . '<li class="parent">' . $t1[7] . '</li>';
+                    $comp_list = $comp_list . '<li class="parent">' . substr($t1[8], 0, -1) . '</li>';
                 }
                 $comp_list = $comp_list . '</ul>';
             }
