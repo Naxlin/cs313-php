@@ -39,14 +39,13 @@
         $stmt->execute();
         $singularities = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach ($singularities as $row => $item) {
-            $comp_list = $comp_list . 'here:::' . $item['row'][0];
             $items = explode(',', $item['row']);
-            $id = $item['row'][0];
+            $id = substr($item['row'][0], 1);
             $l[$id] = array(
                 "name" => $item['row'][1], 
                 "comp" => $item['row'][2], 
                 "cost" => $item['row'][3], 
-                "item" => $item['row'][4]
+                "item" => substr($item['row'][4], 0, -1)
             );
 
             $sql = 'SELECT (item_name) FROM items WHERE item_id = :id';
