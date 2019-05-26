@@ -1,3 +1,6 @@
+// Globals
+var lastSingularity = 1;
+
 // Shortens the document.getElementById() tool.
 function getId(id) {
 	return document.getElementById(id)
@@ -18,7 +21,8 @@ function getSingularity(name) {
         if (this.readyState == 4 && this.status == 200) {
             console.log(this.responseText);
            	// var html = JSON.parse(this.responseText);
-           	getId("singularity1").innerHTML = this.responseText;
+			getId("singularity1").innerHTML = this.responseText;
+			getId("IronSingularity").classList.remove('inactive');
         }
     }
     request = {"cmd":"singularity", "name": name};
@@ -47,6 +51,12 @@ function getTinkers(name) {
     }
     request = {"cmd":"tinkers", "name": name};
     xmlhttpSend(xmlhttp, request);
+}
+
+// Remove the hiding class from the active singularity
+function activateSingularity(sel) {
+	getId(sel.options[lastSingularity].value).classList.add('inactive');
+	getId(sel.options[sel.selectedIndex].value).classList.remove('inactive');
 }
 
 // Switches between overview and calculators.

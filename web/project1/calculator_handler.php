@@ -30,7 +30,7 @@
     function singularity($obj) {
         $name = $obj['name'];
         $l = array();
-        $reply = '<select id="singularity-list" class="singularity-list" onChange="(this)">';
+        $reply = '<select id="singularity-list" class="singularity-list" onChange="activateSingularity(this)">';
         $singularities;
         $comp_list = '';
         $db = connect();
