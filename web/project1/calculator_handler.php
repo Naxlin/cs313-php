@@ -55,7 +55,7 @@
             $stmt->execute();
             $name = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            $comp_list = $comp_list . '<li class="singularity">' . $l[$id]['name'] . ' - ' . $name . ' : ' . $l[$id]['cost'];
+            $comp_list = $comp_list . '<li class="singularity">' . $l[$id]['name'] . ' - ' . substr($name[0], 1, -1) . ' : ' . $l[$id]['cost'];
 
             if ($l[$id]['comp'] == 't') {
                 $comp_list = $comp_list . '<ul class="parents">';
