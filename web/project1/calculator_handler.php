@@ -40,12 +40,12 @@
         $singularities = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach ($singularities as $row => $item) {
             $items = explode(',', $item['row']);
-            $id = substr($item['row'][0], 1);
+            $id = substr($items[0], 1);
             $l[$id] = array(
-                "name" => $item['row'][1], 
-                "comp" => $item['row'][2], 
-                "cost" => $item['row'][3], 
-                "item" => substr($item['row'][4], 0, -1)
+                "name" => $items[1], 
+                "comp" => $items[2], 
+                "cost" => $items[3], 
+                "item" => substr($items[4], 0, -1)
             );
 
             $sql = 'SELECT (item_name) FROM items WHERE item_id = :id';
@@ -54,7 +54,7 @@
             $stmt->execute();
             $name = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            $comp_list = $comp_list . '<li class="singularity">' . $l[$id]['name'] . ' - ' . $name['item_name'] . ' : ' . $l[$id]['cost'];
+            $comp_list = $comp_list . '<li class="singularity">' . substr($l[$id]['name'], 1, -1) . ' - ' . $name['item_name'] . ' : ' . $l[$id]['cost'];
 
             if ($l[$id]['comp'] == 't') {
                 $sql = 'SELECT (parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9) FROM singularity_parents WHERE singularity = :singularity_id';
