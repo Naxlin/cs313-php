@@ -67,14 +67,14 @@
         $stmt->bindValue(':name', "%$name%", PDO::PARAM_STR);
         $stmt->setFetchMode(PDO::FETCH_INTO, $singularities);
         $stmt->execute();
-        $singularities = $stmt->fetchAll(PDO::FETCH_CLASS, 'Singularity');
+        $singularities = $stmt->fetchAll(PDO::FETCH_BOTH, 'Singularity');
         echo json_encode($singularities);
         $sql = 'SELECT (parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9) FROM singularity_parents WHERE singularity = :singularity_id';
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':singularity_id', $id, PDO::PARAM_INT);
         $stmt->setFetchMode(PDO::FETCH_INTO, $parents);
         $stmt->execute();
-        $parents = $stmt->fetchAll(PDO::FETCH_CLASS, "Parents");
+        $parents = $stmt->fetchAll(PDO::FETCH_BOTH, "Parents");
         echo $parents;
     }
 
