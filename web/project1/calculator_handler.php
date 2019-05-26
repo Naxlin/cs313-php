@@ -30,8 +30,9 @@
     function singularity($obj) {
         $name = $obj['name'];
         $l = array();
+        $reply = '<select id="singularity-list" class="singularity-list">';
         $singularities;
-        $comp_list = '<ul class="singularity-list">';
+        $comp_list = '';
         $db = connect();
         $sql = 'SELECT (singularity_id, singularity_name, compound, item_cost, item) FROM singularities WHERE singularity_name LIKE :name';
         $stmt = $db->prepare($sql);
@@ -54,10 +55,11 @@
             $stmt->execute();
             $name = $stmt->fetch(PDO::FETCH_ASSOC);
             $name = $name['item_name'];
+            $reply = $reply . '<option class="singularity" value="' . substr($l[$id]['name'], 1, -1) . '">' . substr($l[$id]['name'], 1, -1) . '</option>';
             if ($name != 'No Item') {
-                $comp_list = $comp_list . '<li class="singularity">' . substr($l[$id]['name'], 1, -1) . ' - ' . $name . ' : ' . $l[$id]['cost'];
+                $comp_list = $comp_list . '<div class="singularity inactive"><h5>' . substr($l[$id]['name'], 1, -1) . '</h5><p class="sing-item">Item - ' . $name . '</p><p class="sing-item">Cost - ' . $l[$id]['cost'] . '</p>';
             } else {
-                $comp_list = $comp_list . '<li class="singularity">' . substr($l[$id]['name'], 1, -1);
+                $comp_list = $comp_list . '<div class="singularity inactive"><h5>' . substr($l[$id]['name'], 1, -1) . '</h5>';
             }
 
             if ($l[$id]['comp'] == 't') {
@@ -67,18 +69,19 @@
                 $stmt->execute();
                 $p = $stmt->fetch(PDO::FETCH_ASSOC);
                 $help = explode(',', $p['row']);
-                $comp_list = $comp_list . '<ul class="parents"><li class="parent">' . substr($l[substr($help[0], 1)]['name'], 1, -1) . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . substr($l[$help[1]]['name'], 1, -1) . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . substr($l[$help[2]]['name'], 1, -1) . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . substr($l[$help[3]]['name'], 1, -1) . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . substr($l[$help[4]]['name'], 1, -1) . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . substr($l[$help[5]]['name'], 1, -1) . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . substr($l[$help[6]]['name'], 1, -1) . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . substr($l[$help[7]]['name'], 1, -1) . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . substr($l[substr($help[8], 0, -1)]['name'], 1, -1) . '</li></ul>';
+                $comp_list = $comp_list . '<p class="parent">' . substr($l[substr($help[0], 1)]['name'], 1, -1) . '</p>';
+                $comp_list = $comp_list . '<p class="parent">' . substr($l[$help[1]]['name'], 1, -1) . '</p>';
+                $comp_list = $comp_list . '<p class="parent">' . substr($l[$help[2]]['name'], 1, -1) . '</p>';
+                $comp_list = $comp_list . '<p class="parent">' . substr($l[$help[3]]['name'], 1, -1) . '</p>';
+                $comp_list = $comp_list . '<p class="parent">' . substr($l[$help[4]]['name'], 1, -1) . '</p>';
+                $comp_list = $comp_list . '<p class="parent">' . substr($l[$help[5]]['name'], 1, -1) . '</p>';
+                $comp_list = $comp_list . '<p class="parent">' . substr($l[$help[6]]['name'], 1, -1) . '</p>';
+                $comp_list = $comp_list . '<p class="parent">' . substr($l[$help[7]]['name'], 1, -1) . '</p>';
+                $comp_list = $comp_list . '<p class="parent">' . substr($l[substr($help[8], 0, -1)]['name'], 1, -1) . '</p>';
             }
-            $comp_list = $comp_list . '</li>';
+            $comp_list = $comp_list . '</div>';
         }
+        $reply = $reply . '</select>';
         echo $comp_list;
     }
 
