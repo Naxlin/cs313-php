@@ -1,5 +1,5 @@
 // Globals
-var lastSingularity = 1;
+var lastSingularity = 0;
 
 // Shortens the document.getElementById() tool.
 function getId(id) {
@@ -57,6 +57,7 @@ function getTinkers(name) {
 function activateSingularity(sel) {
 	getId(sel.options[lastSingularity].value).classList.add('inactive');
 	getId(sel.options[sel.selectedIndex].value).classList.remove('inactive');
+	lastSingularity = sel.selectedIndex;
 }
 
 // Switches between overview and calculators.
