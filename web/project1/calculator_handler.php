@@ -56,6 +56,8 @@
             $name = $name['item_name'];
             if ($name != 'No Item') {
                 $comp_list = $comp_list . '<li class="singularity">' . substr($l[$id]['name'], 1, -1) . ' - ' . $name . ' : ' . $l[$id]['cost'];
+            } else {
+                $comp_list = $comp_list . '<li class="singularity">' . substr($l[$id]['name'], 1, -1);
             }
 
             if ($l[$id]['comp'] == 't') {
@@ -65,7 +67,6 @@
                 $stmt->execute();
                 $p = $stmt->fetch(PDO::FETCH_ASSOC);
                 $help = explode(',', $p['row']);
-                $comp_list = $comp_list . json_encode($help);
                 $comp_list = $comp_list . '<ul class="parents"><li class="parent">' . substr($l[substr($help[0], 1)]['name'], 1, -1) . '</li>';
                 $comp_list = $comp_list . '<li class="parent">' . substr($l[$help[1]]['name'], 1, -1) . '</li>';
                 $comp_list = $comp_list . '<li class="parent">' . substr($l[$help[2]]['name'], 1, -1) . '</li>';
