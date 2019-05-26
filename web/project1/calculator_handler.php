@@ -41,13 +41,13 @@
         foreach ($singularities as $row => $item) {
             $items = explode(',', $item['row']);
             $id = substr($items[0], 1);
-            $comp_list = $comp_list . $id;
             $l[$id] = array(
                 "name" => $items[1], 
                 "comp" => $items[2], 
                 "cost" => $items[3], 
                 "item" => substr($items[4], 0, -1)
             );
+            $comp_list = $comp_list . $l[$id]['comp'];
 
             $sql = 'SELECT (item_name) FROM items WHERE item_id = :id';
             $stmt = $db->prepare($sql);
