@@ -65,15 +65,15 @@
                 $stmt->execute();
                 $p = $stmt->fetch(PDO::FETCH_ASSOC);
                 $comp_list = $comp_list . json_encode($p);
-                $comp_list = $comp_list . '<ul class="parents"><li class="parent">' . $l[$p['parent1']]['name'] . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . $l[$p['parent2']]['name'] . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . $l[$p['parent3']]['name'] . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . $l[$p['parent4']]['name'] . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . $l[$p['parent5']]['name'] . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . $l[$p['parent6']]['name'] . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . $l[$p['parent7']]['name'] . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . $l[$p['parent8']]['name'] . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . $l[$p['parent9']]['name'] . '</li></ul>';
+                $comp_list = $comp_list . '<ul class="parents"><li class="parent">' . $l[$p['row'][1]]['name'] . '</li>';
+                $comp_list = $comp_list . '<li class="parent">' . $l[$p['row'][2]]['name'] . '</li>';
+                $comp_list = $comp_list . '<li class="parent">' . $l[$p['row'][3]]['name'] . '</li>';
+                $comp_list = $comp_list . '<li class="parent">' . $l[$p['row'][4]]['name'] . '</li>';
+                $comp_list = $comp_list . '<li class="parent">' . $l[$p['row'][5]]['name'] . '</li>';
+                $comp_list = $comp_list . '<li class="parent">' . $l[$p['row'][6]]['name'] . '</li>';
+                $comp_list = $comp_list . '<li class="parent">' . $l[$p['row'][7]]['name'] . '</li>';
+                $comp_list = $comp_list . '<li class="parent">' . $l[$p['row'][8]]['name'] . '</li>';
+                $comp_list = $comp_list . '<li class="parent">' . $l[$p['row'][9]]['name'] . '</li></ul>';
             }
             $comp_list = $comp_list . '</li>';
         }
