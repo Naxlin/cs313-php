@@ -71,15 +71,15 @@
                 $stmt->execute();
                 $p = $stmt->fetch(PDO::FETCH_ASSOC);
                 $help = explode(',', $p['row']);
-                $comp_list = $comp_list . '<p class="parent">' . substr($l[substr($help[0], 1)]['name'], 1, -1) . '</p>';
-                $comp_list = $comp_list . '<p class="parent">' . substr($l[$help[1]]['name'], 1, -1) . '</p>';
-                $comp_list = $comp_list . '<p class="parent">' . substr($l[$help[2]]['name'], 1, -1) . '</p>';
-                $comp_list = $comp_list . '<p class="parent">' . substr($l[$help[3]]['name'], 1, -1) . '</p>';
-                $comp_list = $comp_list . '<p class="parent">' . substr($l[$help[4]]['name'], 1, -1) . '</p>';
-                $comp_list = $comp_list . '<p class="parent">' . substr($l[$help[5]]['name'], 1, -1) . '</p>';
-                $comp_list = $comp_list . '<p class="parent">' . substr($l[$help[6]]['name'], 1, -1) . '</p>';
-                $comp_list = $comp_list . '<p class="parent">' . substr($l[$help[7]]['name'], 1, -1) . '</p>';
-                $comp_list = $comp_list . '<p class="parent">' . substr($l[substr($help[8], 0, -1)]['name'], 1, -1) . '</p>';
+                $comp_list = $comp_list . '<p class="parent sing-item">' . substr($l[substr($help[0], 1)]['name'], 1, -1) . '</p>';
+                $comp_list = $comp_list . '<p class="parent sing-item">' . substr($l[$help[1]]['name'], 1, -1) . '</p>';
+                $comp_list = $comp_list . '<p class="parent sing-item">' . substr($l[$help[2]]['name'], 1, -1) . '</p>';
+                $comp_list = $comp_list . '<p class="parent sing-item">' . substr($l[$help[3]]['name'], 1, -1) . '</p>';
+                $comp_list = $comp_list . '<p class="parent sing-item">' . substr($l[$help[4]]['name'], 1, -1) . '</p>';
+                $comp_list = $comp_list . '<p class="parent sing-item">' . substr($l[$help[5]]['name'], 1, -1) . '</p>';
+                $comp_list = $comp_list . '<p class="parent sing-item">' . substr($l[$help[6]]['name'], 1, -1) . '</p>';
+                $comp_list = $comp_list . '<p class="parent sing-item">' . substr($l[$help[7]]['name'], 1, -1) . '</p>';
+                $comp_list = $comp_list . '<p class="parent sing-item">' . substr($l[substr($help[8], 0, -1)]['name'], 1, -1) . '</p>';
             }
             $comp_list = $comp_list . '</div>';
         }
