@@ -17,8 +17,8 @@ function getSingularity(name) {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             console.log(this.responseText);
-           	var html = JSON.parse(this.responseText);
-           	getId("singularity1").innerHTML = html;
+           	// var html = JSON.parse(this.responseText);
+           	getId("singularity1").innerHTML = this.responseText;
         }
     }
     request = {"cmd":"singularity", "name": name};
