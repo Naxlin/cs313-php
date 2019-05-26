@@ -65,6 +65,7 @@
                 $stmt->bindValue(':singularity_id', (int) $id, PDO::PARAM_INT);
                 $stmt->execute();
                 $p = $stmt->fetch(PDO::FETCH_ASSOC);
+                $comp_list = $comp_list . $p;
                 $comp_list = $comp_list . '<ul class="parents"><li class="parent">' . $l[$p['parent1']]['name'] . '</li>';
                 $comp_list = $comp_list . '<li class="parent">' . $l[$p['parent2']]['name'] . '</li>';
                 $comp_list = $comp_list . '<li class="parent">' . $l[$p['parent3']]['name'] . '</li>';
