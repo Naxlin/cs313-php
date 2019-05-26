@@ -246,12 +246,14 @@ h5 {
 }
 
 .singularity {
+	padding-left: 100px;
 	text-align: left;
 }
 
 .singularity-list {
 	height: 40px;
 	line-height: 40px;
+	font-size: 1.2em;
 }
 
 .team-container {
