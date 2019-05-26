@@ -27,11 +27,11 @@
     }
 
     class Singularity {
-        public $sing_id;
-        public $sing_name;
-        public $sing_comp;
-        public $sing_cost;
-        public $sing_item;
+        public $singularity_id;
+        public $singularity_name;
+        public $compound;
+        public $item_cost;
+        public $item;
     }
 
     function connect() {
