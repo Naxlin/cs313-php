@@ -64,16 +64,18 @@
                 $stmt->bindValue(':singularity_id', (int) $id, PDO::PARAM_INT);
                 $stmt->execute();
                 $p = $stmt->fetch(PDO::FETCH_ASSOC);
-                $comp_list = $comp_list . $p['row'];
-                $comp_list = $comp_list . '<ul class="parents"><li class="parent">' . $l[$p['row'][1]]['name'] . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . $l[$p['row'][2]]['name'] . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . $l[$p['row'][3]]['name'] . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . $l[$p['row'][4]]['name'] . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . $l[$p['row'][5]]['name'] . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . $l[$p['row'][6]]['name'] . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . $l[$p['row'][7]]['name'] . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . $l[$p['row'][8]]['name'] . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . $l[$p['row'][9]]['name'] . '</li></ul>';
+                $help = str_replace(')', '', $p);
+                $help = str_replace('(', '', $p);
+                $help = explode(',', $p);
+                $comp_list = $comp_list . '<ul class="parents"><li class="parent">' . $l[$help[0]]['name'] . '</li>';
+                $comp_list = $comp_list . '<li class="parent">' . $l[$help[1]]['name'] . '</li>';
+                $comp_list = $comp_list . '<li class="parent">' . $l[$help[2]]['name'] . '</li>';
+                $comp_list = $comp_list . '<li class="parent">' . $l[$help[3]]['name'] . '</li>';
+                $comp_list = $comp_list . '<li class="parent">' . $l[$help[4]]['name'] . '</li>';
+                $comp_list = $comp_list . '<li class="parent">' . $l[$help[5]]['name'] . '</li>';
+                $comp_list = $comp_list . '<li class="parent">' . $l[$help[6]]['name'] . '</li>';
+                $comp_list = $comp_list . '<li class="parent">' . $l[$help[7]]['name'] . '</li>';
+                $comp_list = $comp_list . '<li class="parent">' . $l[$help[8]]['name'] . '</li></ul>';
             }
             $comp_list = $comp_list . '</li>';
         }
