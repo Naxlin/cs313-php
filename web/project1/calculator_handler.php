@@ -49,7 +49,13 @@
                 "item" => substr($items[4], 0, -1)
             );
 
-            $comp_list = $comp_list . '<li class="singularity">' . $l[$id]['name'] . ' - ' . $l[$id]['item'] . ' : ' . $l[$id]['cost'];
+            $sql = 'SELECT (item_name) FROM items WHERE item_id = :id';
+            $stmt = $db->prepare($sql);
+            $stmt->bindValue(':id', (int) $l[$id]['item'], PDO::PARAM_INT);
+            $stmt->execute();
+            $name = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            $comp_list = $comp_list . '<li class="singularity">' . $l[$id]['name'] . ' - ' . $name . ' : ' . $l[$id]['cost'];
 
             if ($l[$id]['comp'] == 't') {
                 $comp_list = $comp_list . '<ul class="parents">';
