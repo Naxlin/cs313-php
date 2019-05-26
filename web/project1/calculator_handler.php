@@ -7,34 +7,6 @@
     $commandMap = array('singularity'=>'singularity', 'thaumcraft'=>'thaumcraft', 'tinkers'=>'tinkers');
     $commandMap[$request['cmd']]($request);
 
-    class Rows
-    {
-        public $rows;
-        function __set($col, $value) { $this->rows[$col] = $value; }
-        function __get($col) { return $this->rows[$col]; }
-    }
-
-    class Parents {
-        public $singularity;
-        public $parent1;
-        public $parent2;
-        public $parent3;
-        public $parent4;
-        public $parent5;
-        public $parent6;
-        public $parent7;
-        public $parent8;
-        public $parent9;
-    }
-
-    class Singularity {
-        public $singularity_id;
-        public $singularity_name;
-        public $compound;
-        public $item_cost;
-        public $item;
-    }
-
     function connect() {
         try {
             $dbUrl = getenv('DATABASE_URL');
@@ -59,31 +31,34 @@
 
     function singularity($obj) {
         $name = $obj['name'];
-        $parents = new Rows();
-        $singularities = new Rows();
+        $parents;
+        $singularities;
         $comp_list = '';
         $db = connect();
-        $sql = 'SELECT * FROM singularities WHERE singularity_name LIKE :name';
+        $sql = 'SELECT (singularity_id, singularity_name, compound, item_cost, item) FROM singularities WHERE singularity_name LIKE :name';
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':name', "%$name%", PDO::PARAM_STR);
-        $stmt->setFetchMode(PDO::FETCH_INTO, $singularities);
         $stmt->execute();
-        $singularities = $stmt->fetchAll(PDO::FETCH_CLASS, 'Singularity');
+        $singularities = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($singularities as $row => $item) {
+            $items = explode(',', $item['row']);
+            $id = substr($items[0], 1);
+            $name = $items[1];
+            $compound = $items[2];
+            $cost = $items[3];
+            $item = substr($items[4], 0, -1);
+
+            $comp_list = $comp_list . $id . ' ' . $name . ' ' . $compound . ' ' . $cost . ' ' . $item . '\n';
+        }
         // echo json_encode($singularities);
 
-        $message = ' ';
-
-        for ($i=0; $i < count($singularities); $i++) { 
-            $message = $message . $singularities[$i] . '     \n ';
-        }
-
-        echo $message;
             // $sql = 'SELECT * FROM singularity_parents WHERE singularity = :singularity_id';
             // $stmt = $db->prepare($sql);
             // $stmt->bindValue(':singularity_id', 1, PDO::PARAM_INT);
             // $stmt->setFetchMode(PDO::FETCH_INTO, $parents);
             // $stmt->execute();
             // $parents = $stmt->fetchAll(PDO::FETCH_CLASS, "Parents");
+        echo $comp_list;
     }
 
     function thaumcraft($obj) {
