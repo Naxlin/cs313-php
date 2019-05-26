@@ -33,6 +33,7 @@
         public $compound;
         public $item_cost;
         public $item;
+        public $parents = null;
     }
 
     function connect() {
@@ -69,14 +70,16 @@
         $stmt->setFetchMode(PDO::FETCH_INTO, $singularities);
         $stmt->execute();
         $singularities = $stmt->fetchAll(PDO::FETCH_CLASS, 'Singularity');
+        foreach ($singularities as $row) {
+            $sql = 'SELECT * FROM singularity_parents WHERE singularity = :singularity_id';
+            $stmt = $db->prepare($sql);
+            $stmt->bindValue(':singularity_id', $row['singularity_id'], PDO::PARAM_INT);
+            $stmt->setFetchMode(PDO::FETCH_INTO, $parents);
+            $stmt->execute();
+            $parents = $stmt->fetchAll(PDO::FETCH_CLASS, "Parents");
+            $row['parents'] = $parents;
+        }
         echo json_encode($singularities);
-        $sql = 'SELECT * FROM singularity_parents WHERE singularity = :singularity_id';
-        $stmt = $db->prepare($sql);
-        $stmt->bindValue(':singularity_id', $id, PDO::PARAM_INT);
-        $stmt->setFetchMode(PDO::FETCH_INTO, $parents);
-        $stmt->execute();
-        $parents = $stmt->fetchAll(PDO::FETCH_CLASS, "Parents");
-        echo $parents;
     }
 
     function thaumcraft($obj) {
