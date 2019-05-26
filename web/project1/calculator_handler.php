@@ -59,8 +59,8 @@
 
     function singularity($obj) {
         $name = $obj['name'];
-        $parents = new Rows();
-        $singularities = new Rows();
+        $parents = array();
+        $singularities = array();
         $comp_list = '';
         $db = connect();
         $sql = 'SELECT * FROM singularities WHERE singularity_name LIKE :name';
@@ -70,7 +70,6 @@
         $stmt->execute();
         $singularities = $stmt->fetchAll(PDO::FETCH_CLASS, 'Singularity');
 
-        echo $singularities.__get('singularity_name');
         
             // $sql = 'SELECT * FROM singularity_parents WHERE singularity = :singularity_id';
             // $stmt = $db->prepare($sql);
@@ -78,7 +77,7 @@
             // $stmt->setFetchMode(PDO::FETCH_INTO, $parents);
             // $stmt->execute();
             // $parents = $stmt->fetchAll(PDO::FETCH_CLASS, "Parents");
-        // echo $singularities;
+        echo $singularities;
     }
 
     function thaumcraft($obj) {
