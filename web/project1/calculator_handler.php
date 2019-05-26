@@ -58,18 +58,18 @@
                 $stmt->bindValue(':singularity_id', $id, PDO::PARAM_INT);
                 $stmt->execute();
                 $parents = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                // foreach ($parents as $a => $li) {
-                //     $stuffs = explode(',', $li['row']);
-                //     $comp_list = $comp_list . '<li class="parent">' . substring($stuffs[0], 1) . '</li>';
-                //     $comp_list = $comp_list . '<li class="parent">' . $stuffs[1] . '</li>';
-                //     $comp_list = $comp_list . '<li class="parent">' . $stuffs[2] . '</li>';
-                //     $comp_list = $comp_list . '<li class="parent">' . $stuffs[3] . '</li>';
-                //     $comp_list = $comp_list . '<li class="parent">' . $stuffs[4] . '</li>';
-                //     $comp_list = $comp_list . '<li class="parent">' . $stuffs[5] . '</li>';
-                //     $comp_list = $comp_list . '<li class="parent">' . $stuffs[6] . '</li>';
-                //     $comp_list = $comp_list . '<li class="parent">' . $stuffs[7] . '</li>';
-                //     $comp_list = $comp_list . '<li class="parent">' . substring($stuffs[8], 0, -1) . '</li>';
-                // }
+                foreach ($parents as $a => $li) {
+                    $stuffs = explode(',', $li['row']);
+                    $comp_list = $comp_list . '<li class="parent">' . substring($stuffs[0], 1) . '</li>';
+                    $comp_list = $comp_list . '<li class="parent">' . $stuffs[1] . '</li>';
+                    $comp_list = $comp_list . '<li class="parent">' . $stuffs[2] . '</li>';
+                    $comp_list = $comp_list . '<li class="parent">' . $stuffs[3] . '</li>';
+                    $comp_list = $comp_list . '<li class="parent">' . $stuffs[4] . '</li>';
+                    $comp_list = $comp_list . '<li class="parent">' . $stuffs[5] . '</li>';
+                    $comp_list = $comp_list . '<li class="parent">' . $stuffs[6] . '</li>';
+                    $comp_list = $comp_list . '<li class="parent">' . $stuffs[7] . '</li>';
+                    $comp_list = $comp_list . '<li class="parent">' . substring($stuffs[8], 0, -1) . '</li>';
+                }
                 $comp_list = $comp_list . '</ul>';
             }
             $comp_list = $comp_list . '</li>';
