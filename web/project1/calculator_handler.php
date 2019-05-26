@@ -68,7 +68,7 @@
         $stmt->setFetchMode(PDO::FETCH_INTO, $singularities);
         $stmt->execute();
         $singularities = $stmt->fetchAll(PDO::FETCH_CLASS, 'Singularity');
-        echo $singularities;
+        echo json_encode($singularities);
         $sql = 'SELECT (parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9) FROM singularity_parents WHERE singularity = :singularity_id';
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':singularity_id', $id, PDO::PARAM_INT);
