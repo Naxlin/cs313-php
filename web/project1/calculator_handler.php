@@ -71,12 +71,13 @@
         $singularities = $stmt->fetchAll(PDO::FETCH_CLASS, 'Singularity');
         // echo json_encode($singularities);
 
-        echo json_encode($singularities->rows);
+        $message = ' ';
 
-        foreach ($singularities->rows as $row) {
-            echo $row;
+        for ($i=0; $i < count($singularities); $i++) { 
+            $message = $message . $singularities[$i] . '     \n ';
         }
 
+        echo $message;
             // $sql = 'SELECT * FROM singularity_parents WHERE singularity = :singularity_id';
             // $stmt = $db->prepare($sql);
             // $stmt->bindValue(':singularity_id', 1, PDO::PARAM_INT);
