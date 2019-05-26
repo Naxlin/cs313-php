@@ -56,7 +56,7 @@
             $name = $stmt->fetch(PDO::FETCH_ASSOC);
             $name = $name['item_name'];
             if (substr($l[$id]['name'], 1, -1) != 'No Singularity') {
-                $reply = $reply . '<option class="singularity" value="' . str_replace(' ', '', substr($l[$id]['name'], 1, -1)) . '">' . substr($l[$id]['name'], 1, -1) . '</option>';
+                $reply = $reply . '<option class="singularity-opt" value="' . str_replace(' ', '', substr($l[$id]['name'], 1, -1)) . '">' . substr($l[$id]['name'], 1, -1) . '</option>';
             }
             if ($name != 'No Item') {
                 $comp_list = $comp_list . '<div id="' . str_replace(' ', '', substr($l[$id]['name'], 1, -1)) . '" class="singularity inactive"><h5>' . substr($l[$id]['name'], 1, -1) . '</h5><p class="sing-item">Item - ' . $name . '</p><p class="sing-item">Cost - ' . $l[$id]['cost'] . '</p>';
