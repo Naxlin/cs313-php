@@ -67,6 +67,7 @@
                 $help = str_replace(')', '', $p);
                 $help = str_replace('(', '', $p);
                 $help = explode(',', $p);
+                $comp_list = $comp_list . $help;
                 $comp_list = $comp_list . '<ul class="parents"><li class="parent">' . $l[$help[0]]['name'] . '</li>';
                 $comp_list = $comp_list . '<li class="parent">' . $l[$help[1]]['name'] . '</li>';
                 $comp_list = $comp_list . '<li class="parent">' . $l[$help[2]]['name'] . '</li>';
