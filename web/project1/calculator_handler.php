@@ -60,7 +60,7 @@
                 $parents = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 foreach ($parents as $a => $li) {
                     // $stuffs = explode(',', $li['row']);
-                    $comp_list = $comp_list . '<li class="parent">' . $li . '</li>';
+                    $comp_list = $comp_list . '<li class="parent">' . json_encode($li) . '</li>';
                     // $comp_list = $comp_list . '<li class="parent">' . substring($stuffs[0], 1) . '</li>';
                     // $comp_list = $comp_list . '<li class="parent">' . $stuffs[1] . '</li>';
                     // $comp_list = $comp_list . '<li class="parent">' . $stuffs[2] . '</li>';
