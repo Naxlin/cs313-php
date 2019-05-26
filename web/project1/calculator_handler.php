@@ -45,7 +45,6 @@
             $dbUser = $dbOpts['user'];
             $dbPassword = $dbOpts['pass'];
             $dbName = ltrim($dbOpts['path'],'/');
-            echo $dbName;
 
             $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
 
@@ -69,13 +68,13 @@
         $stmt->setFetchMode(PDO::FETCH_INTO, $singularities);
         $stmt->execute();
         $singularities = $stmt->fetchAll(PDO::FETCH_CLASS, 'Singularity');
+        echo $singularities;
         $sql = 'SELECT (parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9) FROM singularity_parents WHERE singularity = :singularity_id';
-        $stm = $db->prepare($sql);
-        $stm->bindValue(':singularity_id', $id, PDO::PARAM_INT);
-        $stm->setFetchMode(PDO::FETCH_INTO, $parents);
-        $stm->execute();
-        $tools = $stmt->fetchAll(PDO::FETCH_CLASS, "Parents");
-        $parents = $stm->fetch();
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':singularity_id', $id, PDO::PARAM_INT);
+        $stmt->setFetchMode(PDO::FETCH_INTO, $parents);
+        $stmt->execute();
+        $parents = $stmt->fetchAll(PDO::FETCH_CLASS, "Parents");
         echo $parents;
     }
 
