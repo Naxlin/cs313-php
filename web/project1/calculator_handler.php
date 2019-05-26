@@ -1,8 +1,6 @@
 <?php
-    // $requestString = $_REQUEST['request'];
-    // $request = json_decode($requestString, true);
-    $request['cmd'] = 'singularity';
-    $request['name'] = '';
+    $requestString = $_REQUEST['request'];
+    $request = json_decode($requestString, true);
 
     $commandMap = array('singularity'=>'singularity', 'thaumcraft'=>'thaumcraft', 'tinkers'=>'tinkers');
     $commandMap[$request['cmd']]($request);
@@ -31,6 +29,7 @@
 
     function singularity($obj) {
         $name = $obj['name'];
+        $list = array();
         $parents;
         $singularities;
         $comp_list = '<ul class="singularity-list">';
@@ -40,31 +39,43 @@
         $stmt->bindValue(':name', "%$name%", PDO::PARAM_STR);
         $stmt->execute();
         $singularities = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $count = 0;
         foreach ($singularities as $row => $item) {
             $items = explode(',', $item['row']);
-            $id = substr($items[0], 1);
-            $name = $items[1];
-            $compound = $items[2];
-            $cost = $items[3];
-            $item = substr($items[4], 0, -1);
+            $list[$count] = array(
+                "id" => substr($items[0], 1),
+                "name" => $items[1], 
+                "compound" => $items[2], 
+                "cost" => $items[3], 
+                "item" => substr($items[4], 0, -1)
+            );
 
-            $comp_list = $comp_list . '<li class="singularity">' . $name . ' - ' . $item . ' : ' . $cost;
+            $comp_list = $comp_list . '<li class="singularity">' . $list[$count]['name'] . ' - ' . $list[$count]['item'] . ' : ' . $list[$count]['cost'];
 
             if ($compound == 't') {
-                $comp_list = $comp_list . '<ul class"parents"> some parents would go here.';
-                $sql = 'SELECT * FROM singularity_parents WHERE singularity = :singularity_id';
+                $comp_list = $comp_list . '<ul class="parents">';
+                $sql = 'SELECT (parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9) FROM singularity_parents WHERE singularity = :singularity_id';
                 $stmt = $db->prepare($sql);
                 $stmt->bindValue(':singularity_id', $id, PDO::PARAM_INT);
                 $stmt->execute();
                 $parents = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                // foreach ($parents as $row => $item) {
-                    
-                // }
+                foreach ($parents as $a => $l) {
+                    $stuffs = explode(',', $l['row']);
+                    $comp_list = $comp_list . '<li class="parent">' . substring($stuffs[0], 1) . '</li>';
+                    $comp_list = $comp_list . '<li class="parent">' . $stuffs[1] . '</li>';
+                    $comp_list = $comp_list . '<li class="parent">' . $stuffs[2] . '</li>';
+                    $comp_list = $comp_list . '<li class="parent">' . $stuffs[3] . '</li>';
+                    $comp_list = $comp_list . '<li class="parent">' . $stuffs[4] . '</li>';
+                    $comp_list = $comp_list . '<li class="parent">' . $stuffs[5] . '</li>';
+                    $comp_list = $comp_list . '<li class="parent">' . $stuffs[6] . '</li>';
+                    $comp_list = $comp_list . '<li class="parent">' . $stuffs[7] . '</li>';
+                    $comp_list = $comp_list . '<li class="parent">' . substring($stuffs[8], 0, -1) . '</li>';
+                }
                 $comp_list = $comp_list . '</ul>';
             }
 
             $comp_list = $comp_list . '</li>';
-
+            $count++;
         }
         echo $comp_list;
     }
