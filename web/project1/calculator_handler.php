@@ -41,12 +41,12 @@
         foreach ($singularities as $row => $item) {
             $comp_list = $comp_list . 'here::::::' . $item['row'];
             $items = explode(',', $item['row']);
-            $id = substr($items[0], 1);
+            $id = $item['row'][0];
             $l[$id] = array(
-                "name" => $items[1], 
-                "comp" => $items[2], 
-                "cost" => $items[3], 
-                "item" => substr($items[4], 0, -1)
+                "name" => $item['row'][1], 
+                "comp" => $item['row'][2], 
+                "cost" => $item['row'][3], 
+                "item" => $item['row'][4]
             );
 
             $sql = 'SELECT (item_name) FROM items WHERE item_id = :id';
