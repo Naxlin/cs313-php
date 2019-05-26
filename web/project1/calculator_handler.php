@@ -30,7 +30,7 @@
     function singularity($obj) {
         $name = $obj['name'];
         $l = array();
-        $reply = '<select id="singularity-list" class="singularity-list">';
+        $reply = '<select id="singularity-list" class="singularity-list" onChange="(this)">';
         $singularities;
         $comp_list = '';
         $db = connect();
@@ -55,11 +55,13 @@
             $stmt->execute();
             $name = $stmt->fetch(PDO::FETCH_ASSOC);
             $name = $name['item_name'];
-            $reply = $reply . '<option class="singularity" value="' . substr($l[$id]['name'], 1, -1) . '">' . substr($l[$id]['name'], 1, -1) . '</option>';
+            if (substr($l[$id]['name'], 1, -1) != 'No Singularity') {
+                $reply = $reply . '<option class="singularity" value="' . str_replace(' ', '', substr($l[$id]['name'], 1, -1)) . '">' . substr($l[$id]['name'], 1, -1) . '</option>';
+            }
             if ($name != 'No Item') {
-                $comp_list = $comp_list . '<div class="singularity inactive"><h5>' . substr($l[$id]['name'], 1, -1) . '</h5><p class="sing-item">Item - ' . $name . '</p><p class="sing-item">Cost - ' . $l[$id]['cost'] . '</p>';
+                $comp_list = $comp_list . '<div id="' . str_replace(' ', '', substr($l[$id]['name'], 1, -1)) . '" class="singularity inactive"><h5>' . substr($l[$id]['name'], 1, -1) . '</h5><p class="sing-item">Item - ' . $name . '</p><p class="sing-item">Cost - ' . $l[$id]['cost'] . '</p>';
             } else {
-                $comp_list = $comp_list . '<div class="singularity inactive"><h5>' . substr($l[$id]['name'], 1, -1) . '</h5>';
+                $comp_list = $comp_list . '<div id="' . str_replace(' ', '', substr($l[$id]['name'], 1, -1)) . '" class="singularity inactive"><h5>' . substr($l[$id]['name'], 1, -1) . '</h5>';
             }
 
             if ($l[$id]['comp'] == 't') {
