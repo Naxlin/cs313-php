@@ -69,7 +69,7 @@
         $stmt->setFetchMode(PDO::FETCH_INTO, $singularities);
         $stmt->execute();
         $singularities = $stmt->fetchAll(PDO::FETCH_CLASS, 'Singularity');
-        foreach ($singularities as $row) {
+        foreach ($singularities as &$row) {
             echo $row;
             // $sql = 'SELECT * FROM singularity_parents WHERE singularity = :singularity_id';
             // $stmt = $db->prepare($sql);
@@ -77,7 +77,6 @@
             // $stmt->setFetchMode(PDO::FETCH_INTO, $parents);
             // $stmt->execute();
             // $parents = $stmt->fetchAll(PDO::FETCH_CLASS, "Parents");
-            
         }
         // echo $singularities;
     }
