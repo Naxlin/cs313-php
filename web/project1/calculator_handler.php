@@ -70,9 +70,8 @@
         $stmt->execute();
         $singularities = $stmt->fetchAll(PDO::FETCH_CLASS, 'Singularity');
 
-        for ($i=0; $i < count($singularities); $i++) { 
-            echo $i;
-            // echo $singularities[$i];
+        for ($i=1; $i < count($singularities); $i++) { 
+            echo $singularities[$i];
         }
 
 
