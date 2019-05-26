@@ -71,7 +71,7 @@
         $singularities = $stmt->fetchAll(PDO::FETCH_CLASS, 'Singularity');
         // echo json_encode($singularities);
 
-        foreach ($singularities as $row) {
+        foreach ($singularities['rows'] as $row) {
             echo $row;
         }
 
