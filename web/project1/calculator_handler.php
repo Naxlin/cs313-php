@@ -65,10 +65,8 @@
                 $stmt->execute();
                 $p = $stmt->fetch(PDO::FETCH_ASSOC);
                 $help = explode(',', $p['row']);
-                // $help = str_replace(')', '', $help);
-                // $help = str_replace('(', '', $help);
                 $comp_list = $comp_list . json_encode($help);
-                $comp_list = $comp_list . '<ul class="parents"><li class="parent">' . $l[$help[0]]['name'] . '</li>';
+                $comp_list = $comp_list . '<ul class="parents"><li class="parent">' . $l[substr($help[0], 1)]['name'] . '</li>';
                 $comp_list = $comp_list . '<li class="parent">' . $l[$help[1]]['name'] . '</li>';
                 $comp_list = $comp_list . '<li class="parent">' . $l[$help[2]]['name'] . '</li>';
                 $comp_list = $comp_list . '<li class="parent">' . $l[$help[3]]['name'] . '</li>';
@@ -76,7 +74,7 @@
                 $comp_list = $comp_list . '<li class="parent">' . $l[$help[5]]['name'] . '</li>';
                 $comp_list = $comp_list . '<li class="parent">' . $l[$help[6]]['name'] . '</li>';
                 $comp_list = $comp_list . '<li class="parent">' . $l[$help[7]]['name'] . '</li>';
-                $comp_list = $comp_list . '<li class="parent">' . $l[$help[8]]['name'] . '</li></ul>';
+                $comp_list = $comp_list . '<li class="parent">' . $l[substr($help[8], 0, -1)]['name'] . '</li></ul>';
             }
             $comp_list = $comp_list . '</li>';
         }
