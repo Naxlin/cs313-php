@@ -45,18 +45,18 @@
             $list[$count] = array(
                 "id" => substr($items[0], 1),
                 "name" => $items[1], 
-                "compound" => $items[2], 
+                "comp" => $items[2], 
                 "cost" => $items[3], 
                 "item" => substr($items[4], 0, -1)
             );
 
-            $comp_list = $comp_list . '<li class="singularity">' . $list[$count]['name'] . ' - ' . $list[$count]['item'] . ' : ' . $list[$count]['cost'];
+            $comp_list = $comp_list . '<li class="singularity">' . substring($list[$count]['name'], 1, -1) . ' - ' . $list[$count]['item'] . ' : ' . $list[$count]['cost'];
 
-            if ($compound == 't') {
+            if ($list[$count]['comp'] == 't') {
                 $comp_list = $comp_list . '<ul class="parents">';
                 $sql = 'SELECT (parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9) FROM singularity_parents WHERE singularity = :singularity_id';
                 $stmt = $db->prepare($sql);
-                $stmt->bindValue(':singularity_id', $id, PDO::PARAM_INT);
+                $stmt->bindValue(':singularity_id', $list[$count]['id'], PDO::PARAM_INT);
                 $stmt->execute();
                 $parents = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 foreach ($parents as $a => $l) {
