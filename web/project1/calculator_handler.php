@@ -69,7 +69,7 @@
         $stmt->setFetchMode(PDO::FETCH_INTO, $singularities);
         $stmt->execute();
         $singularities = $stmt->fetchAll(PDO::FETCH_CLASS, 'Singularity');
-        echo json_encode($singularities);
+        // echo json_encode($singularities);
 
         foreach ($singularities as $row) {
             echo $row;
