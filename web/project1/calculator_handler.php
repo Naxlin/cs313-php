@@ -63,7 +63,7 @@
                 $reply = $reply . '<option class="singularity-opt" value="' . $l[$id]['id'] . '">' . $l[$id]['name'] . '</option>';
             }
             if ($name != 'No Item') {
-                $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5>' . $l[$id]['name'] . ' (' . $itemInfo['emc'] . 'emc)</h5><p class="sing-item">Item - ' . $itemInfo['name'] . '</p><p class="sing-item">Cost - ' . $l[$id]['cost'] . '</p><p class="sing-item">EMC Cost - ' . number_format((int) $l[$id]['cost'] * (int) $itemInfo['emc'], 0, '.', ',') . '</p>';
+                $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5>' . $l[$id]['name'] . '</h5><p class="sing-item">Item - ' . $itemInfo['name'] . ' (' . number_format($itemInfo['emc'], 0, '.', ',') . ' emc)</p><p class="sing-item">Cost - ' . number_format($l[$id]['cost'], 0, '.', ',') . '</p><p class="sing-item">EMC Cost - ' . number_format((int) $l[$id]['cost'] * (int) $itemInfo['emc'], 0, '.', ',') . '</p>';
             } else {
                 $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5>' . $l[$id]['name'] . '</h5>';
             }
