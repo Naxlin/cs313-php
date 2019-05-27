@@ -53,7 +53,7 @@
             $stmt = $db->prepare($sql);
             $stmt->bindValue(':id', (int) $l[$id]['item'], PDO::PARAM_INT);
             $stmt->execute();
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            while ($row = $stmt->fetch()) {
                 $compList = $compList . 'ITEM VARIABLE:::' . $row['item_name'] . ' - ' . $row['emc'];
             }
             if (substr($l[$id]['name'], 1, -1) != 'No Singularity') {
