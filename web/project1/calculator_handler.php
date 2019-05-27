@@ -63,7 +63,7 @@
                 $reply = $reply . '<option class="singularity-opt" value="' . $l[$id]['id'] . '">' . $l[$id]['name'] . '</option>';
             }
             if ($name != 'No Item') {
-                $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5>' . $l[$id]['name'] . '</h5><p class="sing-item">Item - ' . $itemInfo['name'] . '</p><p class="sing-item">Cost - ' . $l[$id]['cost'] . '</p><p class="sing-item">EMC - ' . $itemInfo['emc'] . '</p>';
+                $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5>' . $l[$id]['name'] . ' (' . $itemInfo['emc'] . 'emc)</h5><p class="sing-item">Item - ' . $itemInfo['name'] . '</p><p class="sing-item">Cost - ' . $l[$id]['cost'] . '</p><p class="sing-item">EMC Cost - ' . (int) $l[$id]['cost'] * (int) $itemInfo['emc'] . '</p>';
             } else {
                 $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5>' . $l[$id]['name'] . '</h5>';
             }
