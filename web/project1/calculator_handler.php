@@ -59,14 +59,11 @@
                 'name' => substr($row[0], 2, -1),
                 'emc' => substr($row[1], 0, -1)
             );
-
-            $compList = $compList . 'THIS---' . json_encode($itemInfo) . '---THIS';
-
             if (substr($l[$id]['name'], 1, -1) != 'No Singularity') {
                 $reply = $reply . '<option class="singularity-opt" value="' . $l[$id]['id'] . '">' . $l[$id]['name'] . '</option>';
             }
             if ($name != 'No Item') {
-                $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5>' . $l[$id]['name'] . '</h5><p class="sing-item">Item - ' . $name . '</p><p class="sing-item">Cost - ' . $l[$id]['cost'] . '</p>';
+                $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5>' . $l[$id]['name'] . '</h5><p class="sing-item">Item - ' . $itemInfo['name'] . '</p><p class="sing-item">Cost - ' . $l[$id]['cost'] . '</p><p class="sing-item">EMC - ' . $itemInfo['emc'] . '</p>';
             } else {
                 $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5>' . $l[$id]['name'] . '</h5>';
             }
