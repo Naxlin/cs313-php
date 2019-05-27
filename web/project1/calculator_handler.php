@@ -41,14 +41,8 @@
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':name', "%$name%", PDO::PARAM_STR);
         $stmt->execute();
-        $singularities = $stmt->fetchAll(PDO::FETCH_OBJ);
-        var_dump($singularities);
-        $sql = "SELECT (singularity_id, singularity_name, compound, item_cost, item_id) FROM singularities WHERE singularity_name LIKE :name";
-        $stmt = $db->prepare($sql);
-        $stmt->bindValue(':name', "%$name%", PDO::PARAM_STR);
-        $stmt->execute();
         $singularities = $stmt->fetchAll();
-        var_dump($singularities);
+        // var_dump($singularities); // If you uncomment this you'll see why I have to use such stupid and unintelligible variable access attempts.
         foreach ($singularities as $row => $item) {
             $items = explode(',', $item['row']);
             $id = substr($items[0], 1);
