@@ -20,7 +20,6 @@
                 PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
                 PDO::ATTR_EMULATE_PREPARES   => false,
-                PDO::ATTR_STRINGIFY_FETCHES  => false,
             ];
 
             $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword, $options);
@@ -38,6 +37,12 @@
         $reply = '<select id="singularity-list" class="singularity-list" onChange="activateSingularity(this)">';
         $compList = '';
         $db = connect();
+        $sql = "SELECT (singularity_id, singularity_name, compound, item_cost, item_id) FROM singularities WHERE singularity_name LIKE :name";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':name', "%$name%", PDO::PARAM_STR);
+        $stmt->execute();
+        $singularities = $stmt->fetchAll(PDO::FETCH_OBJ);
+        var_dump($singularities);
         $sql = "SELECT (singularity_id, singularity_name, compound, item_cost, item_id) FROM singularities WHERE singularity_name LIKE :name";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':name', "%$name%", PDO::PARAM_STR);
