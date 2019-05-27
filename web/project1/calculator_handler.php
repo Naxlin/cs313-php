@@ -61,9 +61,10 @@
             $row = $stmt->fetch();
             $row = explode(',', $row['row']);
             $itemInfo = array(
-                'name' => substr($row[0], 2, -1),
+                'name' => substr($row[0], 1),
                 'emc' => substr($row[1], 0, -1)
             );
+            $itemInfo['name'] = str_replace('"', '', $itemInfo['name']);
             if (substr($l[$id]['name'], 1, -1) != 'No Singularity') {
                 $reply = $reply . '<option class="singularity-opt" value="' . $l[$id]['id'] . '">' . $l[$id]['name'] . '</option>';
             }
