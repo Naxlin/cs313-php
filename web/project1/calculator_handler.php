@@ -16,11 +16,14 @@
             $dbUser = $dbOpts['user'];
             $dbPassword = $dbOpts['pass'];
             $dbName = ltrim($dbOpts['path'],'/');
+            $options = [
+                PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                PDO::ATTR_EMULATE_PREPARES   => false,
+            ];
 
-            $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+            $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword, $options);
 
-            $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $db;
         } catch (PDOException $ex) {
             echo 'Error!: ' . $ex->getMessage();
@@ -38,7 +41,7 @@
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':name', "%$name%", PDO::PARAM_STR);
         $stmt->execute();
-        $singularities = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $singularities = $stmt->fetchAll();
         var_dump($singularities);
         foreach ($singularities as $row => $item) {
             $items = explode(',', $item['row']);
@@ -55,7 +58,7 @@
             $stmt = $db->prepare($sql);
             $stmt->bindValue(':id', (int) $l[$id]['item'], PDO::PARAM_INT);
             $stmt->execute();
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            $row = $stmt->fetch();
             $row = explode(',', $row['row']);
             $itemInfo = array(
                 'name' => substr($row[0], 2, -1),
@@ -75,7 +78,7 @@
                 $stmt = $db->prepare($sql);
                 $stmt->bindValue(':singularity_id', (int) $id, PDO::PARAM_INT);
                 $stmt->execute();
-                $p = $stmt->fetch(PDO::FETCH_ASSOC);
+                $p = $stmt->fetch();
                 $help = explode(',', $p['row']);
                 $compList = $compList . '<p class="parent sing-item">' . $l[substr($help[0], 1)]['name'] . '</p>';
                 $compList = $compList . '<p class="parent sing-item">' . $l[$help[1]]['name'] . '</p>';
@@ -102,7 +105,7 @@
         // $stmt = $db->prepare($sql);
         // $stmt->bindValue(':name', "%$name%", PDO::PARAM_STR);
         // $stmt->execute();
-        // $l = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        // $l = $stmt->fetchAll();
         // foreach ($l as $row => $item) {
         //     $items = explode(',', $item['row']);
         //     $compList = $compList . substr($items[0], 1) . ' ' . $items[1] . ' ' . $items[2] . ' ';
@@ -120,7 +123,7 @@
         // $stmt = $db->prepare($sql);
         // $stmt->bindValue(':name', "%$name%", PDO::PARAM_STR);
         // $stmt->execute();
-        // $l = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        // $l = $stmt->fetchAll();
         // foreach ($l as $row => $item) {
         //     $items = explode(',', $item['row']);
         //     $compList = $compList . substr($items[0], 1) . ' ' . $items[1] . ' ' . $items[2] . ' ' . substr($items[3], 0, -1) . ' ';
