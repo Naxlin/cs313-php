@@ -59,7 +59,7 @@
                 'emc' => substr($row[1], 0, -1)
             );
 
-            $compList = $compList . 'THIS---' . json_encode($itemInfo) . '---|';
+            $compList = $compList . 'THIS---' . json_encode($row) . '---|';
 
             if (substr($l[$id]['name'], 1, -1) != 'No Singularity') {
                 $reply = $reply . '<option class="singularity-opt" value="' . $l[$id]['id'] . '">' . $l[$id]['name'] . '</option>';
