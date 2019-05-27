@@ -31,10 +31,9 @@
         $name = $obj['name'];
         $l = array();
         $reply = '<select id="singularity-list" class="singularity-list" onChange="activateSingularity(this)">';
-        $singularities;
         $comp_list = '';
         $db = connect();
-        $sql = 'SELECT (singularity_id, singularity_name, compound, item_cost, item) FROM singularities WHERE singularity_name LIKE :name';
+        $sql = 'SELECT (singularity_id, singularity_name, compound, item_cost, item_id) FROM singularities WHERE singularity_name LIKE :name';
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':name', "%$name%", PDO::PARAM_STR);
         $stmt->execute();

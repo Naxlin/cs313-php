@@ -10,11 +10,15 @@ CREATE TABLE items (
 	item_name varchar NOT NULL
 );
 
+ALTER TABLE items ADD COLUMN emc int NOT NULL;
+
 CREATE TABLE emc (
 	emc_Id SERIAL PRIMARY KEY,
 	item int NOT NULL references items(item_id),
 	amount int NOT NULL
 );
+
+DROP TABLE emc;
 
 CREATE TABLE aspect_parents (
 	asp_par_key SERIAL PRIMARY KEY,
@@ -37,6 +41,8 @@ CREATE TABLE singularities (
 	item_cost int NOT NULL,
 	item int NOT NULL references items(item_id)
 );
+
+ALTER TABLE singularities RENAME COLUMN item TO item_id;
 
 CREATE TABLE singularity_parents (
 	sing_par_key SERIAL PRIMARY KEY,
@@ -64,15 +70,9 @@ CREATE TABLE modifiers (
 );
 
 ALTER TABLE modifiers RENAME TO traits;
-
-ALTER TABLE traits
-RENAME COLUMN modifier_id TO trait_id;
-
-ALTER TABLE traits
-RENAME COLUMN modifier_name TO trait_name;
-
-ALTER TABLE traits
-RENAME COLUMN modifier_desc TO trait_desc;
+ALTER TABLE traits RENAME COLUMN modifier_id TO trait_id;
+ALTER TABLE traits RENAME COLUMN modifier_name TO trait_name;
+ALTER TABLE traits RENAME COLUMN modifier_desc TO trait_desc;
 
 
 CREATE TABLE material_attributes (
@@ -83,9 +83,7 @@ CREATE TABLE material_attributes (
 );
 
 ALTER TABLE material_attributes RENAME TO material_traits;
-
-ALTER TABLE material_traits
-RENAME COLUMN attribute TO trait;
+ALTER TABLE material_traits RENAME COLUMN attribute TO trait;
 
 CREATE TABLE part_types (
 	part_id SERIAL PRIMARY KEY,
@@ -105,6 +103,91 @@ CREATE TABLE tinkers (
 	part int NOT NULL references part_types(part_id)
 );
 
+-- Selecting information:
+SELECT * FROM singularities NATURAL JOIN items;
+
+
+-- Updating information:
+UPDATE items SET emc = 0 WHERE item_id = 1;
+UPDATE items SET emc = 1152 WHERE item_id = 2;
+UPDATE items SET emc = 18432 WHERE item_id = 3;
+UPDATE items SET emc = 9216 WHERE item_id = 4;
+UPDATE items SET emc = 6912 WHERE item_id = 5;
+UPDATE items SET emc = 8192 WHERE item_id = 6;
+UPDATE items SET emc = 288 WHERE item_id = 7;
+UPDATE items SET emc = 2304 WHERE item_id = 8;
+UPDATE items SET emc = 2304 WHERE item_id = 9;
+UPDATE items SET emc = 2304 WHERE item_id = 10;
+UPDATE items SET emc = 576 WHERE item_id = 11;
+UPDATE items SET emc = 16 WHERE item_id = 12;
+UPDATE items SET emc = 2304 WHERE item_id = 13;
+UPDATE items SET emc = 73728 WHERE item_id = 14;
+UPDATE items SET emc = 73728 WHERE item_id = 15;
+UPDATE items SET emc = 1152 WHERE item_id = 16;
+UPDATE items SET emc = 4608 WHERE item_id = 17;
+UPDATE items SET emc = 9216 WHERE item_id = 18;
+UPDATE items SET emc = 9216 WHERE item_id = 19;
+UPDATE items SET emc = 18432 WHERE item_id = 20;
+UPDATE items SET emc = 18432 WHERE item_id = 21;
+UPDATE items SET emc = 36864 WHERE item_id = 22;
+UPDATE items SET emc = 36864 WHERE item_id = 23;
+UPDATE items SET emc = 73728 WHERE item_id = 24;
+UPDATE items SET emc = 73728 WHERE item_id = 25;
+UPDATE items SET emc = 1152 WHERE item_id = 26;
+UPDATE items SET emc = 2304 WHERE item_id = 27;
+UPDATE items SET emc = 2304 WHERE item_id = 28;
+UPDATE items SET emc = 4608 WHERE item_id = 29;
+UPDATE items SET emc = 4608 WHERE item_id = 30;
+UPDATE items SET emc = 6912 WHERE item_id = 31;
+UPDATE items SET emc = 9216 WHERE item_id = 32;
+UPDATE items SET emc = 18432 WHERE item_id = 33;
+UPDATE items SET emc = 18432 WHERE item_id = 34;
+UPDATE items SET emc = 73728 WHERE item_id = 35;
+UPDATE items SET emc = 64 WHERE item_id = 36;
+UPDATE items SET emc = 147456 WHERE item_id = 37;
+UPDATE items SET emc = 4608 WHERE item_id = 38;
+UPDATE items SET emc = 6912 WHERE item_id = 39;
+UPDATE items SET emc = 9216 WHERE item_id = 40;
+UPDATE items SET emc = 36864 WHERE item_id = 41;
+UPDATE items SET emc = 18432 WHERE item_id = 42;
+UPDATE items SET emc = 3456 WHERE item_id = 43;
+UPDATE items SET emc = 6336 WHERE item_id = 44;
+UPDATE items SET emc = 21618 WHERE item_id = 45;
+UPDATE items SET emc = 576 WHERE item_id = 46;
+UPDATE items SET emc = 36864 WHERE item_id = 47;
+UPDATE items SET emc = 18432 WHERE item_id = 48;
+UPDATE items SET emc = 576 WHERE item_id = 49;
+UPDATE items SET emc = 720 WHERE item_id = 50;
+UPDATE items SET emc = 1440 WHERE item_id = 51;
+UPDATE items SET emc = 288 WHERE item_id = 52;
+UPDATE items SET emc = 11520 WHERE item_id = 53;
+UPDATE items SET emc = 4608 WHERE item_id = 54;
+UPDATE items SET emc = 144 WHERE item_id = 55;
+UPDATE items SET emc = 4608 WHERE item_id = 56;
+UPDATE items SET emc = 18432 WHERE item_id = 57;
+UPDATE items SET emc = 2304 WHERE item_id = 58;
+UPDATE items SET emc = 2304 WHERE item_id = 59;
+UPDATE items SET emc = 4608 WHERE item_id = 60;
+UPDATE items SET emc = 1152 WHERE item_id = 61;
+UPDATE items SET emc = 2880 WHERE item_id = 62;
+UPDATE items SET emc = 2880 WHERE item_id = 63;
+UPDATE items SET emc = 22464 WHERE item_id = 64;
+UPDATE items SET emc = 3168 WHERE item_id = 65;
+UPDATE items SET emc = 11520 WHERE item_id = 66;
+UPDATE items SET emc = 864 WHERE item_id = 67;
+UPDATE items SET emc = 18873 WHERE item_id = 68;
+UPDATE items SET emc = 31680 WHERE item_id = 69;
+UPDATE items SET emc = 144 WHERE item_id = 70;
+UPDATE items SET emc = 144 WHERE item_id = 71;
+UPDATE items SET emc = 144 WHERE item_id = 72;
+UPDATE items SET emc = 144 WHERE item_id = 73;
+UPDATE items SET emc = 73728 WHERE item_id = 74;
+UPDATE items SET emc = 1152 WHERE item_id = 75;
+UPDATE items SET emc = 3645 WHERE item_id = 76;
+UPDATE items SET emc = 36864 WHERE item_id = 77;
+UPDATE items SET emc = 36864 WHERE item_id = 78;
+UPDATE items SET emc = 4096 WHERE item_id = 79;
+UPDATE items SET emc = 18432 WHERE item_id = 80;
 
 -- The database insertions:
 -- INSERTED
@@ -253,7 +336,7 @@ INSERT INTO items (item_name) VALUES
 ('Obsidian'),
 ('Block of Shadowmetal'),
 ('Thorium Block'),
-('Lithiums Block'),
+('Lithium Block'),
 ('Boron Block'),
 ('Platinum Block'),
 ('Mithril Block'),
