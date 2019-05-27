@@ -54,7 +54,7 @@
             $stmt->bindValue(':id', (int) $l[$id]['item'], PDO::PARAM_INT);
             $stmt->execute();
             $itemInfo = $stmt->fetch(PDO::FETCH_ASSOC);
-            $compList = $compList . 'ITEM VARIABLE:::' .$itemInfo;
+            $compList = $compList . 'ITEM VARIABLE:::' . json_encode($itemInfo);
             if (substr($l[$id]['name'], 1, -1) != 'No Singularity') {
                 $reply = $reply . '<option class="singularity-opt" value="' . $l[$id]['id'] . '">' . $l[$id]['name'] . '</option>';
             }
