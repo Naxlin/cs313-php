@@ -54,7 +54,6 @@
             $stmt->bindValue(':id', (int) $l[$id]['item'], PDO::PARAM_INT);
             $stmt->execute();
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
-            $row = explode(',', $row);
             $itemInfo = array(
                 'name' => substr($row[0], 2, -1),
                 'emc' => substr($row[1], 0, -1)
