@@ -38,6 +38,7 @@
         $stmt->bindValue(':name', "%$name%", PDO::PARAM_STR);
         $stmt->execute();
         $singularities = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        var_dump($singularities);
         foreach ($singularities as $row => $item) {
             $items = explode(',', $item['row']);
             $id = substr($items[0], 1);
