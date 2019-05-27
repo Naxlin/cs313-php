@@ -65,10 +65,10 @@
                 'emc' => substr($row[1], 0, -1)
             );
             $itemInfo['name'] = str_replace('"', '', $itemInfo['name']);
-            if (substr($l[$id]['name'], 1, -1) != 'No Singularity') {
+            if ($l[$id]['name'] != 'No Singularity') {
                 $reply = $reply . '<option class="singularity-opt" value="' . $l[$id]['id'] . '">' . $l[$id]['name'] . '</option>';
             }
-            if ($name != 'No Item') {
+            if ($itemInfo['name'] != 'No Item') {
                 $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5>' . $l[$id]['name'] . '</h5><p class="sing-item">Item - ' . $itemInfo['name'] . ' (' . number_format($itemInfo['emc'], 0, '.', ',') . ' emc)</p><p class="sing-item">Cost - ' . number_format($l[$id]['cost'], 0, '.', ',') . '</p><p class="sing-item">EMC Cost - ' . number_format((int) $l[$id]['cost'] * (int) $itemInfo['emc'], 0, '.', ',') . '</p>';
             } else {
                 $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5>' . $l[$id]['name'] . '</h5>';
