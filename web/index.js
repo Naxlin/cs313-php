@@ -19,6 +19,7 @@ function getSingularity(name) {
 	var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
 			getId("singularity1").innerHTML = this.responseText;
 			getId("IronSingularity").classList.remove('inactive');
 			lastSingularity = 0;
