@@ -71,6 +71,7 @@
                 $stmt->bindValue(':singularity_id', (int) $id, PDO::PARAM_INT);
                 $stmt->execute();
                 $p = $stmt->fetch();
+                $tot = 0;
                 foreach ($p as $key => $value) {
                     if ($value != 90) { 
                         $compList = $compList . '<p class="parent sing-item">' . $l[$value]['name'] . '</p>';
@@ -80,15 +81,13 @@
                             $stmt->bindValue(':singularity_id', (int) $value, PDO::PARAM_INT);
                             $stmt->execute();
                             $gp = $stmt->fetch();
-                            $tot = 0;
                             foreach ($gp as $k => $v) {
-                                $tot = $tot . $l[$v]['total'];
+                                $tot += $l[$v]['total'];
                             }
-                            $compList = $compList . '<p class="sing-item">EMC Total - ' . number_format($tot, 0, '.', ',') . '</p>';
-                        } else {
-                            $compList = $compList . '<p class="sing-item">EMC Total - ' . number_format($l[$value]['total'], 0, '.', ',') . '</p>';
                         }
+                        $tot += $l[$value]['total'];
                     }
+                    $compList = $compList . '<p class="sing-item">EMC Total - ' . number_format($tot, 0, '.', ',') . '</p>';
                 }
             }
             $compList = $compList . '</div>';
