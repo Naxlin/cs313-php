@@ -37,7 +37,7 @@
         $reply = '<select id="singularity-list" class="singularity-list" onChange="activateSingularity(this)">';
         $compList = '';
         $db = connect();
-        $sql = "SELECT singularity_id, singularity_name, compound, item_cost, item_name, emc FROM singularities NATURAL JOIN items USING item_id WHERE singularity_name LIKE :name";
+        $sql = "SELECT * FROM singularities NATURAL JOIN items WHERE singularity_name LIKE :name";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':name', "%$name%", PDO::PARAM_STR);
         $stmt->execute();
@@ -64,7 +64,7 @@
                 $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5>' . $l[$id]['name'] . '</h5>';
             }
 
-            if ($l[$id]['comp'] == bool(true)) {
+            if ($l[$id]['comp'] == true) {
                 $sql = 'SELECT parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9 FROM singularity_parents WHERE singularity = :singularity_id';
                 $stmt = $db->prepare($sql);
                 $stmt->bindValue(':singularity_id', (int) $id, PDO::PARAM_INT);
