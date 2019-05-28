@@ -49,17 +49,18 @@
             $l[$id] = array(
                 "name" => $row['singularity_name'],
                 "comp" => $row['compound'],
-                "cost" => $row['item_cost'],
+                "cost" => number_format($row['item_cost'], 0, '.', ','),
                 "item" => $row['item_name'],
-                "emc" => $row['emc']
+                "emc" => number_format($row['emc'], 0, '.', ',')
             );
             $l[$id]['id'] = str_replace(' ', '', $l[$id]['name']);
+            $l[$id]['total'] = number_format((int) $l[$id]['cost'] * (int) $l[$id]['emc'], 0, '.', ',');
 
             if ($l[$id]['name'] != 'No Singularity') {
                 $reply = $reply . '<option class="singularity-opt" value="' . $l[$id]['id'] . '">' . $l[$id]['name'] . '</option>';
             }
             if ($l[$id]['item'] != 'No Item') {
-                $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5>' . $l[$id]['name'] . '</h5><p class="sing-item">Item - ' . $l[$id]['item'] . ' (' . number_format($l[$id]['emc'], 0, '.', ',') . ' emc)</p><p class="sing-item">Cost - ' . number_format($l[$id]['cost'], 0, '.', ',') . '</p><p class="sing-item">EMC Cost - ' . number_format((int) $l[$id]['cost'] * (int) $l[$id]['emc'], 0, '.', ',') . '</p>';
+                $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5>' . $l[$id]['name'] . '</h5><p class="sing-item">Item - ' . $l[$id]['item'] . ' (' . $l[$id]['emc'] . ' emc)</p><p class="sing-item">Cost - ' . $l[$id]['cost'] . '</p><p class="sing-item">EMC Cost - ' . $l[$id]['total'] . '</p>';
             } else {
                 $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5>' . $l[$id]['name'] . '</h5>';
             }
@@ -70,32 +71,24 @@
                 $stmt->bindValue(':singularity_id', (int) $id, PDO::PARAM_INT);
                 $stmt->execute();
                 $p = $stmt->fetch();
-                if ($p['parent1'] != 90) { 
-                    $compList = $compList . '<p class="parent sing-item">' . $l[$p['parent1']]['name'] . '</p>'; 
-                }
-                if ($p['parent2'] != 90) { 
-                    $compList = $compList . '<p class="parent sing-item">' . $l[$p['parent2']]['name'] . '</p>'; 
-                }
-                if ($p['parent3'] != 90) { 
-                    $compList = $compList . '<p class="parent sing-item">' . $l[$p['parent3']]['name'] . '</p>'; 
-                }
-                if ($p['parent4'] != 90) { 
-                    $compList = $compList . '<p class="parent sing-item">' . $l[$p['parent4']]['name'] . '</p>'; 
-                }
-                if ($p['parent5'] != 90) { 
-                    $compList = $compList . '<p class="parent sing-item">' . $l[$p['parent5']]['name'] . '</p>'; 
-                }
-                if ($p['parent6'] != 90) { 
-                    $compList = $compList . '<p class="parent sing-item">' . $l[$p['parent6']]['name'] . '</p>'; 
-                }
-                if ($p['parent7'] != 90) { 
-                    $compList = $compList . '<p class="parent sing-item">' . $l[$p['parent7']]['name'] . '</p>'; 
-                }
-                if ($p['parent8'] != 90) { 
-                    $compList = $compList . '<p class="parent sing-item">' . $l[$p['parent8']]['name'] . '</p>'; 
-                }
-                if ($p['parent9'] != 90) { 
-                    $compList = $compList . '<p class="parent sing-item">' . $l[$p['parent9']]['name'] . '</p>'; 
+                foreach ($p as $key => $value) {
+                    if ($value != 90) { 
+                        $compList = $compList . '<p class="parent sing-item">' . $l[$value]['name'] . '</p>';
+                        if ($l[$value]['comp']) {
+                            $sql = 'SELECT parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9 FROM singularity_parents WHERE singularity = :singularity_id';
+                            $stmt = $db->prepare($sql);
+                            $stmt->bindValue(':singularity_id', (int) $value, PDO::PARAM_INT);
+                            $stmt->execute();
+                            $gp = $stmt->fetch();
+                            $tot = 0;
+                            foreach ($gp as $k => $v) {
+                                $tot = $tot . $l[$v]['total'];
+                            }
+                            $compList = $compList . '<p class="sing-item">EMC Total - ' . $tot . '</p>';
+                        } else {
+                            $compList = $compList . '<p class="sing-item">EMC Total - ' . $l[$value]['total'] . '</p>';
+                        }
+                    }
                 }
             }
             $compList = $compList . '</div>';
