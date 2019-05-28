@@ -37,59 +37,65 @@
         $reply = '<select id="singularity-list" class="singularity-list" onChange="activateSingularity(this)">';
         $compList = '';
         $db = connect();
-        $sql = "SELECT singularity_id, singularity_name, compound, item_cost, item_id FROM singularities WHERE singularity_name LIKE :name";
+        $sql = "SELECT singularity_id, singularity_name, compound, item_cost, item_name, emc FROM singularities NATURAL JOIN items USING item_id WHERE singularity_name LIKE :name";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':name', "%$name%", PDO::PARAM_STR);
         $stmt->execute();
         $singularities = $stmt->fetchAll();
         var_dump($singularities);
-        foreach ($singularities as $row => $item) {
-            $items = explode(',', $item['row']);
-            $id = substr($items[0], 1);
+        foreach ($singularities as $row) {
+            // Storing the variables for cross reference:
+            $id = $row['singularity_id'];
             $l[$id] = array(
-                "name" => substr($items[1], 1, -1), 
-                "comp" => $items[2], 
-                "cost" => $items[3], 
-                "item" => substr($items[4], 0, -1)
+                "name" => $row['singularity_name'],
+                "comp" => $row['compound'],
+                "cost" => $row['item_cost'],
+                "item" => $row['item_id']
             );
             $l[$id]['id'] = str_replace(' ', '', $l[$id]['name']);
 
-            $sql = 'SELECT (item_name, emc) FROM items WHERE item_id = :id';
-            $stmt = $db->prepare($sql);
-            $stmt->bindValue(':id', (int) $l[$id]['item'], PDO::PARAM_INT);
-            $stmt->execute();
-            $row = $stmt->fetch();
-            $row = explode(',', $row['row']);
-            $itemInfo = array(
-                'name' => substr($row[0], 1),
-                'emc' => substr($row[1], 0, -1)
-            );
-            $itemInfo['name'] = str_replace('"', '', $itemInfo['name']);
             if ($l[$id]['name'] != 'No Singularity') {
                 $reply = $reply . '<option class="singularity-opt" value="' . $l[$id]['id'] . '">' . $l[$id]['name'] . '</option>';
             }
-            if ($itemInfo['name'] != 'No Item') {
-                $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5>' . $l[$id]['name'] . '</h5><p class="sing-item">Item - ' . $itemInfo['name'] . ' (' . number_format($itemInfo['emc'], 0, '.', ',') . ' emc)</p><p class="sing-item">Cost - ' . number_format($l[$id]['cost'], 0, '.', ',') . '</p><p class="sing-item">EMC Cost - ' . number_format((int) $l[$id]['cost'] * (int) $itemInfo['emc'], 0, '.', ',') . '</p>';
+            if ($l[$id]['item'] != 'No Item') {
+                $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5>' . $l[$id]['name'] . '</h5><p class="sing-item">Item - ' . $l[$id]['item'] . ' (' . number_format($l[$id]['emc'], 0, '.', ',') . ' emc)</p><p class="sing-item">Cost - ' . number_format($l[$id]['cost'], 0, '.', ',') . '</p><p class="sing-item">EMC Cost - ' . number_format((int) $l[$id]['cost'] * (int) $l[$id]['emc'], 0, '.', ',') . '</p>';
             } else {
                 $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5>' . $l[$id]['name'] . '</h5>';
             }
 
-            if ($l[$id]['comp'] == 't') {
-                $sql = 'SELECT (parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9) FROM singularity_parents WHERE singularity = :singularity_id';
+            if ($l[$id]['comp'] == bool(true)) {
+                $sql = 'SELECT parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9 FROM singularity_parents WHERE singularity = :singularity_id';
                 $stmt = $db->prepare($sql);
                 $stmt->bindValue(':singularity_id', (int) $id, PDO::PARAM_INT);
                 $stmt->execute();
                 $p = $stmt->fetch();
-                $help = explode(',', $p['row']);
-                $compList = $compList . '<p class="parent sing-item">' . $l[substr($help[0], 1)]['name'] . '</p>';
-                $compList = $compList . '<p class="parent sing-item">' . $l[$help[1]]['name'] . '</p>';
-                $compList = $compList . '<p class="parent sing-item">' . $l[$help[2]]['name'] . '</p>';
-                $compList = $compList . '<p class="parent sing-item">' . $l[$help[3]]['name'] . '</p>';
-                $compList = $compList . '<p class="parent sing-item">' . $l[$help[4]]['name'] . '</p>';
-                $compList = $compList . '<p class="parent sing-item">' . $l[$help[5]]['name'] . '</p>';
-                $compList = $compList . '<p class="parent sing-item">' . $l[$help[6]]['name'] . '</p>';
-                $compList = $compList . '<p class="parent sing-item">' . $l[$help[7]]['name'] . '</p>';
-                $compList = $compList . '<p class="parent sing-item">' . $l[substr($help[8], 0, -1)]['name'] . '</p>';
+                if ($p['parent1'] != 90) { 
+                    $compList = $compList . '<p class="parent sing-item">' . $l[$p['parent1']]['name'] . '</p>'; 
+                }
+                if ($p['parent2'] != 90) { 
+                    $compList = $compList . '<p class="parent sing-item">' . $l[$p['parent2']]['name'] . '</p>'; 
+                }
+                if ($p['parent3'] != 90) { 
+                    $compList = $compList . '<p class="parent sing-item">' . $l[$p['parent3']]['name'] . '</p>'; 
+                }
+                if ($p['parent4'] != 90) { 
+                    $compList = $compList . '<p class="parent sing-item">' . $l[$p['parent4']]['name'] . '</p>'; 
+                }
+                if ($p['parent5'] != 90) { 
+                    $compList = $compList . '<p class="parent sing-item">' . $l[$p['parent5']]['name'] . '</p>'; 
+                }
+                if ($p['parent6'] != 90) { 
+                    $compList = $compList . '<p class="parent sing-item">' . $l[$p['parent6']]['name'] . '</p>'; 
+                }
+                if ($p['parent7'] != 90) { 
+                    $compList = $compList . '<p class="parent sing-item">' . $l[$p['parent7']]['name'] . '</p>'; 
+                }
+                if ($p['parent8'] != 90) { 
+                    $compList = $compList . '<p class="parent sing-item">' . $l[$p['parent8']]['name'] . '</p>'; 
+                }
+                if ($p['parent9'] != 90) { 
+                    $compList = $compList . '<p class="parent sing-item">' . $l[$p['parent9']]['name'] . '</p>'; 
+                }
             }
             $compList = $compList . '</div>';
         }
