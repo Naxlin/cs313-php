@@ -49,18 +49,18 @@
             $l[$id] = array(
                 "name" => $row['singularity_name'],
                 "comp" => $row['compound'],
-                "cost" => number_format($row['item_cost'], 0, '.', ','),
+                "cost" => $row['item_cost'],
                 "item" => $row['item_name'],
-                "emc" => number_format($row['emc'], 0, '.', ',')
+                "emc" => $row['emc']
             );
             $l[$id]['id'] = str_replace(' ', '', $l[$id]['name']);
-            $l[$id]['total'] = number_format((int) $l[$id]['cost'] * (int) $l[$id]['emc'], 0, '.', ',');
+            $l[$id]['total'] = (int) $l[$id]['cost'] * (int) $l[$id]['emc'];
 
             if ($l[$id]['name'] != 'No Singularity') {
                 $reply = $reply . '<option class="singularity-opt" value="' . $l[$id]['id'] . '">' . $l[$id]['name'] . '</option>';
             }
             if ($l[$id]['item'] != 'No Item') {
-                $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5>' . $l[$id]['name'] . '</h5><p class="sing-item">Item - ' . $l[$id]['item'] . ' (' . $l[$id]['emc'] . ' emc)</p><p class="sing-item">Cost - ' . $l[$id]['cost'] . '</p><p class="sing-item">EMC Cost - ' . $l[$id]['total'] . '</p>';
+                $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5>' . $l[$id]['name'] . '</h5><p class="sing-item">Item - ' . $l[$id]['item'] . ' (' . number_format($l[$id]['emc'], 0, '.', ',') . ' emc)</p><p class="sing-item">Cost - ' . number_format($l[$id]['cost'], 0, '.', ',') . '</p><p class="sing-item">EMC Cost - ' . number_format($l[$id]['total'], 0, '.', ',') . '</p>';
             } else {
                 $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5>' . $l[$id]['name'] . '</h5>';
             }
@@ -84,9 +84,9 @@
                             foreach ($gp as $k => $v) {
                                 $tot = $tot . $l[$v]['total'];
                             }
-                            $compList = $compList . '<p class="sing-item">EMC Total - ' . $tot . '</p>';
+                            $compList = $compList . '<p class="sing-item">EMC Total - ' . number_format($tot, 0, '.', ',') . '</p>';
                         } else {
-                            $compList = $compList . '<p class="sing-item">EMC Total - ' . $l[$value]['total'] . '</p>';
+                            $compList = $compList . '<p class="sing-item">EMC Total - ' . number_format($l[$value]['total'], 0, '.', ',') . '</p>';
                         }
                     }
                 }
