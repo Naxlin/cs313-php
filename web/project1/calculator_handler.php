@@ -87,8 +87,8 @@
                         }
                         $tot += $l[$value]['total'];
                     }
-                    $compList = $compList . '<p class="sing-item">EMC Total - ' . number_format($tot, 0, '.', ',') . '</p>';
                 }
+                $compList = $compList . '<p class="sing-item">EMC Total - ' . number_format($tot, 0, '.', ',') . '</p>';
             }
             $compList = $compList . '</div>';
         }
