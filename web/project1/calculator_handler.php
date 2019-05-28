@@ -50,7 +50,8 @@
                 "name" => $row['singularity_name'],
                 "comp" => $row['compound'],
                 "cost" => $row['item_cost'],
-                "item" => $row['item_id']
+                "item" => $row['item_name'],
+                "emc" => $row['emc']
             );
             $l[$id]['id'] = str_replace(' ', '', $l[$id]['name']);
 
