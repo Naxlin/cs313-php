@@ -42,7 +42,6 @@
         $stmt->bindValue(':name', "%$name%", PDO::PARAM_STR);
         $stmt->execute();
         $singularities = $stmt->fetchAll();
-        var_dump($singularities);
         foreach ($singularities as $row) {
             // Storing the variables for cross reference:
             $id = $row['singularity_id'];
