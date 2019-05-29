@@ -59,7 +59,7 @@
                 $reply = $reply . '<option class="singularity-opt" value="' . $l[$id]['id'] . '">' . $l[$id]['name'] . '</option>';
             }
             if ($l[$id]['item'] != 'No Item') {
-                $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5>' . $l[$id]['name'] . '</h5><p class="sing-item">Item - ' . $l[$id]['item'] . ' (' . number_format($l[$id]['emc'], 0, '.', ',') . ' emc)</p><p class="sing-item">Cost - ' . number_format($l[$id]['cost'], 0, '.', ',') . '</p><p class="sing-item">EMC Cost - ' . number_format($l[$id]['total'], 0, '.', ',') . '</p>';
+                $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5><img class="img-sing" src="' . $l[$value]['name'] . '.gif" alt="Image of ' . $l[$value]['name'] . '">' . $l[$id]['name'] . '</h5><p class="sing-item">Item - ' . $l[$id]['item'] . ' (' . number_format($l[$id]['emc'], 0, '.', ',') . ' emc)</p><p class="sing-item">Cost - ' . number_format($l[$id]['cost'], 0, '.', ',') . '</p><p class="sing-item">EMC Cost - ' . number_format($l[$id]['total'], 0, '.', ',') . '</p>';
             } else {
                 $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5>' . $l[$id]['name'] . '</h5>';
             }
@@ -73,7 +73,7 @@
                 $tot = 0;
                 foreach ($p as $key => $value) {
                     if ($value != 90) { 
-                        $compList = $compList . '<p class="parent sing-item">' . $l[$value]['name'] . '</p>';
+                        $compList = $compList . '<p class="parent sing-item"><img class="img-sing-parent" src="' . $l[$value]['name'] . '.gif" alt="Image of ' . $l[$value]['name'] . '">' . $l[$value]['name'] . '</p>';
                         if ($l[$value]['comp']) {
                             $sql = 'SELECT parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9 FROM singularity_parents WHERE singularity = :singularity_id';
                             $stmt = $db->prepare($sql);
