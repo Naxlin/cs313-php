@@ -73,7 +73,7 @@
                 $tot = 0;
                 foreach ($p as $key => $value) {
                     if ($value != 90) { 
-                        $compList = $compList . '<p class="parent sing-item"><img class="img-sing-parent" src="./project1/' . $l[$value]['name'] . '.gif" alt="Image of ' . $l[$value]['name'] . '">' . $l[$value]['name'] . '</p>';
+                        $compList = $compList . '<p class="parent sing-item"><img class="img-sing-parent" src="./project1/' . $l[$value]['name'] . '.gif" alt="Image of ' . $l[$value]['name'] . '">' . $l[$value]['name'] . '(' . $l[$value]['total'] . ' emc)' . '</p>';
                         if ($l[$value]['comp']) {
                             $sql = 'SELECT parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9 FROM singularity_parents WHERE singularity = :singularity_id';
                             $stmt = $db->prepare($sql);

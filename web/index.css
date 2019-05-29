@@ -201,18 +201,20 @@ h5 {
 }
 
 .header-sing {
-	vertical-align: middle;
+	line-height: 150px;
 }
 
 .img-sing {
 	border-radius: 50%;
 	height: 150px;
+	margin-right: 20px;
 	width: 150px;
 }
 
 .img-sing-parent {
 	border-radius: 50%;
 	height: 50px;
+	margin-right: 40px;
 	width: 50px;
 }
 
@@ -253,7 +255,7 @@ h5 {
 
 .parent {
 	font-size: 1.25em;
-	vertical-align: middle;
+	line-height: 50px;
 }
 
 .row {
