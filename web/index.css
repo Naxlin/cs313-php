@@ -32,7 +32,6 @@ h1 {
 
 h5 {
 	font-size: 2em;
-
 }
 
 /* Classes */
@@ -200,22 +199,22 @@ h5 {
 	visibility: hidden;
 }
 
-.header-sing {
-	line-height: 150px;
-	vertical-align: middle;
+.header-sing-con {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	margin-left: 50px;
 }
 
 .img-sing {
 	border-radius: 50%;
 	height: 150px;
-	margin-right: 20px;
 	width: 150px;
 }
 
 .img-sing-parent {
 	border-radius: 50%;
 	height: 50px;
-	margin-right: 40px;
 	width: 50px;
 }
 
@@ -256,8 +255,6 @@ h5 {
 
 .parent {
 	font-size: 1.25em;
-	line-height: 50px;
-	vertical-align: middle;
 }
 
 .row {
@@ -267,7 +264,6 @@ h5 {
 }
 
 .sing-item {
-	margin-left: 50px;
 }
 
 .singularity {

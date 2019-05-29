@@ -58,10 +58,12 @@
             if ($l[$id]['name'] != 'No Singularity') {
                 $reply = $reply . '<option class="singularity-opt" value="' . $l[$id]['id'] . '">' . $l[$id]['name'] . '</option>';
             }
+
+            $compList = $compList . '<img class="img-sing" src="./project1/' . $l[$id]['name'] . '.gif" alt="Image of ' . $l[$id]['name'] . '">';
             if ($l[$id]['item'] != 'No Item') {
-                $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5 class="header-sing"><img class="img-sing" src="./project1/' . $l[$id]['name'] . '.gif" alt="Image of ' . $l[$id]['name'] . '">' . $l[$id]['name'] . '</h5><p class="sing-item">Item - ' . $l[$id]['item'] . ' (' . number_format($l[$id]['emc'], 0, '.', ',') . ' emc)</p><p class="sing-item">Cost - ' . number_format($l[$id]['cost'], 0, '.', ',') . '</p><p class="sing-item">EMC Cost - ' . number_format($l[$id]['total'], 0, '.', ',') . '</p>';
+                $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5 class="header-sing">' . $l[$id]['name'] . '</h5><p class="sing-item">Item - ' . $l[$id]['item'] . ' (' . number_format($l[$id]['emc'], 0, '.', ',') . ' emc)</p><p class="sing-item">Cost - ' . number_format($l[$id]['cost'], 0, '.', ',') . '</p><p class="sing-item">EMC Cost - ' . number_format($l[$id]['total'], 0, '.', ',') . '</p>';
             } else {
-                $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5 class="header-sing"><img class="img-sing" src="./project1/' . $l[$id]['name'] . '.gif" alt="Image of ' . $l[$id]['name'] . '">' . $l[$id]['name'] . '</h5>';
+                $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5 class="header-sing">' . $l[$id]['name'] . '</h5>';
             }
 
             if ($l[$id]['comp'] == true) {
@@ -72,8 +74,11 @@
                 $p = $stmt->fetch();
                 $tot = 0;
                 foreach ($p as $key => $value) {
-                    if ($value != 90) { 
-                        $compList = $compList . '<p class="parent sing-item"><img class="img-sing-parent" src="./project1/' . $l[$value]['name'] . '.gif" alt="Image of ' . $l[$value]['name'] . '">' . $l[$value]['name'] . '(' . $l[$value]['total'] . ' emc)' . '</p>';
+                    if ($value != 90) {
+                        $commList = $complist . '<div class="header-sing-con">';
+                        $commList = $complist . '<img class="img-sing-parent" src="./project1/' . $l[$value]['name'] . '.gif" alt="Image of ' . $l[$value]['name'] . '">' ;
+                        $compList = $compList . '<p class="parent sing-item">' . $l[$value]['name'] . '(' . $l[$value]['total'] . ' emc)' . '</p>';
+                        $commList = $complist . '</div>';
                         if ($l[$value]['comp']) {
                             $sql = 'SELECT parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9 FROM singularity_parents WHERE singularity = :singularity_id';
                             $stmt = $db->prepare($sql);
