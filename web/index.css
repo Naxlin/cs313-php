@@ -221,6 +221,8 @@ h5 {
 .img-sing {
 	border-radius: 50%;
 	height: 150px;
+	margin-left: -20px;
+	margin-right: 50px;
 	width: 150px;
 }
 
