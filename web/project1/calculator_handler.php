@@ -65,6 +65,7 @@
             }
 
             if ($l[$id]['comp'] == true) {
+                $compList = $compList . '<div class="ancestors">';
                 $sql = 'SELECT parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9 FROM singularity_parents WHERE singularity = :singularity_id';
                 $stmt = $db->prepare($sql);
                 $stmt->bindValue(':singularity_id', (int) $id, PDO::PARAM_INT);
@@ -91,6 +92,7 @@
                     }
                 }
                 $compList = $compList . '<p class="sing-item">EMC Total - ' . number_format($tot, 0, '.', ',') . '</p>';
+                $compList = $compList . '</div>';
             }
             $compList = $compList . '</div>';
         }
