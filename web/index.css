@@ -200,6 +200,10 @@ h5 {
 	visibility: hidden;
 }
 
+.header-sing {
+	vertical-align: middle;
+}
+
 .img-sing {
 	border-radius: 50%;
 	height: 150px;
@@ -249,6 +253,7 @@ h5 {
 
 .parent {
 	font-size: 1.25em;
+	vertical-align: middle;
 }
 
 .row {
