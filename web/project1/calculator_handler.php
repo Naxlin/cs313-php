@@ -61,7 +61,7 @@
             if ($l[$id]['item'] != 'No Item') {
                 $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5><img class="img-sing" src="./project1/' . $l[$id]['name'] . '.gif" alt="Image of ' . $l[$id]['name'] . '">' . $l[$id]['name'] . '</h5><p class="sing-item">Item - ' . $l[$id]['item'] . ' (' . number_format($l[$id]['emc'], 0, '.', ',') . ' emc)</p><p class="sing-item">Cost - ' . number_format($l[$id]['cost'], 0, '.', ',') . '</p><p class="sing-item">EMC Cost - ' . number_format($l[$id]['total'], 0, '.', ',') . '</p>';
             } else {
-                $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5>' . $l[$id]['name'] . '</h5>';
+                $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5><img class="img-sing" src="./project1/' . $l[$id]['name'] . '.gif" alt="Image of ' . $l[$id]['name'] . '">' . $l[$id]['name'] . '</h5>';
             }
 
             if ($l[$id]['comp'] == true) {
