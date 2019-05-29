@@ -59,9 +59,9 @@
                 $reply = $reply . '<option class="singularity-opt" value="' . $l[$id]['id'] . '">' . $l[$id]['name'] . '</option>';
             }
             if ($l[$id]['item'] != 'No Item') {
-                $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive header-sing-cont"><img class="img-sing" src="./project1/' . $l[$id]['name'] . '.gif" alt="Image of ' . $l[$id]['name'] . '"><h5 class="header-sing">' . $l[$id]['name'] . '</h5><p class="sing-item">Item - ' . $l[$id]['item'] . ' (' . number_format($l[$id]['emc'], 0, '.', ',') . ' emc)</p><p class="sing-item">Cost - ' . number_format($l[$id]['cost'], 0, '.', ',') . '</p><p class="sing-item">EMC Cost - ' . number_format($l[$id]['total'], 0, '.', ',') . '</p>';
+                $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><div class="header-sing-cont"><img class="img-sing" src="./project1/' . $l[$id]['name'] . '.gif" alt="Image of ' . $l[$id]['name'] . '"><h5 class="header-sing">' . $l[$id]['name'] . '</h5></div><p class="sing-item">Item - ' . $l[$id]['item'] . ' (' . number_format($l[$id]['emc'], 0, '.', ',') . ' emc)</p><p class="sing-item">Cost - ' . number_format($l[$id]['cost'], 0, '.', ',') . '</p><p class="sing-item">EMC Cost - ' . number_format($l[$id]['total'], 0, '.', ',') . '</p>';
             } else {
-                $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive header-sing-cont"><img class="img-sing" src="./project1/' . $l[$id]['name'] . '.gif" alt="Image of ' . $l[$id]['name'] . '"><h5 class="header-sing">' . $l[$id]['name'] . '</h5>';
+                $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><div class="header-sing-cont"><img class="img-sing" src="./project1/' . $l[$id]['name'] . '.gif" alt="Image of ' . $l[$id]['name'] . '"><h5 class="header-sing">' . $l[$id]['name'] . '</h5></div>';
             }
 
             if ($l[$id]['comp'] == true) {
@@ -76,7 +76,7 @@
                     if ($value != 90) {
                         $compList = $compList . '<div class="header-sing-con">';
                         $compList = $compList . '<img class="img-sing-parent" src="./project1/' . $l[$value]['name'] . '.gif" alt="Image of ' . $l[$value]['name'] . '">' ;
-                        $compList = $compList . '<span class="parent sing-item">' . $l[$value]['name'] . ' (' . number_format($l[$value]['total'], 0, '.', ',') . ' emc)' . '</span>';
+                        $compList = $compList . '<p class="parent sing-item">' . $l[$value]['name'] . ' (' . number_format($l[$value]['total'], 0, '.', ',') . ' emc)' . '</p>';
                         $compList = $compList . '</div>';
                         $l[$id]['total'] += $l[$value]['total'];
                         if ($l[$value]['comp']) {
