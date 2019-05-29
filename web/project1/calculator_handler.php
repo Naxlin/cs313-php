@@ -58,12 +58,10 @@
             if ($l[$id]['name'] != 'No Singularity') {
                 $reply = $reply . '<option class="singularity-opt" value="' . $l[$id]['id'] . '">' . $l[$id]['name'] . '</option>';
             }
-
-            $compList = $compList . '<img class="img-sing" src="./project1/' . $l[$id]['name'] . '.gif" alt="Image of ' . $l[$id]['name'] . '">';
             if ($l[$id]['item'] != 'No Item') {
-                $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5 class="header-sing">' . $l[$id]['name'] . '</h5><p class="sing-item">Item - ' . $l[$id]['item'] . ' (' . number_format($l[$id]['emc'], 0, '.', ',') . ' emc)</p><p class="sing-item">Cost - ' . number_format($l[$id]['cost'], 0, '.', ',') . '</p><p class="sing-item">EMC Cost - ' . number_format($l[$id]['total'], 0, '.', ',') . '</p>';
+                $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><img class="img-sing" src="./project1/' . $l[$id]['name'] . '.gif" alt="Image of ' . $l[$id]['name'] . '"><h5 class="header-sing">' . $l[$id]['name'] . '</h5><p class="sing-item">Item - ' . $l[$id]['item'] . ' (' . number_format($l[$id]['emc'], 0, '.', ',') . ' emc)</p><p class="sing-item">Cost - ' . number_format($l[$id]['cost'], 0, '.', ',') . '</p><p class="sing-item">EMC Cost - ' . number_format($l[$id]['total'], 0, '.', ',') . '</p>';
             } else {
-                $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><h5 class="header-sing">' . $l[$id]['name'] . '</h5>';
+                $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><img class="img-sing" src="./project1/' . $l[$id]['name'] . '.gif" alt="Image of ' . $l[$id]['name'] . '"><h5 class="header-sing">' . $l[$id]['name'] . '</h5>';
             }
 
             if ($l[$id]['comp'] == true) {
