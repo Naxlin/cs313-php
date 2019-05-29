@@ -200,6 +200,18 @@ h5 {
 	visibility: hidden;
 }
 
+.img-sing {
+	border-radius: 50%;
+	height: 150px;
+	width: 150px;
+}
+
+.img-sing-parent {
+	border-radius: 50%;
+	height: 50px;
+	width: 50px;
+}
+
 .index-h3 {
 	text-align: left;
 	margin-left: 100px;
