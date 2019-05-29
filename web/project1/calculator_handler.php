@@ -57,43 +57,43 @@
 
             if ($l[$id]['name'] != 'No Singularity') {
                 $reply = $reply . '<option class="singularity-opt" value="' . $l[$id]['id'] . '">' . $l[$id]['name'] . '</option>';
-            }
-            $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><div class="header-sing-cont"><img class="img-sing" src="./project1/' . $l[$id]['name'] . '.gif" alt="Image of ' . $l[$id]['name'] . '"><h5 class="header-sing">' . $l[$id]['name'] . '</h5></div>';
-            $compList = $compList . '<div class="ancestors">';
-            if ($l[$id]['item'] != 'No Item') {
-                $compList = $compList . '<p class="sing-item">Item - ' . $l[$id]['item'] . ' (' . number_format($l[$id]['emc'], 0, '.', ',') . ' emc)</p><p class="sing-item">Cost - ' . number_format($l[$id]['cost'], 0, '.', ',') . '</p><p class="sing-item">EMC Cost - ' . number_format($l[$id]['total'], 0, '.', ',') . '</p>';
-            }
-            if ($l[$id]['comp'] == true) {
-                $sql = 'SELECT parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9 FROM singularity_parents WHERE singularity = :singularity_id';
-                $stmt = $db->prepare($sql);
-                $stmt->bindValue(':singularity_id', (int) $id, PDO::PARAM_INT);
-                $stmt->execute();
-                $p = $stmt->fetch();
-                $tot = 0;
-                foreach ($p as $key => $value) {
-                    if ($value != 90) {
-                        $compList = $compList . '<div class="header-sing-con">';
-                        $compList = $compList . '<img class="img-sing-parent" src="./project1/' . $l[$value]['name'] . '.gif" alt="Image of ' . $l[$value]['name'] . '">' ;
-                        $compList = $compList . '<p class="parent sing-item">' . $l[$value]['name'] . ' (' . number_format($l[$value]['total'], 0, '.', ',') . ' emc)' . '</p>';
-                        $compList = $compList . '</div>';
-                        $l[$id]['total'] += $l[$value]['total'];
-                        if ($l[$value]['comp']) {
-                            $sql = 'SELECT parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9 FROM singularity_parents WHERE singularity = :singularity_id';
-                            $stmt = $db->prepare($sql);
-                            $stmt->bindValue(':singularity_id', (int) $value, PDO::PARAM_INT);
-                            $stmt->execute();
-                            $gp = $stmt->fetch();
-                            foreach ($gp as $k => $v) {
-                                $tot += $l[$v]['total'];
-                            }
-                        }
-                        $tot += $l[$value]['total'];
-                    }
+                $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><div class="header-sing-cont"><img class="img-sing" src="./project1/' . $l[$id]['name'] . '.gif" alt="Image of ' . $l[$id]['name'] . '"><h5 class="header-sing">' . $l[$id]['name'] . '</h5></div>';
+                $compList = $compList . '<div class="ancestors">';
+                if ($l[$id]['item'] != 'No Item') {
+                    $compList = $compList . '<p class="sing-item">Item - ' . $l[$id]['item'] . ' (' . number_format($l[$id]['emc'], 0, '.', ',') . ' emc)</p><p class="sing-item">Cost - ' . number_format($l[$id]['cost'], 0, '.', ',') . '</p><p class="sing-item">EMC Cost - ' . number_format($l[$id]['total'], 0, '.', ',') . '</p>';
                 }
-                $compList = $compList . '<p class="sing-item">EMC Total - ' . number_format($tot, 0, '.', ',') . '</p>';
-                $compList = $compList . '</div>';
+                if ($l[$id]['comp'] == true) {
+                    $sql = 'SELECT parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9 FROM singularity_parents WHERE singularity = :singularity_id';
+                    $stmt = $db->prepare($sql);
+                    $stmt->bindValue(':singularity_id', (int) $id, PDO::PARAM_INT);
+                    $stmt->execute();
+                    $p = $stmt->fetch();
+                    $tot = 0;
+                    foreach ($p as $key => $value) {
+                        if ($value != 90) {
+                            $compList = $compList . '<div class="header-sing-con">';
+                            $compList = $compList . '<img class="img-sing-parent" src="./project1/' . $l[$value]['name'] . '.gif" alt="Image of ' . $l[$value]['name'] . '">' ;
+                            $compList = $compList . '<p class="parent sing-item">' . $l[$value]['name'] . ' (' . number_format($l[$value]['total'], 0, '.', ',') . ' emc)' . '</p>';
+                            $compList = $compList . '</div>';
+                            $l[$id]['total'] += $l[$value]['total'];
+                            if ($l[$value]['comp']) {
+                                $sql = 'SELECT parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9 FROM singularity_parents WHERE singularity = :singularity_id';
+                                $stmt = $db->prepare($sql);
+                                $stmt->bindValue(':singularity_id', (int) $value, PDO::PARAM_INT);
+                                $stmt->execute();
+                                $gp = $stmt->fetch();
+                                foreach ($gp as $k => $v) {
+                                    $tot += $l[$v]['total'];
+                                }
+                            }
+                            $tot += $l[$value]['total'];
+                        }
+                    }
+                    $compList = $compList . '<p class="sing-item">EMC Total - ' . number_format($tot, 0, '.', ',') . '</p>';
+                    $compList = $compList . '</div>';
+                }
+                $compList = $compList . '</div></div>';
             }
-            $compList = $compList . '</div>';
         }
         $reply = $reply . '</select>';
         echo $reply . $compList;
