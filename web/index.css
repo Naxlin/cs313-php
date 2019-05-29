@@ -38,6 +38,7 @@ h5 {
 .ancestors {
 	display: flex;
 	flex-direction: column;
+	justify-content: flex-start;
 	margin-left: 150px;
 }
 
@@ -209,7 +210,7 @@ h5 {
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
-	margin: 10px auto;
+	margin: 5px auto;
 	margin-left: 50px;
 }
 
@@ -270,10 +271,6 @@ h5 {
 	width: 100%;
 }
 
-.parent {
-	font-size: 1.25em;
-}
-
 .row {
 	justify-content: space-around;
 	display: flex;
@@ -282,6 +279,12 @@ h5 {
 
 .sing-item {
 	margin-left: 100px;
+}
+
+/* Out of order for priority */
+.parent {
+	font-size: 1.25em;
+	margin-left: 10px;
 }
 
 .singularity {
