@@ -37,10 +37,12 @@
 
 			<div id="thaumcraft1" class="thaumcraft" style="display: none;">
 				<div id="thaumcraftForm">
-					<select id="itemContainer" class="singularity-list">
-						<option name="items" value="1">Items</option>
-						<option name="items" value="1">AnItem</option>
-					</select>
+					<input id="thaum-item" type="text" placeholder="Item">
+					<label for="thaum-item">Item: </label>
+					<input id="thaum-aspect" type="text" placeholder="Aspect">
+					<label for="thaum-aspect">Aspect: </label>
+					<input id="thaum-amount" type="text" placeholder="Amount">
+					<label for="thaum-amount">Amount: </label>
 					<button type="submit" onclick="thaumcraftForm()">Apply Aspects</button>
 				</div>
 			</div>
