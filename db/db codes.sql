@@ -1,10 +1,12 @@
 -- The database structure:
+-- INSERTED
 CREATE TABLE aspects (
 	aspect_id SERIAL PRIMARY KEY,
 	aspect_name varchar NOT NULL,
 	compound BOOLEAN NOT NULL DEFAULT FALSE
 );
 
+-- INSERTED
 CREATE TABLE items (
 	item_id SERIAL PRIMARY KEY,
 	item_name varchar NOT NULL
@@ -20,6 +22,7 @@ CREATE TABLE emc (
 
 DROP TABLE emc;
 
+-- INSERTED
 CREATE TABLE aspect_parents (
 	asp_par_key SERIAL PRIMARY KEY,
 	aspect int NOT NULL references aspects(aspect_id),
@@ -34,6 +37,7 @@ CREATE TABLE thaumcraft (
 	amount int NOT NULL
 );
 
+-- INSERTED
 CREATE TABLE singularities (
 	singularity_id SERIAL PRIMARY KEY,
 	singularity_name varchar NOT NULL,
@@ -44,6 +48,7 @@ CREATE TABLE singularities (
 
 ALTER TABLE singularities RENAME COLUMN item TO item_id;
 
+-- INSERTED
 CREATE TABLE singularity_parents (
 	sing_par_key SERIAL PRIMARY KEY,
 	singularity int NOT NULL references singularities(singularity_id),
@@ -58,11 +63,13 @@ CREATE TABLE singularity_parents (
 	parent9 int NOT NULL references singularities(singularity_id)
 );
 
+-- INSERTED
 CREATE TABLE materials (
 	material_id SERIAL PRIMARY KEY,
 	material_name varchar NOT NULL
 );
 
+-- INSERTED
 CREATE TABLE modifiers (
 	modifier_id SERIAL PRIMARY KEY,
 	modifier_name varchar NOT NULL,
@@ -74,7 +81,7 @@ ALTER TABLE traits RENAME COLUMN modifier_id TO trait_id;
 ALTER TABLE traits RENAME COLUMN modifier_name TO trait_name;
 ALTER TABLE traits RENAME COLUMN modifier_desc TO trait_desc;
 
-
+-- INSERTED
 CREATE TABLE material_attributes (
 	mat_att_id SERIAL PRIMARY KEY,
 	level int NOT NULL,
@@ -85,11 +92,13 @@ CREATE TABLE material_attributes (
 ALTER TABLE material_attributes RENAME TO material_traits;
 ALTER TABLE material_traits RENAME COLUMN attribute TO trait;
 
+-- INSERTED
 CREATE TABLE part_types (
 	part_id SERIAL PRIMARY KEY,
 	part_name varchar NOT NULL
 );
 
+-- INSERTED
 CREATE TABLE stat_types (
 	stat_id SERIAL PRIMARY KEY,
 	stat_name varchar NOT NULL
@@ -107,7 +116,7 @@ CREATE TABLE tinkers (
 SELECT * FROM singularities NATURAL JOIN items;
 
 
--- Updating information:
+-- Updating information - note: use this after the insert statement for items:
 UPDATE items SET emc = 0 WHERE item_id = 1;
 UPDATE items SET emc = 1152 WHERE item_id = 2;
 UPDATE items SET emc = 18432 WHERE item_id = 3;

@@ -39,7 +39,7 @@ header {
 	background-color: navajowhite;
 }
 
-hr {
+hr:not(.not) {
 	border-bottom: 2px groove black;
 	padding-top: 0px;
 	margin-top: 0px;

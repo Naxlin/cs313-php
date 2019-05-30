@@ -36,13 +36,7 @@
 			</div>
 
 			<div id="thaumcraft1" class="thaumcraft" style="display: none;">
-				<div id="thaumcraftForm">
-					<select id="itemContainer" class="singularity-list">
-						<option name="items" value="1">Items</option>
-						<option name="items" value="1">AnItem</option>
-					</select>
-					<button type="submit" onclick="thaumcraftForm()">Apply Aspects</button>
-				</div>
+				
 			</div>
 
 			<div id="tinkers1" class="tinkers" style="display: none;">

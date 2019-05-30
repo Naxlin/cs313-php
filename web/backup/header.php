@@ -14,10 +14,6 @@
 					echo "CS 313 Assignments";
 				} elseif (basename($_SERVER['PHP_SELF']) == "projectI.php") {
 					echo "Awakening Calculator";
-				} elseif (basename($_SERVER['PHP_SELF']) == "about.php") {
-					echo "Jonathan Smith's ePortfolio";
-				} elseif (basename($_SERVER['PHP_SELF']) == "cs213assignments.php") {
-					echo "CS 213 Assignments";
 				} 
 			?>
 		</h1>		
@@ -32,15 +28,6 @@
 			?>
 			">Index</div>
 		</a>
-		<a href="cs213assignments.php">
-			<div class="button-nav flex-item
-			<!-- <?php  
-				if (basename($_SERVER['PHP_SELF']) == "cs213assignments.php") {
-					echo " active";
-				}
-			?> -->
-			">CS 213 Assignments</div>
-		</a>
 		<a href="assignments.php">
 			<div class="button-nav flex-item
 			<?php  
@@ -48,7 +35,7 @@
 					echo " active";
 				}
 			?>
-			">CS 313 Assignments</div>
+			">Assignments</div>
 		</a>
 		<a href="projectI.php">
 			<div class="button-nav flex-item
@@ -57,7 +44,7 @@
 					echo " active";
 				}
 			?>
-			">CS 313 Project I</div>
+			">Project I</div>
 		</a>
 		<a href="creatures.php">
 			<div class="button-nav flex-item
@@ -67,15 +54,6 @@
 				}
 			?>
 			">Creatures</div>
-		</a>
-		<a href="about.php">
-			<div class="button-nav flex-item
-			<?php  
-				if (basename($_SERVER['PHP_SELF']) == "about.php") {
-					echo " active";
-				}
-			?>
-			">About</div>
 		</a>
 	</nav>
 </header>

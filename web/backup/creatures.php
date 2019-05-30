@@ -14,7 +14,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<link rel="stylesheet" type="text/css" href="creatures/creatures.css">
-	<link rel="shortcut icon" type="image/png" href="../Fairy Tail Guild Icon.ico"/>
+	<link rel="icon" href="../starflame.png">
 	<!-- DEBUG LINE REMOVE OR COMMENT OUT BEFORE NORMAL PAGE USE -->
 	<!-- <meta http-equiv="refresh" content="1" >  -->
 </head>
@@ -24,19 +24,19 @@
 	<div id="pageContainer" class="flexCol">
 		<header>
 			<h3><strong>Dalgonian Creature Descriptions & History</strong></h3>
-			<p class="creatures-p">Dalgoni is a planet many solar systems away from earth. On this planet 
+			<p>Dalgoni is a planet many solar systems away from earth. On this planet 
 			machines are rare and magic and martial weapons rule the lands of humans, 
 			elves, dwarves, and many other intelligent races. Living in the wilds 
 			away from civilizations are animals, beasts, creatures, and monsters of 
 			all kinds. The mages of Ithele'en tower have explored the lands to discover 
 			as many of these creatures as they can, some perishing from the dangers 
 			that lurk in the dark depths, or brilliant heights.</p>
-			<p class="creatures-p">The mages of Ithele'en have discovered that many of the most dangerous 
+			<p>The mages of Ithele'en have discovered that many of the most dangerous 
 			creatures are found on the Southern Continent known as Elquior. Dragons 
 			rule the land and hunt any human that tries to land there, but a few mages 
 			were able to slip past them into the mountain tall forests, ten mile deep 
 			lakes, and other such extreme elements.</p>
-			<p class="creatures-p">Some of their discoveries have been scribed to scrolls and archived in 
+			<p>Some of their discoveries have been scribed to scrolls and archived in 
 			the Ithele'en tower's rich libraries for other scholars to study. The 
 			Ithele'en tower is one of the most secure places on Dalgoni, but even they 
 			are susceptible to unexplained magical anomalies, and on one particular 

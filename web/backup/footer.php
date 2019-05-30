@@ -10,15 +10,6 @@
 				?>
 				">Index</div>
 			</a>
-			<a href="cs213assignments.php" class="width-full">
-				<div class="button-nav flex-item flex-item-footer
-				<?php  
-					if (basename($_SERVER['PHP_SELF']) == "cs213assignments.php") {
-						echo " active";
-					}
-				?>
-				">CS 213 Assignments</div>
-			</a>
 			<a href="assignments.php" class="width-full">
 				<div class="button-nav flex-item flex-item-footer
 				<?php  
@@ -26,7 +17,7 @@
 						echo " active";
 					}
 				?>
-				">CS 313 Assignments</div>
+				">Assignments</div>
 			</a>
 			<a href="projectI.php" class="width-full">
 				<div class="button-nav flex-item flex-item-footer
@@ -45,24 +36,6 @@
 					}
 				?>
 				">Creatures</div>
-			</a>
-			<a href="about.php" class="width-full">
-				<div class="button-nav flex-item flex-item-footer
-				<?php  
-					if (basename($_SERVER['PHP_SELF']) == "about.php") {
-						echo " active";
-					}
-				?>
-				">About</div>
-			</a>
-		</nav>
-		<hr class="not">
-		<nav>
-			<a href="https://www.linkedin.com/in/naxlin/" target="_blank" class="width-full">
-				<div class="button-nav flex-item flex-item-footer border-top">Linkedin</div>
-			</a>
-			<a href="https://drive.google.com/file/d/16hMbiYlIlMb5y4YA3oIYnSVzYrEU2N50/view?usp=sharing" target="_blank" class="width-full">
-				<div class="button-nav flex-item flex-item-footer">Resume</div>
 			</a>
 		</nav>
 		<div class="footer-credit">
