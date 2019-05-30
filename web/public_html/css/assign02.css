@@ -1,0 +1,433 @@
+/*Any new webpage should include the:
+  	"* {box-sizing: border-box;}"
+  To all elements, to make sizing more uniform.
+*/
+/*Comment hex colors*/
+
+/*By Tag*/
+a {
+   text-decoration: none; /* Because underlines are often ugly. */
+}
+
+a:visited {
+	color: black;
+}
+
+blockquote {
+	background-color: rgba(144, 238, 144, .8); 
+	border-style: none; 
+	border-radius: 15px; 
+	margin: 0 auto; 
+	margin-bottom: -15px; 
+	padding-top: 3px; 
+	padding-bottom: 3px; 
+	width: 500px;
+}
+
+body {
+	background-color: deepskyblue;
+	overflow-x: hidden;
+	position: relative;
+	text-align: center;
+}
+
+button {
+	background-color: darkturquoise;
+	border-color: black;
+	border-width: 1px;
+	color: black;
+	width: 40%;
+}
+
+h2 {
+	font-family: cursive;
+}
+
+h3 {
+	border-bottom: 5px solid black; 
+	position: relative;
+	margin: 10px auto; 
+	width: 50%;
+}
+
+h4 {
+	color: lightgray;
+}
+
+header {
+	margin: -10px; 
+	margin-top: -22px;
+	overflow: auto; 
+	position: relative; 
+	background-image: url('../resources/homepage-sky.jpeg'); 
+	background-size: 100% 100%;
+}
+
+hr {
+	border-color: black; 
+	border-width: 3px; 
+	border-style: solid;
+	overflow: hidden;
+	margin-left: -10px; 
+	margin-top: 10px; 
+	width: 100vw;
+}
+
+input[type="text"], input[type="checkmark"], input[type="radio"] {
+	background-color: darkturquoise;
+	color: black;
+}
+
+input::placeholder {
+	color: black;
+}
+
+li {
+	list-style: none; /* Bullet points are ugly. */
+}
+
+nav {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	width: 100%;
+}
+
+span {
+	background-color: darkturquoise; 
+	border-color: black; 
+	border-radius: 5px;
+	border-style: solid; 
+	border-width: 1px; 
+	margin: 1px auto;
+}
+
+table {
+	position: relative;
+	width: 100%;
+}
+
+td {
+	border-color: black; 
+	border-style: solid; 
+	border-width: 2px; 
+	margin: 0 auto; 
+	width: 100px;
+}
+
+textarea {
+	background-color: darkturquoise;
+	border-color: black;
+	border-width: 1px;
+	color: black;
+	width: 60%;
+}
+
+textarea::placeholder {
+	color: black;
+}
+
+th {
+	border-color: black;
+	border-style: solid; 
+	border-width: 5px; 
+	margin: 0 auto; 
+	width: 100px;
+}
+
+ul {
+	list-style: none; /* Bullet points are ugly. */
+	padding-left: 0rem; /* Removes the nasty extra space offsetting the list. */
+	width: 50%;
+}
+
+/*By combined Tags*/
+nav a {
+	background-color: rgba(144, 238, 144, 0.7); /*Background color is greenish*/
+	border-color: black; 
+	border-radius: 10px; 
+	border-style: solid; 
+	border-width: 1px; 
+	color: black;
+	font-size: 20px;
+	margin: 0 auto;
+	padding: 3px;
+	width: 25%;
+}
+
+nav a:hover {
+	background-color: rgba(144, 238, 144, 1);
+}
+
+ul input {
+	display: inline-block;
+	width: 10%;
+}
+
+ul li span {
+	display: inline-block;
+	width: 80%;
+}
+
+/*By Class*/
+.content {
+	background-color: darkturquoise; 
+	box-shadow:
+	    0 0 20px 20px rgba(0, 206, 209, 0.2), /*darkturquoise*/
+	    0 0 20px 20px rgba(0, 206, 209, 0.2),
+	    0 0 20px 20px rgba(0, 206, 209, 0.2),
+		0 0 20px 20px rgba(0, 206, 209, 0.4), 
+	    0 0 20px 20px rgba(0, 206, 209, 0.4),
+	    0 0 20px 20px rgba(0, 206, 209, 0.4),
+	    0 0 20px 20px rgba(0, 206, 209, 0.4),
+	    0 0 20px 20px rgba(0, 206, 209, 0.6); /*Repeated for blend*/
+	font-family: "Arial"; 
+	font-size: 18px;
+	margin: 50px auto;
+	width: 90%;
+}
+
+.floatLeft {
+	float: left;
+}
+
+.floatRight {
+	float: right;
+}
+
+.formUlOverrideIn {
+	display: inline-block;
+	margin: 0px auto;
+	width: 10px;
+}
+
+.formUlOverrideSp {
+	display: inline-block;
+	margin-bottom: 0px;
+	margin-left: 3px;
+	margin-right: 3px;
+	margin-top: 0px;
+	width: 60px;
+}
+
+.lineBottomInner {
+	background-color: dodgerblue;
+	margin-top: 25px;
+	margin-left: 10px; 
+	margin-right: 10px; 
+	height: 38px; 
+	width: 15px;
+}
+
+.lineBottomLong {
+	background-color: darkturquoise; 
+	margin-left: 10px; 
+	margin-right: 10px;
+	height: 63px; 
+	width: 20px;
+}
+
+.lineBottomOuter {
+	background-color: lightgreen;
+	margin-top: 25px;  
+	margin-left: 10px;
+	margin-right: 10px; 
+	height: 38px; 
+	width: 15px;
+}
+
+.lineInner {
+	background-color: dodgerblue;  
+	margin-left: 10px; 
+	margin-right: 10px; 
+	height: 50px; 
+	width: 15px;
+}
+
+.lineLong {
+	background-color: darkturquoise; 
+	margin-left: 10px; 
+	margin-right: 10px; 
+	height: 75px; 
+	width: 20px;
+}
+
+.lineOuter {
+	background-color: lightgreen; 
+	margin-left: 10px; 
+	margin-right: 10px; 
+	height: 50px; 
+	width: 15px;
+}
+
+.inline {
+	display: inline;
+}
+
+.marginAuto {
+	margin: 0 auto;
+}
+
+.smallTitle {
+	border-width: 2px;
+	margin: 10px auto; 
+	width: 95%;
+}
+
+/*By ID*/
+#books {
+	box-shadow:
+	    0 0 20px 20px rgba(0, 206, 209, 0.2), /*darkturquoise*/
+	    0 0 20px 20px rgba(0, 206, 209, 0.2),
+	    0 0 20px 20px rgba(0, 206, 209, 0.2),
+		0 0 20px 20px rgba(0, 206, 209, 0.4), 
+	    0 0 20px 20px rgba(0, 206, 209, 0.4),
+	    0 0 20px 20px rgba(0, 206, 209, 0.4),
+	    0 0 20px 20px rgba(0, 206, 209, 0.4),
+	    0 0 20px 20px rgba(0, 206, 209, 0.6); /*Repeated for blend*/
+	height: 400px;
+	width: 500px;
+}
+
+#flippyBit {
+	width: 50%;
+}
+
+#flippyBitContainer {
+	background-color: rgb(0,96,184); /*FlippyBit Background color*/
+	box-shadow:
+	    0 0 20px 20px rgba(0, 96, 184, 0.2), /*FlippyBit Background color*/
+	    0 0 20px 20px rgba(0, 96, 184, 0.2),
+	    0 0 20px 20px rgba(0, 96, 184, 0.2),
+		0 0 20px 20px rgba(0, 96, 184, 0.4), 
+	    0 0 20px 20px rgba(0, 96, 184, 0.4),
+	    0 0 20px 20px rgba(0, 96, 184, 0.4),
+	    0 0 20px 20px rgba(0, 96, 184, 0.4),
+	    0 0 20px 20px rgba(0, 96, 184, 0.8); /*Repeated for blend*/
+	margin: 50px auto;
+	width: 40%;
+}
+
+#formBody {
+	display: flex;
+	flex-direction: row;
+}
+
+#formCheckContainer {
+	width: 40%;
+}
+
+#formContainer {
+	background-color: rgb(144, 238, 144); /*Background color is greenish*/
+	box-shadow:
+	    0 0 20px 20px rgba(144, 238, 144, 0.2),
+	    0 0 20px 20px rgba(144, 238, 144, 0.2),
+	    0 0 20px 20px rgba(144, 238, 144, 0.2),
+	    0 0 20px 20px rgba(144, 238, 144, 0.4),
+		0 0 20px 20px rgba(144, 238, 144, 0.4),
+	    0 0 20px 20px rgba(144, 238, 144, 0.4),
+	    0 0 20px 20px rgba(144, 238, 144, 0.4),
+	    0 0 20px 20px rgba(144, 238, 144, 0.6); /*Repeated for blend*/
+	margin: 0 auto;
+	width: 80%;
+}
+
+#formJTitle {
+	border-color: black;
+	border-width: 1px;
+	margin-left: 0px;
+	margin-right: auto;
+	width: 60%;
+}
+
+#formRow1 {
+	display: flex;
+	flex-direction: row;
+	height: 24px;
+	justify-content: center;
+	margin: 10px auto;
+	position: relative;
+	width: 100%;
+}
+
+#formSelect {
+	background-color: darkturquoise;
+	border-color: black;
+	border-width: 1px;
+	color: black;
+	margin-left: auto;
+	margin-right: 4px;
+	width: 37%;
+}
+
+#headerTitle {
+	background-color: deepskyblue; 
+	border-style: solid; 
+	border-radius: 0px 0px 10px 10px; 
+	border-width: 5px; 
+	margin: 0 auto; 
+	max-width: 600px;
+	opacity: 0.75; 
+	padding: 5px; 
+	padding-top: 10px; 
+	width: 65%;
+}
+
+#headerFooter {
+	display: inline-block; 
+	width: 100%;
+}
+
+#hrBot {
+	margin-top: 3px;
+}
+
+#hrTop {
+	margin-bottom: 3px;
+}
+
+#linkAssign {
+	background-color: deepskyblue; 
+	border-color: black; 
+	border-radius: 10px; 
+	border-style: solid; 
+	border-width: 2px; 
+	font-family: sans-serif; 
+	font-size: 20px; 
+	margin: 0 auto; 
+	margin-top: 19px; 
+	opacity: 0.9; 
+	width: 300px;
+}
+
+#linkAssign:hover {
+	background-color: cyan;
+}
+
+#linkContainer {
+	margin: 0 auto;
+	position: relative;
+	width: 300px;
+}
+
+#pageEnd {
+	font-size: 12px;
+	padding: 0px;
+	margin: 0 auto;
+	text-decoration: none;
+}
+
+#tableContainer {
+	background-color: rgb(144, 238, 144); /*Background color is greenish*/
+	box-shadow:
+	    0 0 20px 20px rgba(144, 238, 144, 0.2),
+	    0 0 20px 20px rgba(144, 238, 144, 0.2),
+	    0 0 20px 20px rgba(144, 238, 144, 0.2),
+	    0 0 20px 20px rgba(144, 238, 144, 0.4),
+		0 0 20px 20px rgba(144, 238, 144, 0.4),
+	    0 0 20px 20px rgba(144, 238, 144, 0.4),
+	    0 0 20px 20px rgba(144, 238, 144, 0.4),
+	    0 0 20px 20px rgba(144, 238, 144, 0.6); /*Repeated for blend*/
+	margin: 15px auto;
+	width: 80%;
+}

@@ -1,0 +1,297 @@
+/*/*Any new webpage should include the:
+  	"* {box-sizing: border-box;}"
+  To all elements, to make sizing more uniform.
+*/
+/*Comment hex colors*/
+
+/*By Tag*/
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-image: linear-gradient(to top right, yellow, red, black, blue, lightblue);
+	color: gold;
+	font-family: "Times New Roman";
+	height: 100vh;
+	overflow-y: hidden; /* hide vertical */
+	text-align: center;
+}
+
+button {
+	border: 1px solid black;
+	color: gold;
+	padding: 0px;
+}
+
+button:hover {
+	background-color: rgba(253, 1, 0, .7); /* Dark Red */
+}
+
+div {
+	text-align: center;
+}
+
+h1 {
+	margin-top: -5px;
+	padding: 5px;
+}
+
+h2 {
+	font-size: 18px;
+	margin-bottom: 0px;
+}
+
+input {
+	background-color: rgba(253, 1, 0, 0.5); /* Dark Red */
+	color: gold;
+	border: 0;
+	padding-left: 15px;
+	text-align: center;
+}
+
+input:hover {
+	background-color: rgba(253, 1, 0, .8); /* Dark Red */
+}
+
+input::placeholder {
+	color: gold;
+}
+
+li {
+	list-style: none; /* Bullet points are ugly. */
+}
+
+select {
+	background-color: rgba(253, 1, 0, .5); /* Dark Red */
+	color: gold;
+}
+
+select:hover {
+	background-color: rgba(253, 1, 0, .8); /* Dark Red */
+}
+
+strong {
+	color: khaki;
+}
+
+ul {
+	list-style: none; /* Bullet points are ugly. */
+	padding-left: 0rem; /* Removes the nasty extra space offsetting the list. */
+}
+
+/*By combined Tags*/
+li * {
+	display: inline-block;
+	margin: 0 auto;
+}
+
+li input {
+	top: -16px;
+	position: relative;
+}
+
+/*By Class*/
+.borderBottomThin {
+	border-bottom: 2px groove rgb(234, 38, 36); /* Red */
+}
+
+.borderNormal {
+	border: 5px groove rgb(234, 38, 36); /* Red */
+}
+
+.borderThin {
+	border: 2px groove rgb(234, 38, 36); /* Red */
+}
+
+.button:hover {
+	/*background-color: rgba(253, 1, 0, 0.5); /* Dark Red */
+	cursor: pointer;
+}
+
+.cardIcon {
+	height: 50px;
+	width: 50px;
+}
+
+.confirmEle {
+	font-size: 20px;
+
+}
+
+.flexCol {
+	display: flex;
+	flex-direction: column;
+}
+
+.flexRow {
+	display: flex;
+	flex-direction: row;
+}
+
+.floatLeft {
+	float: left;
+}
+
+.floatRight {
+	float: right;
+}
+
+.inline {
+	display: inline;
+}
+
+.text {
+	height: 20px;
+}
+
+.price {
+	bottom: 2px;
+	color: black;
+	position: absolute;
+	z-index: 10;
+}
+
+.relative {
+	position: relative;
+}
+
+.textDrop {
+	background-color: rgba(7,7,7,.7);
+}
+
+.thumbnail {
+  height: 100px;
+  object-fit: contain; /*Fits images into their container*/
+  width: 100px;
+  z-index: 5;
+}
+
+.thumbnail:hover {
+	cursor: pointer;
+}
+
+.thumbnailContainer {
+  background-color: white;
+  border: 5px solid rgb(128,0,0); /*maroon*/
+  box-shadow:
+     0 0 2px 2px rgba(128,0,0,.2), /*maroon*/
+     0 0 2px 2px rgba(128,0,0,.4),
+     0 0 2px 2px rgba(128,0,0,.6); /*Repeated for blend*/
+  height: 115px;
+  margin: 5px auto;
+  margin-top: 10px;
+  transition: transform 2s;
+  width: 115px;
+}
+
+.thumbnailContainerChecked {
+  background-color: white;
+  border: 5px solid rgb(128,0,0); /*maroon*/
+  box-shadow:
+     0 0 2px 2px rgba(32, 158, 243,.8), /*maroon*/
+     0 0 2px 2px rgba(32, 158, 243,.9),
+     0 0 2px 2px rgba(32, 158, 243,1); /*Repeated for blend*/
+  height: 115px;
+  margin: 5px auto;
+  margin-top: 10px;
+  transition: transform 2s;
+  width: 115px;
+}
+
+.widthFull {
+	margin: 0 auto;
+	width: 100%;
+}
+
+.widthHalf {
+	margin: 0 auto;
+	width: 50%;	
+}
+
+.widthThird {
+	margin: 0 auto;
+	width: 33.33%;
+}
+
+.widthQuarter {
+	margin: 0 auto;
+	width: 25%;
+}
+
+/*By ID*/
+#alerts {
+	font-size: 16px;
+	margin: 0px;
+}
+
+#buttonContainer {
+	bottom: 0;
+	font-size: 16px;
+	height: 80px;
+	line-height: 80px;
+	position: absolute;
+	width: 100%;
+}
+
+#confirmContainer {
+	height: 605px;
+	margin: 0 auto;
+	margin-top: -25px;
+	max-width: 1500px;
+	position: relative;
+	width: 100%;
+}
+
+#formCardMonth {
+	margin-right: 5px;
+	margin-top: 10px;
+	width: 45%;
+}
+
+#formCardYear {
+	margin-left: 5px;
+	margin-top: 10px;
+	width: 45%;
+}
+
+#formContainer {
+	background-image: url("../resources/fireWater.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 659px;
+	margin: 0 auto;
+	margin-top: -15px;
+	max-width: 1500px;
+	position: relative;
+	width: 90%;
+}
+
+#formSplit {
+	margin-top:-41px;
+}
+
+#formLeftContentWrapper {
+	height: 501px; 
+	margin-top: 0px;
+	padding: -15px;
+}
+
+#formRightContentWrapper {
+	height: 501px; 
+	margin-top: 0px;
+}
+
+#pageEnd {
+	color: black;
+	font-size: 16px;
+	padding: 0px;
+	text-decoration: none;
+}
+
+#totalContainer {
+	font-size: 20px;
+	margin-top: -30px;
+	position: absolute;
+	bottom: 100px;
+}

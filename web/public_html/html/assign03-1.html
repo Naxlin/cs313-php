@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+   <title>Howling Halloween</title>
+   <meta charset="utf-8"/>
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   <script type="text/javascript" src="../js/assign03.js"></script>
+   <link rel="stylesheet" type="text/css" href="../css/assign03.css">
+   <link rel="icon" href="../fav.png">
+
+   <style type="text/css">
+      /*By Tag*/
+      * {
+         border-radius: 5px;
+      }
+
+      h3 {
+         border: 3px solid maroon;
+         font-family: "Arial";
+         font-size: 24px;
+         margin-bottom: 0px;
+         margin-top: 40px; 
+      }
+
+      /*By Class*/
+      .flexCenter {
+         align-items: center;
+      }
+
+      /*By ID*/
+      #costumeHome {
+         border: 5px solid maroon;
+         color: darkorange;
+         padding: 10px;
+
+      }
+
+      #costumeHome:hover {
+         background-color: maroon;
+         border-color: goldenrod;
+         color: goldenrod;
+      }
+
+      #pageEnd {
+         font-family: "Times New Roman";
+      }
+   </style>
+</head>
+
+<body>
+   <header>
+      <img src="../resources/sheetGhost.jpg" alt="Ghost Image" id="ghostL">
+      <img src="../resources/sheetGhost.jpg" alt="Ghost Image" id="ghostR">
+
+      <!-- Home link and page title -->
+      <div><a href="assign03.html"><h1 id="costumeHome">Howling Halloween
+      </h1></a></div>
+
+      <!-- Section title -->
+      <h3>Costumes</h3>
+   </header>
+
+   <!-- I was able to get the thumbnail popCenter() working, but multiple 
+      images can be popped up at the same time, and I haven't done enough 
+      javascript at this point to figure out how to stop that. This assignment 
+      has already taken many hours, more time and research would allow 
+      this to be fixed. -->
+   <div id="pageContainer">
+      <div style="display: flex; flex-direction: row;" class="flexCenter">
+         <div class="thumbnailContainer">
+            <img id="costume01" src="../resources/costume01.jpg" 
+            class="thumbnail" alt="Guys Skull Costume" 
+            onclick="popCenter(this.id)">
+         </div>
+         <div class="thumbnailContainer">
+            <img id="costume02" src="../resources/costume02.jpg" 
+            class="thumbnail" alt="Girls Red Riding Hood Costume" 
+            onclick="popCenter(this.id)">
+         </div>
+         <div class="thumbnailContainer">
+            <img id="costume03" src="../resources/costume03.jpg" 
+            class="thumbnail" alt="Womans Pirate Costume" 
+            onclick="popCenter(this.id)">
+         </div>
+         <div class="thumbnailContainer">
+            <img id="costume04" src="../resources/costume04.jpg" 
+            class="thumbnail" alt="Couples Incredibles Costumes" 
+            onclick="popCenter(this.id)">
+         </div>
+      </div>
+      <div style="display: flex; flex-direction: row;" class="flexCenter">
+         <div class="thumbnailContainer">
+            <img id="costume05" src="../resources/costume05.jpg" 
+            class="thumbnail" alt="Wonder Woman Costume" 
+            onclick="popCenter(this.id)">
+         </div>
+         <div class="thumbnailContainer">
+            <img id="costume06" src="../resources/costume06.jpg" 
+            class="thumbnail" alt="Boys Vampire Costume" 
+            onclick="popCenter(this.id)">
+         </div>
+         <div class="thumbnailContainer">
+            <img id="costume07" src="../resources/costume07.jpg" 
+            class="thumbnail" alt="Boys Superman Costume" 
+            onclick="popCenter(this.id)">
+         </div>
+         <div class="thumbnailContainer">
+            <img id="costume08" src="../resources/costume08.jpg" 
+            class="thumbnail" alt="Guys Madhatter Costume" 
+            onclick="popCenter(this.id)">
+         </div>
+      </div>
+      <div style="display: flex; flex-direction: row;" class="flexCenter">
+         <div class="thumbnailContainer">
+            <img id="costume09" src="../resources/costume09.jpg" 
+            class="thumbnail" alt="Sissorhands Costume" 
+            onclick="popCenter(this.id)">
+         </div>
+         <div class="thumbnailContainer">
+            <img id="costume10" src="../resources/costume10.jpg" 
+            class="thumbnail" alt="Boys Lego Costume" 
+            onclick="popCenter(this.id)">
+         </div>
+         <div class="thumbnailContainer">
+            <img id="costume11" src="../resources/costume11.jpg" 
+            class="thumbnail" alt="Boys Werewolf Costume" 
+            onclick="popCenter(this.id)">
+         </div>
+         <div class="thumbnailContainer">
+            <img id="costume12" src="../resources/costume12.jpg" 
+            class="thumbnail" alt="Girls Cheerleader Costume" 
+            onclick="popCenter(this.id)">
+         </div>
+      </div>
+      <div style="display: flex; flex-direction: row;" class="flexCenter">
+         <div class="thumbnailContainer">
+            <img id="costume13" src="../resources/costume13.jpg" 
+            class="thumbnail" alt="Womans Wakandan Costume" 
+            onclick="popCenter(this.id)">
+         </div>
+         <div class="thumbnailContainer">
+            <img id="costume14" src="../resources/costume14.jpg" 
+            class="thumbnail" alt="Womans Witches Costume" 
+            onclick="popCenter(this.id)">
+         </div>
+         <div class="thumbnailContainer">
+            <img id="costume15" src="../resources/costume15.jpg" 
+            class="thumbnail" alt="Womans Blue Pirate Costume" 
+            onclick="popCenter(this.id)">
+         </div>
+         <div class="thumbnailContainer">
+            <img id="costume16" src="../resources/costume16.jpg" 
+            class="thumbnail" alt="Boys Black Panther Costume" 
+            onclick="popCenter(this.id)">
+         </div>
+      </div>
+      <div style="display: flex; flex-direction: row;" class="flexCenter">
+         <div class="thumbnailContainer">
+            <img id="costume17" src="../resources/costume17.jpg" 
+            class="thumbnail" alt="Womans Witches Robe Costume" 
+            onclick="popCenter(this.id)"> 
+         </div>
+         <div class="thumbnailContainer">
+            <img id="costume18" src="../resources/costume18.jpg" 
+            class="thumbnail" alt="Womans Red Ridinghood Costume" 
+            onclick="popCenter(this.id)">
+         </div>
+         <div class="thumbnailContainer">
+            <img id="costume19" src="../resources/costume19.jpg" 
+            class="thumbnail" alt="Guys Vampire Costume" 
+            onclick="popCenter(this.id)">
+         </div>
+         <div class="thumbnailContainer">
+            <img id="costume20" src="../resources/costume20.jpg" 
+            class="thumbnail" alt="Guys Pajama Werewolf Costume" 
+            onclick="popCenter(this.id)">
+         </div>
+      </div>
+   </div>
+
+   <!-- Page Footer -->
+   <footer>
+      <p id="pageEnd">© copyright 2018</p>
+   </footer>
+</body>
+</html>
+
+<!-- When finished be sure to verify the html5 through https://html5.validator.nu/ 
+
+   Check that you create a new line wherever needed for readability.
+-->

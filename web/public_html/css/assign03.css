@@ -1,0 +1,159 @@
+/*Any new webpage should include the:
+  	"* {box-sizing: border-box;}"
+  To all elements, to make sizing more uniform.
+*/
+/*Comment hex colors*/
+
+/*By selector type first then alphabetical*/
+/*By Tag*/
+* {
+	box-sizing: border-box;
+}
+
+a {
+	color: black;
+   	text-decoration: none; /* Because underlines are often ugly. */
+}
+
+a:visited {
+	color: black;
+}
+
+body {
+	background-color: black; /* Other option rgb(8, 45, 115) or darkblue*/
+	color: darkorange;
+	overflow-x: hidden;
+	text-align: center;
+}
+
+footer {
+	margin-bottom: -1px;
+	margin-left: -8px;
+	margin-top: -1px;
+	overflow-x: hidden;
+	padding: 15px;
+	padding-bottom: 0px;
+	width: 100vw;
+}
+
+h1 {
+	font-size: 40px;
+	font-family: "Comic Sans MS";
+}
+
+header {
+	min-height: 170px;
+}
+
+nav {
+	display: flex;
+	flex-direction: row;
+	align-content: center;
+}
+
+/*By combined Tags*/
+nav a {
+	background-color: darkorange;
+	border-radius: 5px;
+	margin: 0 auto;
+}
+
+nav a:hover {
+	background-color: maroon;
+	color: goldenrod;
+}
+
+/*By Class*/
+.thumbnail {
+  height: 150px;
+  object-fit: contain; /*Fits images into their container*/
+  width: 150px;
+  transition: transform 2s;
+}
+
+.thumbnail:hover {
+	cursor: pointer;
+}
+
+.thumbnailContainer {
+  background-color: white;
+  border: 5px solid rgb(128,0,0); /*maroon*/
+  box-shadow:
+     0 0 2px 2px rgba(128,0,0,.2), /*maroon*/
+     0 0 2px 2px rgba(128,0,0,.4),
+     0 0 2px 2px rgba(128,0,0,.6); /*Repeated for blend*/
+  height: 165px;
+  margin: 5px auto;
+  margin-top: 10px;
+  padding: 5px;
+  transition: transform 2s;
+  width: 165px;
+}
+
+.thumbnailFocus { /*Onclick pops up thumbnails into this fixed css*/
+  position: fixed;
+  height: 600px;
+  left: 50%;
+  margin-top: -300px; /* Negative half of height. */
+  margin-left: -300px; /* Negative half of width. */
+  object-fit: contain; /*Fits images into their container*/
+  top: 50%;
+  width: 600px;
+  transition: transform 2s;
+}
+
+.thumbnailFocus:hover {
+	cursor: pointer;
+}
+
+.thumbnailFocusContainer {
+  background-color: white;
+  border: 5px solid rgb(128,0,0); /*maroon*/
+  box-shadow:
+     0 0 2px 2px rgba(128,0,0,.2), /*maroon*/
+     0 0 2px 2px rgba(128,0,0,.2),
+     0 0 2px 2px rgba(128,0,0,.4),
+     0 0 2px 2px rgba(128,0,0,.4),
+     0 0 2px 2px rgba(128,0,0,.6),
+     0 0 2px 2px rgba(128,0,0,.6); /*Repeated for blend*/
+  margin: 0 auto;
+  transition: transform 2s;
+}
+
+/*By ID*/
+#ghostL {
+	/*Begin flip image*/
+	-moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+    /*End flip image*/
+	margin-left: -10px;
+	margin-top: -30px;
+    float: left;
+	height: 200px;
+	width: 200px;
+}
+	
+#ghostR {
+	float: right;
+	margin-right: -10px;
+	margin-top: -30px;
+	height: 200px;
+	width: 200px;
+}
+
+#pageContainer {
+	background-image: url("../resources/businessBackground.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 140vh;
+	padding-top: 10px;
+	padding-right: 20px;
+	margin-left: -8px;
+	margin-right: -8px;
+	margin-bottom: 0px;
+	width: 100vw;
+}

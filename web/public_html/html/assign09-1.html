@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mortgage Calculator</title>
+   	<meta charset="utf-8"/>
+   	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+   	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   	<script type="text/javascript" src="../js/assign09-1.js"></script>
+   	<link rel="stylesheet" type="text/css" href="../css/assign09-1.css">
+   	<link rel="icon" href="../house.png">
+</head>
+
+<body onload="setFocus()">
+	<form id="formContainer" onreset="clearAlerts()" action="../php/mortgage.php" onsubmit="return validateMortgage()"> 
+		<h1 class="borderNormal">Mortgage Calculator</h1>
+		
+		<!-- First text inputs -->
+		<div class="borderThin flexRow relative">
+			<span class="widthQuarter">Annual Percentage Rate</span>
+		    <input id="formAPR" name="APR"  class="widthQuarter" 
+		    placeholder="=     APR %" onchange="validateAPR()">
+		    <span class="widthQuarter">Loan Term</span>
+		    <input id="formLT" name="LT"  class="widthQuarter" 
+		    placeholder="=     YY" onchange="validateLT()">
+		</div>
+
+		<!-- Second text inputs -->
+		<div class="borderThin flexRow relative">
+			<span class="widthQuarter">Loan Amount</span>
+		    <input id="formLA" name="LA"  class="widthQuarter" 
+		    placeholder="=     $$" onchange="validateLA()">
+		    <span class="widthQuarter">Monthly Payment</span>
+		    <span id="payment" class="widthQuarter" style="text-align: left;">
+		    	<span style="margin-left: 15px; margin-right: 22px;">=
+		    	</span>$0.00</span>
+		</div>
+
+		<!-- Alerts box -->
+		<div id="alerts" class="borderThin flexRow relative" 
+		style="display: none;"></div>
+
+		<!-- Buttons -->
+        <div class="borderThin flexRow relative"> 
+          	<button type="submit" class="button widthHalf">Calculate Payment</button>
+          	<button type="reset" class="button widthHalf">Clear Fields</button>
+        </div>
+		
+	</form>
+   	<!-- Page Footer -->
+   	<footer>
+   	   <p id="pageEnd">Give us your soul...<br/>Please.<br/>© copyright 2018</p>
+   	</footer>
+</body>
+</html>

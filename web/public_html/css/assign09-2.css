@@ -1,0 +1,145 @@
+/*Any new webpage should include the:
+  	"* {box-sizing: border-box;}"
+  To all elements, to make sizing more uniform.
+*/
+/*Comment hex colors*/
+
+/* Colors
+	#8CC4D2;  dark sky blue 
+	#F7F9F9;  ghost white 
+	#E0E2DB;  gainsboro 
+	#DBDDD0;  timberwolf 
+	#889696;  Roman silver 
+*/
+
+/*By Tag*/
+* {
+	box-sizing: border-box;
+}
+body {
+	background-color: #8CC4D2; /* dark sky blue */
+	color: #F7F9F9; /* ghost white */ 
+	font-family: "Times New Roman";
+	text-align: center;
+}
+
+div {
+	text-align: center;
+}
+
+footer {
+	background-color: #889696; /* Roman silver */
+	color: #F7F9F9; /* ghost white */
+	margin: auto;
+	max-width: 1000px;
+	padding: 1px;
+}
+
+h1 {
+	margin-top: -5px;
+	padding: 5px;
+}
+
+h2 {
+	margin-bottom: -5px;
+	margin-top: -5px;
+}
+
+header {
+	background-color: #889696; /* Roman silver */
+	color: #F7F9F9; /* ghost white */
+	margin: auto;
+	margin-top: 10px;
+	max-width: 1000px;
+}
+
+input {
+	background-color: rgba(253, 1, 0, 0.5); /* Dark Red */
+	color: gold;
+	border: 0;
+	padding-left: 15px;
+}
+
+pre {
+	margin-top: 0px;
+}
+
+span {
+	font-weight: bold;
+}
+
+/*By combined Tags*/
+
+
+/*By Class*/
+.borderRight {
+	border-right: 1px groove black; /* Red */
+}
+
+.borderThin {
+	border: 2px groove black;
+}
+
+.button {
+
+}
+
+.inlineBlock {
+	display: inline-block;
+}
+
+.relative {
+	position: relative;
+}
+
+.widthHalf {
+	margin: 0 auto;
+	width: 48%;	
+}
+
+.widthThird {
+	margin: 0 auto;
+	max-width: 1000px;
+	width: 32%;
+}
+
+.widthQuarter {
+	margin: 0 auto;
+	width: 25%;
+}
+
+/*By ID*/
+#cwd {
+	background-color: #DBDDD0; /* timberwolf */
+	border: 1px solid black;
+	color: black;
+	font-size: 16px;
+	font-weight: bold;
+	margin: 0 auto;
+	margin-bottom: 5px;
+	margin-top: -15px;
+	max-width: 1000px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+#pageContainer {
+	background-color: #DBDDD0; /* timberwolf */
+	border: 1px solid black;
+	color: black;
+	font-size: 20px;
+	font-weight: bold;
+	min-height: 400px;
+	margin: 0 auto;
+	margin-bottom: 5px;
+	margin-top: -15px;
+	max-width: 1000px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+#pageEnd {
+	font-size: 12px;
+	padding: 0px;
+	text-decoration: none;
+}

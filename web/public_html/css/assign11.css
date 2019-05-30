@@ -1,0 +1,99 @@
+/*Any new webpage should include the:
+  	"* {box-sizing: border-box;}"
+  To all elements, to make sizing more uniform.
+*/
+/*Comment hex colors*/
+
+/*By Tag*/
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: darkturquoise;
+	text-align: center;
+}
+
+button {
+	background-color: lightgray;
+	border: 1px solid black;
+	border-radius: 20px 20px 20px 20px;
+	font-size: 16px;
+	height: 40px;
+	margin: 20px auto;
+	margin-top: 30px;
+	width: 150px;
+}
+
+h1 {
+	height: 40px;
+	line-height: 40px;
+}
+
+h2 {
+	width: 100%;
+}
+
+header {
+	background-color: rgb(240,200,0); /*Goldish*/
+	border: 1px solid black;
+	border-radius: 0px 0px 50px 50px;
+	margin: 0 auto;
+	margin-top: -15px;
+	max-width: 1000px;
+}
+
+input {
+	max-width: 200px;
+}
+
+p {
+	font-size: 18px;
+}
+
+span {
+	font-size: 18px;
+	width: 100%;
+}
+
+/*By combined Tags*/
+
+/*By Class*/
+.flexRowBal {
+	align-content: center;
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.transport {
+	border-bottom: 1px solid black;
+	margin: 0 auto;
+	max-width: 200px;
+	padding-bottom: 2px;
+}
+
+.transportItems {
+	margin-top: 5px;
+}
+
+/*By ID*/
+#inputContainer {
+}
+
+#outputContainer {
+	background-color: rgb(240,200,0); /*Goldish*/
+	border: 1px solid black;
+	border-radius: 50px 50px 50px 50px;
+	margin: 0 auto;
+	margin-top: 15px;
+	max-width: 600px;
+}
+
+#pageContainer {
+	background-color: rgb(240,200,0); /*Goldish*/
+	border: 1px solid black;
+	border-radius: 50px 50px 50px 50px;
+	margin: 0 auto;
+	margin-top: 15px;
+	max-width: 600px;
+}

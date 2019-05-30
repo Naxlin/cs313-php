@@ -1,0 +1,54 @@
+/*By Tag*/
+body {
+   background-color: deepskyblue;
+   text-align: center;
+}
+
+ul {
+/* list-style-position: inside; /* Something used to center bullet points. */
+   list-style: none; /* Bullet points are ugly. */
+   margin: 0 auto;
+   padding-left: 0rem; /* Removes the nasty extra space offsetting the list. */
+   width: 205px;
+}
+
+li {
+   background-color: lightskyblue;
+   border: unset;
+   border-color: blue;
+   border-radius: 50px;
+   border-style: solid;
+   color: black;
+   margin: 0 auto;
+   margin-top: 15px;
+   width: 220px;
+}
+
+li:hover {
+   cursor: pointer;
+   background-color: cyan;
+}
+
+a {
+   color: black;
+   font-size: 24px;
+   margin: 0 auto;
+   text-decoration: none; /* Because underlines are often ugly. */
+   width: 190px;
+}
+
+a:visited {
+   color: black;
+   text-decoration: none;
+   /* Blank to prevent changes after visiting a link. */
+}
+
+/*By ID*/
+#pageTitle {
+   background-color: lightskyblue;
+   border-color: blue;
+   border-radius: 20px;
+   border-style: solid;
+   margin: 0 auto;
+   width: 400px;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Inter-city Distance Calculator</title>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<script type="text/javascript" src="../js/assign11.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/assign11.css">
+	<link rel="icon" href="../house.png">
+</head>
+
+<body onload="startFocus()">
+	<!-- Page Header -->
+	<header>
+		<h1><strong>Inter-city Distance Calculator</strong></h1>
+	</header>
+	
+	<!-- Page container -->
+	<div id="pageContainer">
+		<!-- Input container -->
+		<div id="inputContainer">
+			<div class="">
+				<h2>Start Location</h2>
+				<span>Starting City</span><span style="padding-left: 4px;"> - </span>
+				<input id="input1" type="text" name="startCity"><br/><br/>
+				<span>Starting State</span><span> - </span>
+				<input id="input2" type="text" name="startState" maxlength="2">
+			</div>
+			<div class="">
+				<h2>Destination</h2>
+				<span>Destination City</span><span style="padding-left: 4px;"> - </span>
+				<input id="input3" type="text" name="endCity"><br/><br/>
+				<span>Destination State</span><span> - </span>
+				<input id="input4" type="text" name="endState" maxlength="2">
+			</div>
+		</div>
+
+		<!-- Input submission -->
+		<button id="send" type="button" onclick="sendReq()"><strong>Send Request</strong></button>
+	</div>
+	<!-- Output container -->
+	<div id="outputContainer">
+		<output id="output">
+			<p>The output will be returned here.</p>
+		</output>
+	</div>
+</body>
+</html>
+
+<!-- JS: (Clientside validation required.)
+	var url =	"localhost/cgi-bin/cs213/mileageAjaxJSON";
+
+	fun sendReq();
+ -->

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form Validation</title>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<script type="text/javascript" src="../js/assign10.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/assign10.css">
+	<link rel="icon" href="../house.png">
+</head>
+
+<body onload="startupFocus()">
+	<form id="formContainer" onsubmit="return validateForm()" onreset="resetForm()" action="../php/assign10.php" method="get"> 
+	<!-- action="" attribute left out so html validates -->
+		<h1 class="borderNormal textDrop">Form Validation</h1>
+
+		<!-- Form division -->
+		<div id="formSplit" class="flexRow">
+			<div id="formLeft" class="widthHalf">
+				<h2 class="borderThin textDrop">Costumes</h2>
+				<div id="formLeftContentWrapper" class="borderThin textDrop">
+
+					<!-- Checkboxes for Costumes to Purchase -->
+					<!-- Hidden for looks, functionality still there. -->
+					<ul class="inline" style="display: none;"> 
+						<li><input type="checkbox" id="costume01Check" name="costume[]" value="0"></li>
+						<li><input type="checkbox" id="costume02Check" name="costume[]" value="1"></li>
+						<li><input type="checkbox" id="costume03Check" name="costume[]" value="2"></li>
+						<li><input type="checkbox" id="costume04Check" name="costume[]" value="3"></li>
+						<li><input type="checkbox" id="costume05Check" name="costume[]" value="4"></li>
+						<li><input type="checkbox" id="costume06Check" name="costume[]" value="5"></li>
+						<li><input type="checkbox" id="costume07Check" name="costume[]" value="6"></li>
+						<li><input type="checkbox" id="costume08Check" name="costume[]" value="7"></li>
+						<li><input type="checkbox" id="costume09Check" name="costume[]" value="8"></li>
+					</ul>
+
+					<br/>
+					<!-- Prices and Images for Costumes to Purchase -->
+					<!-- Clicking on one highlights it and checks the equiv. input -->
+					<div style="display: flex; flex-direction: row;" class="flexCenter">
+						<span class="widthThird">$23.46</span>
+						<span class="widthThird">$42.52</span>
+						<span class="widthThird">$12.50</span>
+					</div>
+					<div style="display: flex; flex-direction: row;" class="flexCenter">
+						<div class="thumbnailContainer">
+							<img id="costume01" src="../resources/costume01.jpg" 
+							class="thumbnail" alt="Guys Skull Costume" 
+							onclick="costumeCheck(this.id)">
+						</div>
+						<div class="thumbnailContainer">
+							<img id="costume02" src="../resources/costume02.jpg" 
+							class="thumbnail" alt="Girls Red Riding Hood Costume" 
+							onclick="costumeCheck(this.id)">
+						</div>
+						<div class="thumbnailContainer">
+							<img id="costume03" src="../resources/costume03.jpg" 
+							class="thumbnail" alt="Womans Pirate Costume" 
+							onclick="costumeCheck(this.id)">
+						</div>
+					</div>
+					<div style="display: flex; flex-direction: row;" class="flexCenter">
+						<span class="widthThird">$20.10</span>
+						<span class="widthThird">$53.21</span>
+						<span class="widthThird">$15.75</span>
+					</div>
+					<div style="display: flex; flex-direction: row;" class="flexCenter">
+						<div class="thumbnailContainer">
+							<img id="costume04" src="../resources/costume04.jpg" 
+							class="thumbnail" alt="Couples Incredibles Costumes" 
+							onclick="costumeCheck(this.id)">
+						</div>
+						<div class="thumbnailContainer">
+							<img id="costume05" src="../resources/costume05.jpg" 
+							class="thumbnail" alt="Wonder Woman Costume" 
+							onclick="costumeCheck(this.id)">
+						</div>
+						<div class="thumbnailContainer">
+							<img id="costume06" src="../resources/costume06.jpg" 
+							class="thumbnail" alt="Boys Vampire Costume" 
+							onclick="costumeCheck(this.id)">
+						</div>
+					</div>
+					<div style="display: flex; flex-direction: row;" class="flexCenter">
+						<span class="widthThird">$60.45</span>
+						<span class="widthThird">$20.32</span>
+						<span class="widthThird">$14.99</span>
+					</div>
+					<div style="display: flex; flex-direction: row;" class="flexCenter">
+						<div class="thumbnailContainer">
+							<img id="costume07" src="../resources/costume07.jpg" 
+							class="thumbnail" alt="Boys Superman Costume" 
+							onclick="costumeCheck(this.id)">
+						</div>
+						<div class="thumbnailContainer">
+							<img id="costume08" src="../resources/costume08.jpg" 
+							class="thumbnail" alt="Guys Madhatter Costume" 
+							onclick="costumeCheck(this.id)">
+						</div>
+						<div class="thumbnailContainer">
+							<img id="costume09" src="../resources/costume09.jpg" 
+							class="thumbnail" alt="Sissorhands Costume" 
+							onclick="costumeCheck(this.id)">
+						</div>
+					</div>
+
+					<br/>				
+				</div>
+			</div>
+			<div id="formRight" class="widthHalf">
+				<h2 class="borderThin textDrop">Payment Info</h2>
+				<div id="formRightContentWrapper" class="borderThin textDrop">
+					<span></span>
+
+					<!-- Credit Card Information -->
+					<br/>
+					<!-- Personal Information -->
+					<div id="nameContainer">
+						<div class="borderBottomThin flexRow relative">
+							<span class="widthThird text">First Name</span>
+							<span class="widthThird text">Middle Initial</span>
+							<span class="widthThird text">Last Name</span>
+						</div>
+						<div class="flexRow relative">
+							<input id="formFirstName"  class="widthThird text" 
+							placeholder="John" onchange="valiName(this.id)"
+							name="nameFirst">
+							<input id="formMidName"  class="widthThird text" 
+							placeholder="A." onchange="valiName(this.id)"
+							name="nameMid">
+							<input id="formLastName"  class="widthThird text" 
+							placeholder="Smith" onchange="valiName(this.id)"
+							name="nameLast">
+						</div>
+						<output id="alertformFirstName" class="borderThin" style="display: none;" name="alert"></output>
+						<output id="alertformMidName" class="borderThin" style="display: none;" name="alert"></output>
+						<output id="alertformLastName" class="borderThin" style="display: none;" name="alert"></output>
+					</div>
+
+					<!-- Phone number -->
+					<div id="phoneContainer">
+						<div class="borderBottomThin flexRow relative">
+							<span class="widthFull text">Phone Number</span>
+						</div>
+						<div class="flexRow relative">
+							<input id="formPhone"  class="widthFull text" 
+							placeholder="(000) 000-0000" onchange="valiPhone(this.id)" 
+							name="phone">
+						</div>
+						<output id="alertformPhone" class="borderThin" name="alert" style="display: none;"></output>
+					</div>
+					<!-- Address Information -->
+					<div id="streetContainer">
+						<div class="borderBottomThin flexRow relative">
+							<span class="widthFull text">Street</span>
+						</div>
+						<div>
+							<input id="formStreet" class="widthFull text" 
+							placeholder="123 streetName st" onchange="valiStreet(this.id)"
+							name="street">
+						</div>
+						<output id="alertformStreet" class="borderThin" name="alert" style="display: none;"></output>
+					</div>
+					<div id="addressContainer">
+						<div class="borderBottomThin flexRow relative">
+							<span class="widthThird text">City</span>
+							<span class="widthThird text">State</span>
+							<span class="widthThird text">Zipcode</span>
+						</div>
+						<div class="flexRow relative">
+							<input id="formCity"  class="widthThird text" 
+							placeholder="Hillsboro" onchange="valiCity(this.id)"
+							name="city">
+							<input id="formState"  class="widthThird text" 
+							placeholder="Oregon" onchange="valiState(this.id)"
+							name="state">
+							<input id="formZipcode"  class="widthThird text" 
+							placeholder="97124" onchange="valiZip(this.id)"
+							name="zip">
+						</div>
+						<output id="alertformCity" class="borderThin" name="alert" style="display: none;"></output>
+						<output id="alertformState" class="borderThin" name="alert" style="display: none;"></output>
+						<output id="alertformZipcode" class="borderThin" name="alert" style="display: none;"></output>
+					</div>
+
+					<!-- Radio buttons for Card Type -->
+					<ul class="inline flexRow">
+						<li class="floatLeft widthThird">
+							<input id="visaIn" type="radio" name="card" value="Visa" onblur="valiCardType()">
+							<img id="visa" src="../resources/visa.png" class="cardIcon" alt="Visa Card Icon" onclick="setCard(this.id)">
+						</li>
+						<li class="floatRight widthThird">
+							<input id="expressIn" type="radio" name="card" value="Express">
+							<img id="express" src="../resources/americanExpress.png" class="cardIcon" alt="American Express Card Icon" onclick="setCard(this.id)">
+						</li>
+						<li class="widthThird">
+							<input id="masterIn" type="radio" name="card" value="Master">
+							<img id="master" src="../resources/master.png" class="cardIcon" alt="Master Card Icon" onclick="setCard(this.id)">
+						</li>
+					</ul>
+					<output id="alertformCardType" class="borderThin" name="alert" style="display: none;"><strong>Card type required</strong></output>
+
+
+					<!-- Card Number Field -->
+					<div id="cardNumberContainer">
+						<div class="borderBottomThin flexRow relative">
+							<span class="widthFull text">Card Number</span>
+						</div>
+						<div class="flexRow relative">
+							<input id="formCardNumber"  class="widthFull text" 
+							placeholder="xxxx-xxxx-xxxx-xxxx" onchange="valiCard(this.id)"
+							name="cardNum">
+						</div>
+						<output id="alertformCardNumber" class="borderThin" name="alert" style="display: none;"><strong>Not a card number</strong></output>
+					</div>
+
+					<!-- Card Month and Year -->
+					<div id="dateContainer">
+						<select id="formCardMonth" onblur="valiMonth(this.id)" name="cardM">
+							<option value="null" selected>Month</option>
+							<option value="01">01</option>
+							<option value="02">02</option>
+							<option value="03">03</option>
+							<option value="04">04</option>
+							<option value="05">05</option>
+							<option value="06">06</option>
+							<option value="07">07</option>
+							<option value="08">08</option>
+							<option value="09">09</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+						</select>
+
+						<select id="formCardYear" onblur="valiYear(this.id)" name="cardY">
+							<option value="null" selected>Year</option>
+							<option value="2018">2018</option>
+							<option value="2019">2019</option>
+							<option value="2020">2020</option>
+							<option value="2021">2021</option>
+							<option value="2022">2022</option>
+							<option value="2023">2023</option>
+							<option value="2024">2024</option>
+							<option value="2025">2025</option>
+							<option value="2026">2026</option>
+							<option value="2027">2027</option>
+							<option value="2028">2028</option>
+							<option value="2029">2029</option>
+							<option value="2030">2030</option>
+							<option value="2031">2031</option>
+							<option value="2032">2032</option>
+							<option value="2033">2033</option>
+							<option value="2034">2034</option>
+							<option value="2035">2035</option>
+							<option value="2036">2036</option>
+							<option value="2037">2037</option>
+							<option value="2038">2038</option>
+							<option value="2039">2039</option>
+							<option value="2040">2040</option>
+							<option value="2041">2041</option>
+							<option value="2042">2042</option>
+							<option value="2043">2043</option>
+							<option value="2044">2044</option>
+							<option value="2045">2045</option>
+							<option value="2046">2046</option>
+							<option value="2047">2047</option>
+							<option value="2048">2048</option>
+							<option value="2049">2049</option>
+							<option value="2050">2050</option>
+						</select>
+
+						<output id="alertformCardMonth" class="borderThin" name="alert" style="display: none;"><strong>Expiration month required</strong></output>
+						<output id="alertformCardYear" class="borderThin" name="alert" style="display: none;"><strong>Expiration year required</strong></output>
+
+						<br/> <br/>	<br/>	<br/>
+						<output id="alertformCostume" class="borderThin" name="alert" style="display: none;"><strong>A costume selection is required</strong></output>
+						<!-- Total Purchase Amount -->
+						<div id="totalContainer" class="widthHalf">
+							Total: $<span id="totalValue">0.00</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Buttons -->
+		<div id="buttonContainer" class="flexRow"> 
+			<button type="button" class="borderThin textDrop button widthThird" onclick="resetSelections()">Clear Selections</button>
+			<button type="submit" class="borderThin textDrop button widthThird">Make Purchase</button>
+			<button type="reset" class="borderThin textDrop button widthThird">Clear Entire Purchase</button>
+		</div>
+
+	</form>
+<!-- Page Footer -->
+	<footer>
+		<p id="pageEnd"><strong>© copyright 2018</strong></p>
+	</footer>
+</body>
+</html>

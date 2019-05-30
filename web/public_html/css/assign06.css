@@ -1,0 +1,209 @@
+/*Any new webpage should include the:
+  	"* {box-sizing: border-box;}"
+  To all elements, to make sizing more uniform.
+*/
+/*Comment hex colors*/
+
+/* CSS for all screen sizes */
+/*By Tag*/
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: black; /* Light Sea Green */
+	/*font-family: sans-serif;*/
+	text-align: center;
+}
+
+h1 {
+	background-color: mediumturquoise;
+	border-bottom: 5px groove black;
+	height: 10vh;
+	line-height: 9vh;
+	margin-top: 0px;
+}
+
+h2 {
+	background-color: mediumturquoise;
+	border-bottom: 2px groove black;
+	border-top: 2px groove black;
+	padding: 5px;
+	margin: 0 auto;
+}
+
+h3 {
+	background-color: mediumturquoise;
+	border-bottom: 2px groove black;
+	border-top: 2px groove black;
+	padding: 5px;
+	margin: 0 auto;
+}
+
+header {
+	background-color: navajowhite;
+}
+
+hr {
+	border-bottom: 2px groove black;
+	padding-top: 0px;
+	margin-top: 0px;
+}
+
+img {
+	height: auto;
+	margin-top: 5px;
+	margin-bottom: 15px;
+	max-width: 100%;
+}
+
+p {
+	margin: 5px;
+}
+
+div {
+}
+
+/*By combined Tags*/
+footer *, footer {
+	background-color: navajowhite;
+	font-family: sans-serif;
+}
+
+
+/*By Class*/
+.creatureContainer {
+	background-color: navajowhite;
+}
+
+.creatureWrapper {
+	background-color: navajowhite;	
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.flexCol {
+	display: flex;
+	flex-direction: column;
+}
+
+/*By ID*/
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+	/*By Tag*/
+	h1 {
+		font-size: 6vw;
+	}
+
+	h3 {
+		font-size: 1.1em;
+	}
+
+	p {
+		font-size: 1.17em;
+	}
+
+	/*By combined Tags*/
+
+	/*By Class*/
+
+	/*By ID*/
+} 
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+	/*By Tag*/
+	h1 {
+		font-size: 2em;
+	}
+
+	h2, h3 {
+		font-size: 1.5em;
+	}
+
+	img {
+		float: right;
+		margin: 5px;
+		margin-bottom: 10px;
+	}
+
+	p {
+		font-size: 1.3em;
+	}
+
+	/*By combined Tags*/
+
+	/*By Class*/
+
+	/*By ID*/
+	#img01 {
+		max-width: 400px;
+	}
+
+	#img03 {
+		max-width: 500px;
+	}
+
+	#img05 {
+		max-width: 400px;
+	}
+
+	#img06 {
+		max-width: 500px;
+	}
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+	/*By Tag*/
+	h1 {
+		font-size: 2.5em;
+	}
+
+	h2, h3 {
+		font-size: 2em;
+	}
+
+	img {
+		float: none;
+		margin: 20px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 25px;
+	}
+
+	/*By combined Tags*/
+
+	/*By Class*/
+	.creatureContainer {
+		display: inline-block;
+		border-right: 2px groove black;
+		flex-basis: 50%;
+		width: 45%;
+	}
+
+
+	.creatureWrapper {
+	}
+
+	/*By ID*/
+	#img02 {
+		max-width: 300px;
+	}
+
+	#img03 {
+		max-width: 500px;
+		width: 95%;
+	}
+
+	#img05 {
+		max-width: 300px;
+	}
+
+	#img06 {
+		max-width: 500px;
+		width: 95%;
+	}
+}

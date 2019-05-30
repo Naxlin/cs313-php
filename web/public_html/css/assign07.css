@@ -1,0 +1,391 @@
+/*Any new webpage should include the:
+  	"* {box-sizing: border-box;}"
+  To all elements, to make sizing more uniform.
+*/
+/*Comment hex colors*/
+
+/* BYUI Color Theme:
+	rgb(0,118,182) 		// medium blue
+	rgb(34,34,34)		// their black
+	rgb(104,173,68) 	// Google search icon green
+	rgb(234,234,234) 	// side menu gray
+	rgb(238,238,238)	// footer light gray
+	rgb(37,37,37) 		// footer dark gray
+	rgb(51,51,51) 		// footer medium gray
+*/
+
+/* CSS for all screen sizes */
+/*By Tag*/
+* {
+	box-sizing: border-box;
+}
+
+a {
+	color: rgb(0,150,220); /* modded medium blue*/
+}
+
+a:visited {
+	color: rgb(0,180,250); /* modded lighter medium blue*/
+}
+
+body {
+	background-color: rgb(34,34,34); /*their black*/
+	color: white;
+	text-align: center;
+}
+
+h1 {
+	font-family: Helvetica;
+	margin: auto;
+}
+
+h2 {
+	background-color: rgb(0,118,182); /* medium blue */
+	border: 2px groove black;
+	border-top: 2px groove black;
+	display: block;
+	padding: 5px;
+	margin: 5px;
+	width: 100%;
+}
+
+h3 {
+	font-family: Helvetica;
+}
+
+header {
+	align-items: center;
+	background-color: rgb(0,118,182); /*medium blue*/
+	border-bottom: 5px groove rgb(34,34,34); /*their black*/
+	display: flex;
+	flex-flow: row;
+	height: 10vh;
+	justify-content: space-between;
+}
+
+hr {
+}
+
+img {
+}
+
+li {
+	text-align: left;
+}
+
+p, h3, li {
+	color: black;
+}
+
+div {
+}
+
+/*By combined Tags*/
+footer *, footer {
+	background-color: rgb(75,75,75); /*footer medium gray*/
+	color: white;
+	font-family: sans-serif;
+}
+
+
+/*By Class*/
+.academics {
+	margin-left: 13px;
+	text-align: left;
+	width: 95%;
+}
+
+.academics * {
+	width: 100%;
+}
+
+.contentLeft img {
+	padding-left: 10px;
+	text-align: left;
+	width: 100%;
+}
+
+.contentLeft p {
+	padding-left: 10px;
+	text-align: left;
+}
+
+.contentWidth {
+	margin-right: 10px;
+	width: 100%;
+}
+
+.flexCenter {
+	justify-content: center;
+}
+
+.flexCol {
+	display: flex;
+	flex-direction: column;
+}
+
+.flexRow {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.flexRow2Only {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.flexRow2Only * {
+	width: 50%;
+}
+
+.footLinkContainer {
+	max-width: 300px;
+	width: 45%;
+}
+
+.footLinkContainer * {
+	width: 100%;
+}
+
+.headerMargin {
+	align-content: center;
+	vertical-align: middle;
+	width: 15vw;
+}
+
+.img100px {
+	display: block;
+	margin-left: 25px;
+	max-width: 200px;
+}
+
+.img200px {
+	display: block;
+	float: right;
+	max-width: 200px;
+	position: relative;
+}
+
+.img300px {
+	display: block;
+	float: right;
+	max-width: 300px;
+	position: relative;
+}
+
+.left {
+	display: inline-block;
+	float: left;
+}
+
+.logo {
+	max-height: 100%;
+	max-width: 100%;
+	min-width: 50px;
+	margin: 3%;
+}
+
+.marginAuto {
+	margin: 0 auto;
+}
+
+.margin5 {
+	margin: 5px;
+}
+
+.pageContainer {
+	background-color: white;
+}
+
+.verticalDivider {
+	border-left: 1px solid rgb(234,234,234); /*side menu gray*/
+}
+
+.width95 {
+	width: 95%;
+}
+
+/*By ID*/
+#linkContainerTitle {
+	background-color: rgb(0,118,182); /* medium blue */
+	border: none;
+	border-bottom: 2px solid rgb(51,51,51); /* medium gray */
+	padding: 5px;
+	margin: 0px;
+}
+
+#linkContainer {
+	background-color: rgb(238,238,238); /* light gray */
+	border: 2px solid rgb(51,51,51); /* medium gray */
+	margin: 5px;
+	max-height: 430px;
+	width: 100%;
+}
+
+#linkContainer div * {
+	height: 50px;
+	position: relative;
+}
+
+#linkContainer div * * {
+	border: 1px solid rgb(34,34,34); /*their black*/
+	display: block;
+	font-size: 1em;
+	height: 100%;
+	padding-top: 15px;
+	text-decoration: none;
+	width: 100%;
+}
+
+#linkContainer div * *:hover {
+	background-color: rgb(212,212,212); /* light gray */
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+	/*By Tag*/
+	h1 {
+		font-size: 6vw;
+	}
+
+	/*By combined Tags*/
+
+	/*By Class*/
+	.img300px {
+		max-width: 100%;
+	}
+
+	/*By ID*/
+	#linkContainer {
+		max-width: 600px;
+	}
+} 
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+	/*By Tag*/
+	h1 {
+		font-size: 2em;
+	}
+
+	h2, h3 {
+		font-size: 1.5em;
+	}
+
+	p, li {
+		font-size: 1.3em;
+	}
+
+	/*By combined Tags*/
+
+	/*By Class*/
+
+
+	.contentLeft p {
+		padding-left: 30px;
+		text-align: left;
+	}
+
+	.flexRow2Only {
+		display: flex;
+		flex-flow: column wrap;
+	}
+
+	.flexRow2Only * {
+		width: 100%;
+	}
+
+	.contentWidth {
+		margin-right: 10px;
+		margin-left: -5px;
+		width: calc(100% - 265px);
+	}
+
+	.verticalDividerPadded {
+		border-left: 1px solid rgb(234,234,234); /*side menu gray*/
+		padding-left: 15px;
+	}
+
+	/*By ID*/
+	#linkContainer {
+		max-width: 250px;
+	}
+}
+
+@media only screen and (min-width: 1000px) {
+	/*By Class*/
+	.academics {
+		margin-left: 13px;
+		text-align: left;
+		width: 45%;
+	}
+}
+/* Large devices (laptops/desktops, 992px and up) */
+/* Changed to 1100px to make the text not ugly. */
+@media only screen and (min-width: 1100px) {
+	/*By Tag*/
+	h1 {
+		font-size: 2.5em;
+	}
+
+	/*By combined Tags*/
+
+	/*By Class*/
+	.contentLeft {
+		position: relative;
+	}
+
+	.mainImg {
+		float: right;
+		margin-bottom: 3px;
+		max-width: 600px;
+		padding-left: 10px;
+		position: relative;
+	}
+	/*By ID*/
+}
+
+@media only screen and (min-width: 1200px) {
+	/*By Tag*/
+	h1 {
+		font-size: 2.5em;
+	}
+
+	/*By combined Tags*/
+
+	/*By Class*/
+	.contentLeft {
+		position: relative;
+	}
+
+	.mainImg {
+		float: right;
+		margin-bottom: 3px;
+		max-width: 600px;
+		padding-left: 10px;
+		position: relative;
+	}
+
+	.img200px {
+		float: none;
+		max-height: 200px;
+		max-width: 200px;
+	}
+
+	.img300px {
+		float: none;
+		max-height: 200px;
+		max-width: 300px;
+	}
+
+	.content {
+		display: flex;
+		flex-direction: row-reverse;
+	}
+
+	/*By ID*/
+	#prospectives {
+		width: 10000px; /* For some reason it was acting out and this 
+		crazy number fixed it */
+	}
+}

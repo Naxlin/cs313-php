@@ -1,0 +1,142 @@
+/*Any new webpage should include the:
+  	"* {box-sizing: border-box;}"
+  To all elements, to make sizing more uniform.
+*/
+/*Comment hex colors*/
+
+/*By Tag*/
+* {
+	box-sizing: border-box;
+}
+body {
+	background-image: url("../resources/lavaCracks.jpg");
+	color: gold;
+	font-family: "Times New Roman";
+	text-align: center;
+}
+
+button {
+	border: 1px solid black;
+	color: gold;
+	padding: 0px;
+}
+
+button:hover {
+	background-color: rgb(234, 38, 36); /* Red */
+}
+
+div {
+	text-align: center;
+}
+
+h1 {
+	margin-top: -5px;
+	padding: 5px;
+}
+
+input {
+	background-color: rgba(253, 1, 0, 0.5); /* Dark Red */
+	color: gold;
+	border: 0;
+	padding-left: 15px;
+}
+
+input:hover {
+	background-color: rgb(234, 38, 36); /* Red */
+}
+
+input::placeholder { 
+	color: gold;
+}
+
+pre {
+	margin-top: 0px;
+}
+
+span {
+	font-weight: bold;
+}
+
+/*By combined Tags*/
+div * {
+	font-size: 16px;
+	height: 60px;
+	line-height: 60px;
+}
+
+/*By Class*/
+.borderNormal {
+	border: 5px groove rgb(234, 38, 36); /* Red */
+}
+
+.borderRight {
+	border-right: 2px groove rgb(234, 38, 36); /* Red */
+}
+
+.borderThin {
+	border: 2px groove rgb(234, 38, 36); /* Red */
+}
+
+.button {
+	background-color: rgba(253, 1, 0, 0.5); /* Dark Red */
+}
+
+.flexRow {
+	display: flex;
+	flex-direction: row;
+}
+
+.phpValues {
+	margin-left: 15px; 
+	margin-right: 22px;
+}
+
+.relative {
+	position: relative;
+}
+
+.widthHalf {
+	margin: 0 auto;
+	width: 50%;	
+}
+
+.widthQuarter {
+	margin: 0 auto;
+	width: 25%;
+}
+
+/*By ID*/
+#alerts {
+	font-size: 16px;
+	height: 60px;
+	line-height: 60px;
+}
+
+#formAPR {
+	height: 36px;
+	margin-top: 12px;
+}
+
+#formContainer {
+	background-color: rgba(0, 0, 0, 0.4); /* Faded black */
+	margin: 0 auto;
+	margin-top: 200px;
+	max-width: 1000px;
+	width: 90%;
+}
+
+#formLA {
+	height: 36px;
+	margin-top: 12px;
+}
+
+#formLT {
+	height: 36px;
+	margin-top: 12px;
+}
+
+#pageEnd {
+	font-size: 12px;
+	padding: 0px;
+	text-decoration: none;
+}

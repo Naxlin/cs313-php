@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Top Cities of the World</title>
+	<meta name="description" content="Brigham Young University - Idaho, 
+	is a university associated with the Church of Jesus Christ of 
+	Latter-day Saints that is student focused and affordable."/>
+	<meta name="keywords" content="BYUI, BYU-I, BYU-Idaho"/>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<script type="text/javascript" src="../js/assign08.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/assign08.css">
+	<link rel="icon" href="../ajax.png"> 
+	<!-- DEBUG LINE REMOVE OR COMMENT OUT BEFORE NORMAL PAGE USE -->
+	<!-- <meta http-equiv="refresh" content="1" > -->
+</head>
+
+<body onload="requestCity('usa.txt')">
+	<div id="pageContainer" class="flexCol">
+		<header>
+			<h1><strong>Top Ten Cities</strong></h1>
+			<hr>
+		</header>
+
+		<div class="citiesContainer">
+			<textarea id="cities"></textarea>
+			<h3>Select a country to see the ten largest cities</h3>
+			<button class="button" onclick="requestCity('usa.txt')">
+				USA
+			</button>
+			<button class="button" onclick="requestCity('canada.txt')">
+				Canada
+			</button>
+			<button class="button" onclick="requestCity('mexico.txt')">
+				Mexico
+			</button>
+			<button class="button" onclick="requestCity('russia.txt')">
+				Russia
+			</button>
+		</div>
+
+		<hr>
+		<h1><strong>Student List from JSON</strong></h1>
+		<hr>
+
+		<div class="jsonContainer">
+			<div id="json">
+				
+			</div>
+			<h3>Input a JSON file to request</h3>
+			<input type="input" name="jsonFile" id="jsonFilename" value="json.txt">
+			<br/> <br/>
+			<button id="jsonButton" onclick="requestJson()">Request JSON</button>
+		</div>
+
+		<footer>
+			<hr>
+			<p><strong>Webpage Author</strong> - Jonathan Smith
+			<br/>naxlin.everthaine@gmail.com</p>
+			<p>© copyright 2018</p>
+			<br/>
+		</footer>
+	</div>
+</body>
+</html>

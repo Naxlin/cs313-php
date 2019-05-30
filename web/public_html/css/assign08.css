@@ -1,0 +1,53 @@
+/*Any new webpage should include the:
+  	"* {box-sizing: border-box;}"
+  To all elements, to make sizing more uniform.
+*/
+/*Comment hex colors*/
+
+/*By Tag*/
+body {
+	background-color: #098898; /* Dark Turquoise */
+	color: white;
+	text-align: center;
+}
+
+table {
+	border-color: white;
+	margin: 0 auto;
+}
+
+/*By combined Tags*/
+
+/*By Class*/
+.button {
+	width: 15%;
+}
+
+.content {
+
+}
+
+.flexRow {
+	display: flex;
+	flex-direction: row;
+}
+
+
+
+/*By ID*/
+#cities {
+	background-color: white;
+	color: black;
+	display: inline-block;
+	height: 26vh;
+	text-align: left;
+	width: 45vw;
+}
+
+#jsonButton {
+	width: 25%;
+}
+
+#pageContainer {
+
+}

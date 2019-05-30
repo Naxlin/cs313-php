@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+   <title>Jonathan Smith's Home Page II</title>
+   <meta charset="utf-8"/>
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   <link rel="stylesheet" type="text/css" href="../css/assign02.css">
+</head>
+
+<body>
+   <header>
+      <!-- Top - First set of lines - float left -->
+      <div class="lineOuter floatLeft"></div>
+      <div class="lineLong floatLeft"></div>
+      <div class="lineInner floatLeft"></div>
+      <!-- Top - Second set of lines - float right -->
+      <div class="lineOuter floatRight"></div>
+      <div class="lineLong floatRight"></div>
+      <div class="lineInner floatRight"></div>
+      <!-- Page Title -->
+      <div id="headerTitle">
+         <h2><em>Welcome to Jonathan Smith's Site!</em></h2>
+      </div>
+
+      <!-- Create some space -->
+      <br/>      <br/>
+      <!-- Block quoted favorite quote -->
+      <blockquote>"Though I walk through the valley of the shadow of death, I
+       will fear no evil: for thou art with me." ~ Psalms 23:4</blockquote>
+      <!-- Create some space -->
+      <br/>      <br/>
+
+      <div id="headerFooter">
+         <!-- Bottom - First set of lines - float left -->
+         <div class="lineBottomOuter floatLeft"></div>
+         <div class="lineBottomLong floatLeft"></div>
+         <div class="lineBottomInner floatLeft"></div>
+         <!-- Bottom - Second set of lines - float right -->
+         <div class="lineBottomOuter floatRight"></div>
+         <div class="lineBottomLong floatRight"></div>
+         <div class="lineBottomInner floatRight"></div>
+         <!-- Link to CS 213 Assignments -->
+         <div id="linkContainer">
+            <a href="../index.html">
+               <div id="linkAssign">CS 213 Assignments</div>
+            </a>
+         </div>
+      </div>
+
+   </header>
+
+   <!-- Black Break line -->
+   <hr id="hrTop">
+
+   <!-- Navigation row -->
+   <nav>
+      <a href="https://google.com"><div>Uncle Google</div></a>
+      <a href="https://my.byui.edu/ICS/default.aspx"><div>Current School</div></a>
+      <a href="#tableContainer"><div>Current Classes</div></a>
+      <a href="#flippyBit"><div>Flippy Bit</div></a>
+   </nav>
+
+   <!-- Black Break line -->
+   <hr id="hrBot">
+   
+   <!-- Personal introduction text -->
+   <p class="content">Hi, my name is Jonathan Smith!<br/>I'm from <em>Hillsboro, 
+   Oregon,</em> a beautiful place near practically any outdoor activity.
+   <br/>I'm pursuing a Software Engineering major at one of the <strong>best
+   </strong> schools ever!</p>
+
+   <p class="content">
+      Did you know that you can do really cool things with <strong><em>html</em></strong>
+      , <strong><em>css</em></strong>, and <strong><em>javascript</em></strong>?
+   </p>
+
+   <p class="content">
+      I'm learning all about it in a majority of my classes below!
+   </p>
+
+   <br/>
+
+   <div id="tableContainer">
+      <!-- Table Title -->
+      <h3>Current Classes</h3>
+
+      <table> <!-- Organize by the class tags below -->
+         <tr>
+            <th>CS 213-01</th>
+            <th>CS 235-01</th>
+            <th>CS 246-01</th>
+            <th>FDREL 250-16</th>
+            <th>LANG 321-01</th>
+         </tr>
+
+         <tr>
+            <td>Web Engineering I</td>
+            <td>Data Structures</td>
+            <td>Software Design & Development</td>
+            <td>Jesus Christ & the Everlasting Gospel</td>
+            <td>Advanced Grammar in Language</td>
+         </tr>
+         <tr>
+            <td>Internet & web basics. The concepts for building client-side
+             web applications.</td>
+            <td>Introduces fundamental data structure concepts & algorithms.</td>
+            <td>Advanced object-oriented designs and software development.</td>
+            <td>The ministry of Jesus Christ & His divine roles & teachings 
+            throughout time.</td>
+            <td>The structure of English in detail. How English compares to 
+            your second language.</td>
+         </tr>
+         <tr>
+            <td><em>TR</em> - 9:45am-11:15am</td>
+            <td><em>MWF</em> - 11:30am-12:30pm</td>
+            <td><em>MWF</em> - 12:45pm-1:45pm</td>
+            <td><em>TR</em> - 11:30am-12:30pm</td>
+            <td><em>MWF</em> - 2:00pm-3:00pm</td>
+         </tr>
+         <tr>
+            <td>STC 398</td>
+            <td>STC 394</td>
+            <td>STC 394</td>
+            <td>Taylor 130</td>
+            <td>Smith 131</td>
+         </tr>
+      </table>
+   </div>
+
+   <br/>
+
+   <p class="content">
+      Oh, and I love books! So, I'm going to show you how webdesign and writing 
+      can come together with the form below!
+   </p>
+
+   <br/>
+
+   <img src="../resources/books.jpg" alt="Books Picture" id="books">
+
+   <br/>    <br/>    <br/>    <br/>    <br/>
+
+   <!-- Make this form a book idea journalizer -->
+   <div id="formContainer">
+      <form action="../index.html"> <!-- Temporary submission -->
+         <h3>Book Idea Journalizer</h3>
+
+         <div id="formRow1">
+            <input id="formJTitle" type="text" size="256" maxlength="256" 
+            name="title" placeholder=" Journal Entry Title:" class="floatLeft inline"> 
+
+            <!-- This will be used to bring past entries to the current form -->
+            <select id="formSelect" class="floatRight">
+               <!-- If this is selected do nothing -->
+               <option value="null" selected="selected">Select a Journal Entry</option> 
+               <option value="save0001">Title of saved journal entry</option>
+               <option value="save0002">Other saved entry's title</option>
+               <option value="save0003">Next saved entry's title</option>
+            </select>
+         </div>
+
+         <div id="formBody">
+            <textarea rows="24" size="2048" maxlength="2048" placeholder="Journal Entry:" 
+            class="inline"></textarea>     
+            <section id="formCheckContainer" class="inline">
+
+               <h3 class="smallTitle">World</h3>
+
+               <ul class="inline">
+                  <li>
+                     <input type="radio" name="world" value="Dalgoni">
+                     <span> Dalgoni </span>
+                  </li>
+                  <li>
+                     <input type="radio" name="world" value="Earth">
+                     <span> Earth </span>
+                  </li>
+                  <li>
+                     <input type="radio" name="world" value="Garnidia">
+                     <span> Garnidia </span>
+                  </li>
+               </ul>
+
+               <h3 class="smallTitle">What is it related to?</h3>
+
+               <ul class="inline">
+                  <li>
+                     <input type="checkbox" name="character">
+                     <span>Character Related</span>
+                  </li>
+                  <li>
+                     <input type="checkbox" name="event">
+                     <span>Event Related</span>
+                  </li>
+                  <li>
+                     <input type="checkbox" name="history">
+                     <span>History Related</span>
+                  </li>
+                  <li>
+                     <input type="checkbox" name="object">
+                     <span>Object Related</span>
+                  </li>
+                  <li>
+                     <input type="checkbox" name="place">
+                     <span>Place Related</span>
+                  </li>
+               </ul>
+
+               <h3 class="smallTitle">What is it talking about?</h3>
+
+               <ul class="inline">
+                  <li>
+                     <input type="checkbox" name="culture">
+                     <span>Specifies Content</span>
+                  </li>
+                  <li>
+                     <input type="checkbox" name="environment">
+                     <span>Specifies Culture</span>
+                  </li>
+                  <li>
+                     <input type="checkbox" name="mechanics">
+                     <span>Specifies Environment</span>
+                  </li>
+                  <li>
+                     <input type="checkbox" name="TESTNAME">
+                     <span>Specifies Mechanics</span>
+                  </li>
+                  <li>
+                     <input type="checkbox" name="TESTNAME">
+                     <span>Specifies Other</span>
+                  </li>
+               </ul>
+
+               <h3 class="smallTitle"></h3> <!-- Purposefully empty to create deviding line -->
+
+               <button type="submit" class="inline">Submit</button>
+               <button type="reset" class="inline">Reset</button>
+
+            </section>
+         </div>
+      </form>
+   </div>
+
+   <br/>    <br/>    <br/>    <br/>    <br/>
+
+   <div id="flippyBitContainer">
+      <h4>Flippy Bit And The Attack Of The Hexadecimals From Base 16</h4>
+
+      <a href="http://flippybitandtheattackofthehexadecimalsfrombase16.com/">
+         <img src="../resources/flippyBit.png" alt="Flippy Bit Image" id="flippyBit">
+      </a>
+   </div>
+
+   <br/>    <br/>
+
+   <!-- Page Footer -->
+   <footer>
+      <p id="pageEnd">© copyright 2018</p>
+   </footer>
+</body>
+</html>
+
+<!-- When finished be sure to verify the html5 through https://html5.validator.nu/ 
+
+   And that you new line wherever needed.
+-->
