@@ -36,14 +36,33 @@
 			</div>
 
 			<div id="thaumcraft1" class="thaumcraft" style="display: none;">
-				<div id="thaumcraftForm ">
-					<label for="thaum-item">Item: </label>
-					<input id="thaum-item" type="text" placeholder="Item">
-					<label for="thaum-aspect">Aspect: </label>
-					<input id="thaum-aspect" type="text" placeholder="Aspect">
-					<label for="thaum-amount">Amount: </label>
-					<input id="thaum-amount" type="text" placeholder="Amount">
-					<button type="submit" onclick="thaumcraftForm()">Apply Aspects</button>
+				<div id="thaumcraftForm">
+					<button type="button" onclick="thaumcraftForm()">Apply Aspects</button>
+					<div class="thaum-form-col">
+						<h3 class="index-h3">Item</h3>
+						<input id="thaumItem" type="text" placeholder="Item">
+						<hr>
+						<div id="thaumItemCol" class="thaum-item-col">
+							<!-- Example div returned from search query. Many might be returned. -->
+							<div id="itemCont5"> 
+								<input id="item5" type="checkbox" name="items[]" value="5" onclick="toggleItem(this.id)">
+								<label for="item5">Fifth Item</label>
+							</div>
+						</div>
+					</div>
+					<div class="thaum-form-col">
+						<h3 class="index-h3">Aspects</h3>
+						<input id="thaumAspect" type="text" placeholder="Aspect">
+						<hr>
+						<div id="thaumAspectCol" class="thaum-aspect-col">
+							<!-- Example div returned from search query. Many might be returned. -->
+							<div id="aspCont5"> 
+								<input id="aspect5" type="checkbox" name="aspects[]" value="5" onclick="toggleAspect(this.id)">
+								<label for="aspect5">Fifth Aspect</label>
+								<input id="amount5" type="text" name="amounts[]" style="display: none">
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 

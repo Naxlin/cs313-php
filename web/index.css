@@ -321,6 +321,13 @@ hr {
 	width: 30%;
 }
 
+.thaum-form-col {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	width: 45%;
+}
+
 .width-fourty {
 	width: 40%;
 }
