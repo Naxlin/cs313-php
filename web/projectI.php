@@ -36,13 +36,13 @@
 			</div>
 
 			<div id="thaumcraft1" class="thaumcraft" style="display: none;">
-				<div id="thaumcraftForm">
-					<input id="thaum-item" type="text" placeholder="Item">
+				<div id="thaumcraftForm ">
 					<label for="thaum-item">Item: </label>
-					<input id="thaum-aspect" type="text" placeholder="Aspect">
+					<input id="thaum-item" type="text" placeholder="Item">
 					<label for="thaum-aspect">Aspect: </label>
-					<input id="thaum-amount" type="text" placeholder="Amount">
+					<input id="thaum-aspect" type="text" placeholder="Aspect">
 					<label for="thaum-amount">Amount: </label>
+					<input id="thaum-amount" type="text" placeholder="Amount">
 					<button type="submit" onclick="thaumcraftForm()">Apply Aspects</button>
 				</div>
 			</div>
