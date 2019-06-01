@@ -70,6 +70,13 @@ function getTinkers(name) {
     xmlhttpSend(xmlhttp, request);
 }
 
+// Remove the hiding class from the active singularity
+function activateSingularity(sel) {
+	getId(sel.options[lastSingularity].value).classList.add('inactive');
+	getId(sel.options[sel.selectedIndex].value).classList.remove('inactive');
+	lastSingularity = sel.selectedIndex;
+}
+
 // Switches between overview and calculators.
 function toggleCalculators(id) {
 	var active = id;
