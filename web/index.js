@@ -1,9 +1,24 @@
 // Globals
-var lastSingularity = 0;
+var aspect4Amount = {};
 
 // Shortens the document.getElementById() tool.
 function getId(id) {
-	return document.getElementById(id)
+	return document.getElementById(id);
+}
+
+function getName(name) {
+	return document.getElementsByName(name);
+}
+
+// Finds currently selected radio button by parameter name
+function getRadioVal(name) {
+	var radios = getName(name);
+	for (var i = 0; i < radios.length; i++) {
+		if (radios[i].checked) {
+			return radios[i].value;
+		}
+	}
+	return null;
 }
 
 // Send to server function, logs request and sends it to the calculator handler.
@@ -20,9 +35,8 @@ function getSingularity(name) {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             console.log(this.responseText);
-			getId("singularity1").innerHTML = this.responseText;
-			getId("IronSingularity").classList.remove('inactive');
-			lastSingularity = 0;
+           	// var html = JSON.parse(this.responseText);
+           	getId("singularity1").innerHTML = this.responseText;
         }
     }
     request = {"cmd":"singularity", "name": name};
@@ -35,6 +49,9 @@ function getThaumcraft(name) {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             console.log(this.responseText);
+            var html = JSON.parse(this.responseText);
+           	getId("thaumItemCol").innerHTML = html['items'];
+           	getId("thaumAspectCol").innerHTML = html['aspects'];
         }
     }
     request = {"cmd":"thaumcraft", "name": name};
@@ -51,13 +68,6 @@ function getTinkers(name) {
     }
     request = {"cmd":"tinkers", "name": name};
     xmlhttpSend(xmlhttp, request);
-}
-
-// Remove the hiding class from the active singularity
-function activateSingularity(sel) {
-	getId(sel.options[lastSingularity].value).classList.add('inactive');
-	getId(sel.options[sel.selectedIndex].value).classList.remove('inactive');
-	lastSingularity = sel.selectedIndex;
 }
 
 // Switches between overview and calculators.
@@ -98,4 +108,115 @@ function switchToCalculator(id) {
 	getId(calc1 + 1).style.display = "block";
 	getId(calc2 + 1).style.display = "none";
 	getId(calc3 + 1).style.display = "none";
+}
+
+function toggleAspect(id) {
+	var aspect = getId(id);
+	var key = "amount" + aspect.value;
+	aspect4Amount[key] = id;
+	if (aspect.checked == true) {
+		getId(key).classList.remove('inactive');
+	} else {
+		getId(key).classList.add('inactive');
+	}
+}
+
+function toggleItem(id) {
+	// Clear select item warning, this'll only happen once, because 'radio'
+	// Also send updates for any checked aspects, because more than one could have been added
+	if (!getId("itemSelWarn").classList.contains("inactive")) {
+		getId("itemSelWarn").classList.add("inactive");
+	}
+
+	// This is going to need to get its own innerhtml, 
+	// aspectsearch, selected aspects, and associated values
+	// then send them through an HttpRequest
+	// Prepare and send HttpRequest
+	var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+            var html = JSON.parse(this.responseText);
+           	getId("thaumItemCol").innerHTML = html['items'];
+           	getId("thaumAspectCol").innerHTML = html['aspects'];
+        }
+    }
+    request = {
+    	"cmd":"updateAspectAmount",
+    	"itemName": getId("iLabel" + getId(id).value).innerHTML,
+    	"aspectName": getId("thaumAspect").value
+    };
+    xmlhttpSend(xmlhttp, request);
+}
+
+function updateAspectAmount(id) {
+	// Make sure value is within range
+	var ele = getId(id);
+	if (ele.value < ele.min) {
+		ele.value = ele.min;
+	} 
+	if (ele.value > ele.max) {
+		ele.value = ele.max;
+	}
+
+	console.log(ele.value);
+	var itemSel = getRadioVal("items[]");
+
+	// Validate that an Item is selected
+	if (itemSel == null) {
+		getId("itemSelWarn").classList.remove("inactive");
+		return; // Don't send HttpRequest
+	} else {
+		getId("itemSelWarn").classList.add("inactive");
+	}
+
+	// Prepare and send HttpRequest
+	var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+        }
+    }
+    request = {
+    	"cmd":"updateAspectAmount", 
+    	"itemName": getId("iLabel" + itemSel).innerHTML,
+    	"aspectName": getId("aLabel" + getId(aspect4Amount[id]).value).innerHTML,
+    	"amount": ele.value,
+
+    };
+    xmlhttpSend(xmlhttp, request);
+}
+
+function updateItemList(id) {
+	var ele = getId(id);
+
+	var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+           	getId("thaumItemCol").innerHTML = this.responseText;
+        }
+    }
+    request = {
+    	"cmd":"updateItemList", 
+    	"itemSearch": ele.value
+    };
+    xmlhttpSend(xmlhttp, request);
+}
+
+function updateAspectList(id) {
+	var ele = getId(id);
+
+	var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+           	getId("thaumAspectCol").innerHTML = this.responseText;
+        }
+    }
+    request = {
+    	"cmd":"updateItemList", 
+    	"aspectSearch": ele.value
+    };
+    xmlhttpSend(xmlhttp, request);
 }

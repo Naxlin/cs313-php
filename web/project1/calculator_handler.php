@@ -2,7 +2,7 @@
     $requestString = $_REQUEST['request'];
     $request = json_decode($requestString, true);
 
-    $commandMap = array('singularity'=>'singularity', 'thaumcraft'=>'thaumcraft', 'tinkers'=>'tinkers');
+    $commandMap = array('singularity'=>'singularity', 'thaumcraft'=>'thaumcraft', 'tinkers'=>'tinkers', 'updateAspectAmount'=>'updateAspectAmount', 'updateItemList'=>'updateItemList', 'updateAspectList'=>'updateAspectList',);
     $commandMap[$request['cmd']]($request);
 
     function connect() {

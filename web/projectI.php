@@ -9,7 +9,7 @@
 	<!-- DEBUG LINE REMOVE OR COMMENT OUT BEFORE NORMAL PAGE USE -->
 	<!-- <meta http-equiv="refresh" content="1" >  -->
 </head>
-<body onload="getSingularity('')">
+<body onload="switchToCalculator('thaumcraft');">
 	<?php require 'header.php'; ?>
 
 	<div id="overview1" class="page-container" style="display: none;">
@@ -36,30 +36,28 @@
 			</div>
 
 			<div id="thaumcraft1" class="thaumcraft" style="display: none;">
-				<div id="thaumcraftForm">
-					<button type="button" onclick="thaumcraftForm()">Apply Aspects</button>
+				<div id="thaumDump" class="row">
 					<div class="thaum-form-col">
 						<h3 class="index-h3">Item</h3>
-						<input id="thaumItem" type="text" placeholder="Item">
-						<hr>
+						<input id="thaumItem" type="text" class="thaum-input" placeholder="Item" onkeyup="updateItemList(this.id)">
 						<div id="thaumItemCol" class="thaum-item-col">
 							<!-- Example div returned from search query. Many might be returned. -->
-							<div id="itemCont5"> 
-								<input id="item5" type="checkbox" name="items[]" value="5" onclick="toggleItem(this.id)">
-								<label for="item5">Fifth Item</label>
+							<div id="itemSelWarn" class="itemWarn inactive">Please select an Item</div>
+							<div id="itemCont5" class="thaum-item"> 
+								<input id="item5" type="radio" name="items[]" class="radio-check" value="5" onclick="toggleItem(this.id)">
+								<label id="iLabel5" for="item5">Fifth Item</label>
 							</div>
 						</div>
 					</div>
 					<div class="thaum-form-col">
 						<h3 class="index-h3">Aspects</h3>
-						<input id="thaumAspect" type="text" placeholder="Aspect">
-						<hr>
-						<div id="thaumAspectCol" class="thaum-aspect-col">
+						<input id="thaumAspect" type="text" class="thaum-input" placeholder="Aspect" onkeyup="updateAspectList(this.id)">
+						<div id="thaumAspectCol" class="thaum-item-col">
 							<!-- Example div returned from search query. Many might be returned. -->
-							<div id="aspCont5"> 
-								<input id="aspect5" type="checkbox" name="aspects[]" value="5" onclick="toggleAspect(this.id)">
-								<label for="aspect5">Fifth Aspect</label>
-								<input id="amount5" type="text" name="amounts[]" style="display: none">
+							<div id="aspCont5" class="thaum-item"> 
+								<input id="aspect5" type="checkbox" class="radio-check" name="aspects[]" value="5" onclick="toggleAspect(this.id)">
+								<label id="aLabel5" for="aspect5" >Fifth Aspect</label>
+								<input id="amount5" type="number" class="thaum-input inactive" name="amounts[]" placeholder="Amount" min="1" max="64" onkeyup="updateAspectAmount(this.id)">
 							</div>
 						</div>
 					</div>

@@ -70,6 +70,12 @@ hr {
 	font-weight: bold;
 }
 
+.button-aspect {
+	font-size: 20px;
+	height: 40px;
+	width: 200px;
+}
+
 .button-calc {
 	background-color: mediumturquoise;
 	border: 1px solid black;
@@ -281,6 +287,13 @@ hr {
 	transition-duration: .35s;
 }
 
+.itemWarn {
+	background-color: #f2b14b;
+	font-size: 20px;
+	height: 60px;
+	line-height: 60px;
+}
+
 .page-container {
 	text-align: center;
 	margin: 5px auto;
@@ -321,11 +334,29 @@ hr {
 	width: 30%;
 }
 
+.thaumcraft {
+	margin-bottom: 40px;
+}
+
 .thaum-form-col {
-	align-items: center;
 	display: flex;
 	flex-direction: column;
 	width: 45%;
+}
+
+.thaum-input {
+	font-size: 20px;
+	justify-content: center;
+	line-height: 40px;
+	margin-left: 25px;
+	padding-left: 20px;
+	width: 200px;
+}
+
+.thaum-item-col {
+	border-top: 2px solid black;
+	margin-left: 10px;
+	margin-top: 30px;
 }
 
 .width-fourty {
@@ -355,6 +386,21 @@ hr {
 
 .closer {
 	margin: 5px auto;
+}
+
+.thaum-item {
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+	font-size: 20px;
+	height: 60px;
+	line-height: 60px;
+	padding-left: 20px;
+	text-align: left;
+}
+
+.radio-check: {
+	height: 20px;
+	width: 20px;
 }
 
 .closer-header {
