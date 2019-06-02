@@ -167,15 +167,13 @@ function toggleItem(id) {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             console.log(this.responseText);
-            var html = JSON.parse(this.responseText);
-           	getId("thaumItemCol").innerHTML = html['items'];
-           	getId("thaumAspectCol").innerHTML = html['aspects'];
+           	getId("thaumAspectCol").innerHTML = this.responseText;
         }
     }
     request = {
-    	"cmd":"updateAspectAmount",
+    	"cmd":"getItemAspects",
     	"itemName": getId("iLabel" + getId(id).value).innerHTML,
-    	"aspectName": getId("thaumAspect").value
+    	"aspectSearch": getId("thaumAspect").value
     };
     xmlhttpSend(xmlhttp, request);
 }
