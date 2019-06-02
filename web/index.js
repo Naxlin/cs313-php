@@ -58,6 +58,9 @@ function getThaumcraft(name) {
     }
     request = {"cmd":"thaumcraft", "name": name};
     xmlhttpSend(xmlhttp, request);
+
+    getId(thaumItem).value = "";
+    getId(thaumAspect).value = "";
 }
 
 // Server request and handler for Tinkers Construct.
