@@ -277,31 +277,30 @@
         $row = $stmt->fetch();
         $itemId = $row['item_id'];
 
-        $sql = 'SELECT aspect, amount FROM thaumcraft WHERE item LIKE :id';
+        $sql = 'SELECT aspect, amount FROM thaumcraft WHERE item = :id';
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':id', $itemId, PDO::PARAM_STR);
         $stmt->execute();
         $rows = $stmt->fetchAll();
         
         $itemsAspects = '';
+        $inc = 1;
         foreach ($rows as $row => $item) {
             $aspectId = $item['aspect'];
             $amount = $item['amount'];
-            $sql = 'SELECT aspect_name FROM aspects WHERE aspect_id LIKE :id';
+            $sql = 'SELECT aspect_name FROM aspects WHERE aspect_id = :id';
             $stmt = $db->prepare($sql);
             $stmt->bindValue(':id', $aspectId, PDO::PARAM_STR);
             $stmt->execute();
-            $aRows = $stmt->fetchAll();
-            $inc = 1;
-            foreach ($aRows as $aRow => $aItem) {
-                $itemsAspects = $itemsAspects . '<div id="aspCont' . $inc . '" class="thaum-item">'; 
-                $itemsAspects = $itemsAspects . '<input id="aspect' . $inc . '" type="checkbox" class="radio-check"';
-                $itemsAspects = $itemsAspects . 'name="aspects[]" value="' . $inc . '" onclick="toggleAspect(this.id)">';
-                $itemsAspects = $itemsAspects . '<label id="aLabel' . $inc . '" for="aspect' . $inc . '" class="thaum-label-aspect">';
-                $itemsAspects = $itemsAspects . $aItem['aspect_name'] . '</label><input id="amount' . $inc . '" type="number" class=';
-                $itemsAspects = $itemsAspects . '"thaum-input inactive" name="amounts[]" placeholder="Amount" min="1"';
-                $itemsAspects = $itemsAspects . 'max="64" onkeyup="updateAspectAmount(this.id)" value="' . $amount . '"></div>';
-                $inc++;
+            $aRows = $stmt->fetch();
+            $itemsAspects = $itemsAspects . '<div id="aspCont' . $inc . '" class="thaum-item">'; 
+            $itemsAspects = $itemsAspects . '<input id="aspect' . $inc . '" type="checkbox" class="radio-check"';
+            $itemsAspects = $itemsAspects . 'name="aspects[]" value="' . $inc . '" onclick="toggleAspect(this.id)">';
+            $itemsAspects = $itemsAspects . '<label id="aLabel' . $inc . '" for="aspect' . $inc . '" class="thaum-label-aspect">';
+            $itemsAspects = $itemsAspects . $aRows['aspect_name'] . '</label><input id="amount' . $inc . '" type="number" class=';
+            $itemsAspects = $itemsAspects . '"thaum-input inactive" name="amounts[]" placeholder="Amount" min="1"';
+            $itemsAspects = $itemsAspects . 'max="64" onkeyup="updateAspectAmount(this.id)" value="' . $amount . '"></div>';
+            $inc++;
             }
         }
 
