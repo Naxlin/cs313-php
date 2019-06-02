@@ -402,6 +402,11 @@ hr {
 	text-align: left;
 }
 
+.thaum-input-row {
+	margin: 0 auto;
+	margin-right: 500px;
+}
+
 .radio-check: {
 	height: 20px;
 	width: 20px;

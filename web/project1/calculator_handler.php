@@ -2,7 +2,7 @@
     $requestString = $_REQUEST['request'];
     $request = json_decode($requestString, true);
 
-    $commandMap = array('singularity'=>'singularity', 'thaumcraft'=>'thaumcraft', 'tinkers'=>'tinkers', 'updateAspectAmount'=>'updateAspectAmount', 'updateItemList'=>'updateItemList', 'updateAspectList'=>'updateAspectList',);
+    $commandMap = array('singularity'=>'singularity', 'thaumcraft'=>'thaumcraft', 'tinkers'=>'tinkers', 'updateAspectAmount'=>'updateAspectAmount', 'updateItemList'=>'updateItemList', 'updateAspectList'=>'updateAspectList', 'addAspect2List'=>'addAspect2List');
     $commandMap[$request['cmd']]($request);
 
     function connect() {
@@ -133,11 +133,11 @@
             $aspects = $aspects . '<label id="aLabel' . $inc . '" for="aspect' . $inc . '" class="thaum-label">';
             $aspects = $aspects . $item['aspect_name'] . '</label><input id="amount' . $inc . '" type="number" class=';
             $aspects = $aspects . '"thaum-input inactive" name="amounts[]" placeholder="Amount" min="1"';
-            $aspects = $aspects . 'max="64" onkeyup="updateAspectAmount(this.id)"></div>';
+            $aspects = $aspects . 'max="64" onkeyup="updateAspectAmount(this.id)" value="1"></div>';
             $inc++;
         }
-        $obj = array('items'=> $items, 'aspects'=>$aspects);
-        echo json_encode($obj);
+        $rtnobj = array('items'=> $items, 'aspects'=>$aspects);
+        echo json_encode($rtnobj);
     }
 
     function tinkers($obj) {
@@ -157,5 +157,53 @@
         // $compiled_list = $compiled_list . '</ul>';
         echo "tinkers - ";// . $compList;
     }
+
+    function addAspect2List($obj) {
+        $itemName = $obj['itemName'];
+        $aspectName = $obj['aspectName'];
+        $amount = $obj['amount'];
+
+    }
+
+    function updateAspectAmount($obj) {
+        $itemName = $obj['itemName'];
+        $aspectName = $obj['aspectName'];
+        $amount = $obj['amount'];
+
+        $db = connect();
+        $sql = 'SELECT item_id FROM items WHERE item_name = :name';
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':name', "%$itemName%", PDO::PARAM_STR);
+        $stmt->execute();
+        $row = $stmt->fetch();
+        $itemId = $row['item_id'];
+        var_dump($itemId);
+
+        $sql = 'SELECT aspect_id FROM aspects WHERE aspect_name = :name';
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':name', "%$aspectName%", PDO::PARAM_STR);
+        $stmt->execute();
+        $row = $stmt->fetch();
+        $aspectId = $row['aspect_id'];
+        var_dump($aspectId);
+
+        $sql = 'UPDATE thaumcraft SET amount = :amount WHERE item = :itemId AND aspect = :aspectId';
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':amount', "%$amount%", PDO::PARAM_STR);
+        $stmt->bindValue(':itemId', "%$itemId%", PDO::PARAM_STR);
+        $stmt->bindValue(':aspectId', "%$aspectId%", PDO::PARAM_STR);
+        $stmt->execute();
+        echo "Updated $itemName's $aspectName to $amount";
+    }
+
+    function updateItemList($obj) {
+
+    }
+
+    function updateAspectList($obj) {
+
+    }
+
+
 ?>
 

@@ -128,6 +128,21 @@ function toggleAspect(id) {
 	} else {
 		getId(key).classList.add('inactive');
 	}
+
+	// Prepare and send HttpRequest
+	var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+        }
+    }
+    request = {
+    	"cmd":"addAspect2List",
+    	"itemName": getId("iLabel" + getId(id).value).innerHTML,
+    	"aspectName": getId("aLabel" + aspect.value).innerHTML,
+    	"amount": getId(key).value
+    };
+    xmlhttpSend(xmlhttp, request);
 }
 
 function toggleItem(id) {
@@ -137,9 +152,6 @@ function toggleItem(id) {
 		getId("itemSelWarn").classList.add("inactive");
 	}
 
-	// This is going to need to get its own innerhtml, 
-	// aspectsearch, selected aspects, and associated values
-	// then send them through an HttpRequest
 	// Prepare and send HttpRequest
 	var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
