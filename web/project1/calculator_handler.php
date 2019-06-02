@@ -218,11 +218,11 @@
     }
 
     function updateItemList($obj) {
-        $name = $obj['itemSearch'];
+        $name = strtolower($obj['itemSearch']);
 
         $items = '<div id="itemSelWarn" class="itemWarn inactive">Please select an Item</div>';
         $db = connect();
-        $sql = 'SELECT item_name FROM items WHERE item_name LIKE :name';
+        $sql = 'SELECT item_name FROM items WHERE LOWER(item_name) LIKE :name';
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':name', "%$name%", PDO::PARAM_STR);
         $stmt->execute();
@@ -242,11 +242,11 @@
     }
 
     function updateAspectList($obj) {
-        $name = $obj['aspectSearch'];
+        $name = strtolower($obj['aspectSearch']);
 
         $aspects = '';
         $db = connect();
-        $sql = 'SELECT aspect_name FROM aspects WHERE aspect_name LIKE :name';
+        $sql = 'SELECT aspect_name FROM aspects WHERE LOWER(aspect_name) LIKE :name';
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':name', "%$name%", PDO::PARAM_STR);
         $stmt->execute();
