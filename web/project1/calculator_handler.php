@@ -313,7 +313,6 @@
         $stmt->bindValue(':name', "%$aspectName%", PDO::PARAM_STR);
         $stmt->execute();
         $rows = $stmt->fetchAll();
-        $inc = 1;
         foreach ($rows as $row => $item) {
             if (!in_array($item['aspect_id'], $aspectIds)) {
                 $aspects = $aspects . '<div id="aspCont' . $inc . '" class="thaum-item">'; 
