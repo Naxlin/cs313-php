@@ -133,7 +133,8 @@
             $aspects = $aspects . '<label id="aLabel' . $inc . '" for="aspect' . $inc . '" class="thaum-label-aspect">';
             $aspects = $aspects . $item['aspect_name'] . '</label><input id="amount' . $inc . '" type="number" class=';
             $aspects = $aspects . '"thaum-input inactive" name="amounts[]" placeholder="Amount" min="1"';
-            $aspects = $aspects . 'max="64" onkeyup="updateAspectAmount(this.id)" value="1"></div>';
+            $aspects = $aspects . 'max="64" onkeyup="updateAspectAmount(this.id)" onclick="updateAspectAmount(this.id)"';
+            $aspects = $aspects . 'value="1"></div>';
             $inc++;
         }
         $rtnobj = array('items'=> $items, 'aspects'=>$aspects);
@@ -299,9 +300,9 @@
             $itemsAspects = $itemsAspects . '<label id="aLabel' . $inc . '" for="aspect' . $inc . '" class="thaum-label-aspect">';
             $itemsAspects = $itemsAspects . $aRows['aspect_name'] . '</label><input id="amount' . $inc . '" type="number" class=';
             $itemsAspects = $itemsAspects . '"thaum-input inactive" name="amounts[]" placeholder="Amount" min="1"';
-            $itemsAspects = $itemsAspects . 'max="64" onkeyup="updateAspectAmount(this.id)" value="' . $amount . '"></div>';
+            $itemsAspects = $itemsAspects . 'max="64" onkeyup="updateAspectAmount(this.id)"';
+            $itemsAspects = $itemsAspects . 'onclick="updateAspectAmount(this.id)" value="' . $amount . '"></div>';
             $inc++;
-            }
         }
 
         $aspects = '';
