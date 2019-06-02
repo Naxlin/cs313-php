@@ -115,7 +115,7 @@
             $itemList = $itemList . '<input id="item' . $inc . '" type="radio" name="items[]" class="';
             $itemList = $itemList . 'radio-check" value="' . $inc . '" onclick="toggleItem(this.id)">';
             $itemList = $itemList . '<label id="iLabel' . $inc . '" for="item' . $inc . '">';
-            $itemList = $itemList . $item . '</label></div>';
+            $itemList = $itemList . $item['item_name'] . '</label></div>';
             $inc++;
         }
         $sql = 'SELECT aspect_name FROM aspects WHERE aspect_name LIKE :name';
@@ -129,7 +129,7 @@
             $aspectList = $aspectList . '<input id="aspect' . $inc . '" type="checkbox" class="radio-check"';
             $aspectList = $aspectList . 'name="aspects[]" value="' . $inc . '" onclick="toggleAspect(this.id)">';
             $aspectList = $aspectList . '<label id="aLabel' . $inc . '" for="aspect' . $inc . '">';
-            $aspectList = $aspectList . $item . '</label><input id="amount' . $inc . '" type="number" class=';
+            $aspectList = $aspectList . $item['aspect_name'] . '</label><input id="amount' . $inc . '" type="number" class=';
             $aspectList = $aspectList . '"thaum-input inactive" name="amounts[]" placeholder="Amount" min="1"';
             $aspectList = $aspectList . 'max="64" onkeyup="updateAspectAmount(this.id)"></div>';
             $inc++;
