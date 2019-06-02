@@ -249,13 +249,7 @@ function updateItemList(id) {
     };
     xmlhttpSend(xmlhttp, request);
 
-    var boxes = getName("aspects[]");
-	for (var i = 0; i < boxes.length; i++) {
-		if (boxes[i].checked) {
-			getId("amount" + aspect.value).classList.add('inactive');
-			boxes[i].checked = false;
-		}
-	}
+    updateAspectList("thaumAspect");
 }
 
 function updateAspectList(id) {
