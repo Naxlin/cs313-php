@@ -121,6 +121,15 @@ function switchToCalculator(id) {
 
 function toggleAspect(id) {
 	var aspect = getId(id);
+
+	if (getRadioVal("items[]") == null) {
+		getId("itemSelWarn").classList.remove("inactive");
+		aspect.checked = false;
+		return; // Don't send HttpRequest
+	} else {
+		getId("itemSelWarn").classList.add("inactive");
+	}
+
 	var key = "amount" + aspect.value;
 	aspect4Amount[key] = id;
 	if (aspect.checked == true) {

@@ -132,7 +132,7 @@
             $aspects = $aspects . 'name="aspects[]" value="' . $inc . '" onclick="toggleAspect(this.id)">';
             $aspects = $aspects . '<label id="aLabel' . $inc . '" for="aspect' . $inc . '" class="thaum-label">';
             $aspects = $aspects . $item['aspect_name'] . '</label><input id="amount' . $inc . '" type="number" class=';
-            $aspects = $aspects . '"thaum-input inactive" name="amounts[]" placeholder="Amount" min="1"';
+            $aspects = $aspects . '"thaum-input thaum-input-row inactive" name="amounts[]" placeholder="Amount" min="1"';
             $aspects = $aspects . 'max="64" onkeyup="updateAspectAmount(this.id)" value="1"></div>';
             $inc++;
         }
