@@ -121,8 +121,9 @@ function switchToCalculator(id) {
 
 function toggleAspect(id) {
 	var aspect = getId(id);
+	var itemSel = getRadioVal("items[]")
 
-	if (getRadioVal("items[]") == null) {
+	if (itemSel == null) {
 		getId("itemSelWarn").classList.remove("inactive");
 		aspect.checked = false;
 		return; // Don't send HttpRequest
@@ -147,7 +148,7 @@ function toggleAspect(id) {
     }
     request = {
     	"cmd":"addAspect2List",
-    	"itemName": getId("iLabel" + getId(id).value).innerHTML,
+    	"itemName": getId("iLabel" + itemSel).innerHTML,
     	"aspectName": getId("aLabel" + aspect.value).innerHTML,
     	"amount": getId(key).value
     };

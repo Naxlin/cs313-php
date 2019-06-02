@@ -402,9 +402,9 @@ hr {
 	text-align: left;
 }
 
-.thaum-input-row {
-	margin: 0 auto;
-	margin-right: 200px;
+.thaum-label-aspect {
+	margin-left: 10px;
+	width: 100px;
 }
 
 .radio-check: {

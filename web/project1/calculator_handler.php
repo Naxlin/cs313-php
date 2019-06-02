@@ -130,9 +130,9 @@
             $aspects = $aspects . '<div id="aspCont' . $inc . '" class="thaum-item">'; 
             $aspects = $aspects . '<input id="aspect' . $inc . '" type="checkbox" class="radio-check"';
             $aspects = $aspects . 'name="aspects[]" value="' . $inc . '" onclick="toggleAspect(this.id)">';
-            $aspects = $aspects . '<label id="aLabel' . $inc . '" for="aspect' . $inc . '" class="thaum-label">';
+            $aspects = $aspects . '<label id="aLabel' . $inc . '" for="aspect' . $inc . '" class="thaum-label-aspect">';
             $aspects = $aspects . $item['aspect_name'] . '</label><input id="amount' . $inc . '" type="number" class=';
-            $aspects = $aspects . '"thaum-input thaum-input-row inactive" name="amounts[]" placeholder="Amount" min="1"';
+            $aspects = $aspects . '"thaum-input inactive" name="amounts[]" placeholder="Amount" min="1"';
             $aspects = $aspects . 'max="64" onkeyup="updateAspectAmount(this.id)" value="1"></div>';
             $inc++;
         }
@@ -170,7 +170,6 @@
         $stmt->execute();
         $row = $stmt->fetch();
         $itemId = $row['item_id'];
-        var_dump($itemId);
 
         $sql = 'SELECT aspect_id FROM aspects WHERE aspect_name = :name';
         $stmt = $db->prepare($sql);
@@ -178,7 +177,6 @@
         $stmt->execute();
         $row = $stmt->fetch();
         $aspectId = $row['aspect_id'];
-        var_dump($aspectId);
 
         $sql = 'INSERT INTO thaumcraft (item, aspect, amount) VALUES (:itemId, :aspectId, :amount)';
         $stmt = $db->prepare($sql);
@@ -186,7 +184,7 @@
         $stmt->bindValue(':aspectId', "$aspectId", PDO::PARAM_STR);
         $stmt->bindValue(':amount', "$amount", PDO::PARAM_STR);
         $stmt->execute();
-        echo "Inserted row for $itemName with $aspectName at $amount";
+        echo "Inserted row for $itemName with $amount $aspectName";
 
     }
 
@@ -202,7 +200,6 @@
         $stmt->execute();
         $row = $stmt->fetch();
         $itemId = $row['item_id'];
-        var_dump($itemId);
 
         $sql = 'SELECT aspect_id FROM aspects WHERE aspect_name = :name';
         $stmt = $db->prepare($sql);
@@ -210,7 +207,6 @@
         $stmt->execute();
         $row = $stmt->fetch();
         $aspectId = $row['aspect_id'];
-        var_dump($aspectId);
 
         $sql = 'UPDATE thaumcraft SET amount = :amount WHERE item = :itemId AND aspect = :aspectId';
         $stmt = $db->prepare($sql);
@@ -218,15 +214,55 @@
         $stmt->bindValue(':itemId', "$itemId", PDO::PARAM_STR);
         $stmt->bindValue(':aspectId', "$aspectId", PDO::PARAM_STR);
         $stmt->execute();
-        echo "Updated $itemName's $aspectName to $amount";
+        echo "Updated $itemName to $amount $aspectName";
     }
 
     function updateItemList($obj) {
+        $name = $obj['itemSearch'];
 
+        $items = '<div id="itemSelWarn" class="itemWarn inactive">Please select an Item</div>';
+        $db = connect();
+        $sql = 'SELECT item_name FROM items WHERE item_name LIKE :name';
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':name', "%$name%", PDO::PARAM_STR);
+        $stmt->execute();
+        $rows = $stmt->fetchAll();
+        $inc = 1;
+        foreach ($rows as $row => $item) {
+            if ($item['item_name'] != "No Item") {
+                $items = $items . '<div id="itemCont' . $inc . '" class="thaum-item">'; 
+                $items = $items . '<input id="item' . $inc . '" type="radio" name="items[]" class="';
+                $items = $items . 'radio-check" value="' . $inc . '" onclick="toggleItem(this.id)">';
+                $items = $items . '<label id="iLabel' . $inc . '" for="item' . $inc . '" class="thaum-label">';
+                $items = $items . $item['item_name'] . '</label></div>';
+                $inc++;
+            }
+        }
+        echo $items;
     }
 
     function updateAspectList($obj) {
+        $name = $obj['aspectSearch'];
 
+        $aspects = '';
+        $db = connect();
+        $sql = 'SELECT aspect_name FROM aspects WHERE aspect_name LIKE :name';
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':name', "%$name%", PDO::PARAM_STR);
+        $stmt->execute();
+        $rows = $stmt->fetchAll();
+        $inc = 1;
+        foreach ($rows as $row => $item) {
+            $aspects = $aspects . '<div id="aspCont' . $inc . '" class="thaum-item">'; 
+            $aspects = $aspects . '<input id="aspect' . $inc . '" type="checkbox" class="radio-check"';
+            $aspects = $aspects . 'name="aspects[]" value="' . $inc . '" onclick="toggleAspect(this.id)">';
+            $aspects = $aspects . '<label id="aLabel' . $inc . '" for="aspect' . $inc . '" class="thaum-label-aspect">';
+            $aspects = $aspects . $item['aspect_name'] . '</label><input id="amount' . $inc . '" type="number" class=';
+            $aspects = $aspects . '"thaum-input inactive" name="amounts[]" placeholder="Amount" min="1"';
+            $aspects = $aspects . 'max="64" onkeyup="updateAspectAmount(this.id)" value="1"></div>';
+            $inc++;
+        }
+        echo $aspects
     }
 
 
