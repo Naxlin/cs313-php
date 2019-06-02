@@ -233,6 +233,14 @@ function updateItemList(id) {
     	"itemSearch": ele.value
     };
     xmlhttpSend(xmlhttp, request);
+
+    var boxes = getName("aspects[]");
+	for (var i = 0; i < boxes.length; i++) {
+		if (boxes[i].checked) {
+			getId("amount" + aspect.value).classList.add('inactive');
+			boxes[i].checked = false;
+		}
+	}
 }
 
 function updateAspectList(id) {
@@ -246,7 +254,7 @@ function updateAspectList(id) {
         }
     }
     request = {
-    	"cmd":"updateItemList", 
+    	"cmd":"updateAspectList", 
     	"aspectSearch": ele.value
     };
     xmlhttpSend(xmlhttp, request);
