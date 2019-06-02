@@ -403,6 +403,7 @@ hr {
 }
 
 .thaum-label-aspect {
+	display: inline-block;
 	margin-left: 10px;
 	width: 100px;
 }
