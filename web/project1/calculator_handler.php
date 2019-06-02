@@ -321,7 +321,7 @@
                 $aspects = $aspects . '<label id="aLabel' . $inc . '" for="aspect' . $inc . '" class="thaum-label-aspect">';
                 $aspects = $aspects . $item['aspect_name'] . '</label><input id="amount' . $inc . '" type="number" class=';
                 $aspects = $aspects . '"thaum-input inactive" name="amounts[]" placeholder="Amount" min="1"';
-                $aspects = $aspects . 'max="64" onkeyup="updateAspectAmount(this.id)" value="1"></div>';
+                $aspects = $aspects . 'max="64" onkeyup="updateAspectAmount(this.id)"onclick="updateAspectAmount(this.id)" value="1"></div>';
                 $inc++;
             }
         }
@@ -354,6 +354,8 @@
         $stmt->bindValue(':itemId', $itemId, PDO::PARAM_STR);
         $stmt->bindValue(':aspectId', $aspectId, PDO::PARAM_STR);
         $stmt->execute();
+
+        getItemAspects(array('itemName'=>$itemName, 'aspectName'=>$aspectName));
         echo "Removed $aspectName from $itemName";
     }
 ?>
