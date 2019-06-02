@@ -45,7 +45,7 @@
 							<div id="itemSelWarn" class="itemWarn inactive">Please select an Item</div>
 							<div id="itemCont5" class="thaum-item"> 
 								<input id="item5" type="radio" name="items[]" class="radio-check" value="5" onclick="toggleItem(this.id)">
-								<label id="iLabel5" for="item5">Fifth Item</label>
+								<label id="iLabel5" for="item5" class="thaum-label">Fifth Item</label>
 							</div>
 						</div>
 					</div>
@@ -56,7 +56,7 @@
 							<!-- Example div returned from search query. Many might be returned. -->
 							<div id="aspCont5" class="thaum-item"> 
 								<input id="aspect5" type="checkbox" class="radio-check" name="aspects[]" value="5" onclick="toggleAspect(this.id)">
-								<label id="aLabel5" for="aspect5" >Fifth Aspect</label>
+								<label id="aLabel5" for="aspect5" class="thaum-label">Fifth Aspect</label>
 								<input id="amount5" type="number" class="thaum-input inactive" name="amounts[]" placeholder="Amount" min="1" max="64" onkeyup="updateAspectAmount(this.id)">
 							</div>
 						</div>

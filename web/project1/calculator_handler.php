@@ -101,8 +101,8 @@
 
     function thaumcraft($obj) {
         $name = $obj['name'];
-        $itemList = '<div id="itemSelWarn" class="itemWarn inactive">Please select an Item</div>';
-        $aspectList = '';
+        $items = '<div id="itemSelWarn" class="itemWarn inactive">Please select an Item</div>';
+        $aspects = '';
         $db = connect();
         $sql = 'SELECT item_name FROM items WHERE item_name LIKE :name';
         $stmt = $db->prepare($sql);
@@ -111,12 +111,14 @@
         $rows = $stmt->fetchAll();
         $inc = 1;
         foreach ($rows as $row => $item) {
-            $itemList = $itemList . '<div id="itemCont' . $inc . '" class="thaum-item">'; 
-            $itemList = $itemList . '<input id="item' . $inc . '" type="radio" name="items[]" class="';
-            $itemList = $itemList . 'radio-check" value="' . $inc . '" onclick="toggleItem(this.id)">';
-            $itemList = $itemList . '<label id="iLabel' . $inc . '" for="item' . $inc . '">';
-            $itemList = $itemList . $item['item_name'] . '</label></div>';
-            $inc++;
+            if ($item['item_name'] != "No Item") {
+                $items = $items . '<div id="itemCont' . $inc . '" class="thaum-item">'; 
+                $items = $items . '<input id="item' . $inc . '" type="radio" name="items[]" class="';
+                $items = $items . 'radio-check" value="' . $inc . '" onclick="toggleItem(this.id)">';
+                $items = $items . '<label id="iLabel' . $inc . '" for="item' . $inc . '" class="thaum-label">';
+                $items = $items . $item['item_name'] . '</label></div>';
+                $inc++;
+            }
         }
         $sql = 'SELECT aspect_name FROM aspects WHERE aspect_name LIKE :name';
         $stmt = $db->prepare($sql);
@@ -125,16 +127,16 @@
         $rows = $stmt->fetchAll();
         $inc = 1;
         foreach ($rows as $row => $item) {
-            $aspectList = $aspectList . '<div id="aspCont' . $inc . '" class="thaum-item">'; 
-            $aspectList = $aspectList . '<input id="aspect' . $inc . '" type="checkbox" class="radio-check"';
-            $aspectList = $aspectList . 'name="aspects[]" value="' . $inc . '" onclick="toggleAspect(this.id)">';
-            $aspectList = $aspectList . '<label id="aLabel' . $inc . '" for="aspect' . $inc . '">';
-            $aspectList = $aspectList . $item['aspect_name'] . '</label><input id="amount' . $inc . '" type="number" class=';
-            $aspectList = $aspectList . '"thaum-input inactive" name="amounts[]" placeholder="Amount" min="1"';
-            $aspectList = $aspectList . 'max="64" onkeyup="updateAspectAmount(this.id)"></div>';
+            $aspects = $aspects . '<div id="aspCont' . $inc . '" class="thaum-item">'; 
+            $aspects = $aspects . '<input id="aspect' . $inc . '" type="checkbox" class="radio-check"';
+            $aspects = $aspects . 'name="aspects[]" value="' . $inc . '" onclick="toggleAspect(this.id)">';
+            $aspects = $aspects . '<label id="aLabel' . $inc . '" for="aspect' . $inc . '" class="thaum-label">';
+            $aspects = $aspects . $item['aspect_name'] . '</label><input id="amount' . $inc . '" type="number" class=';
+            $aspects = $aspects . '"thaum-input inactive" name="amounts[]" placeholder="Amount" min="1"';
+            $aspects = $aspects . 'max="64" onkeyup="updateAspectAmount(this.id)"></div>';
             $inc++;
         }
-        $obj = array('items'=> $itemList, 'aspects'=>$aspectList);
+        $obj = array('items'=> $items, 'aspects'=>$aspects);
         echo json_encode($obj);
     }
 
@@ -143,7 +145,7 @@
         // $l = '';
         // $compList = '';
         // $db = connect();
-        // $sql = 'SELECT (part, stat, material, level) FROM tinkers WHERE part LIKE :part AND material LIKE :material';
+        // $sql = 'SELECT part, stat, material, level FROM tinkers WHERE part LIKE :part AND material LIKE :material';
         // $stmt = $db->prepare($sql);
         // $stmt->bindValue(':name', "%$name%", PDO::PARAM_STR);
         // $stmt->execute();
