@@ -255,6 +255,11 @@ function updateItemList(id) {
 function updateAspectList(id) {
 	var ele = getId(id);
 
+	var itemSel = getRadioVal("items[]");
+	if (itemSel != null) {
+		itemSel.checked = false;
+	}
+
 	var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
