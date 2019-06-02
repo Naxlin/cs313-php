@@ -258,7 +258,7 @@ function updateAspectList(id) {
 	var radios = getName("items[]");
 	for (var i = 0; i < radios.length; i++) {
 		if (radios[i].checked) {
-			return radios[i].checked = false;
+			radios[i].checked = false;
 			break;
 		}
 	}
