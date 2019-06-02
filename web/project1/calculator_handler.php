@@ -166,7 +166,7 @@
         $db = connect();
         $sql = 'SELECT item_id FROM items WHERE item_name = :name';
         $stmt = $db->prepare($sql);
-        $stmt->bindValue(':name', "%$itemName%", PDO::PARAM_STR);
+        $stmt->bindValue(':name', "$itemName", PDO::PARAM_STR);
         $stmt->execute();
         $row = $stmt->fetch();
         $itemId = $row['item_id'];
@@ -174,7 +174,7 @@
 
         $sql = 'SELECT aspect_id FROM aspects WHERE aspect_name = :name';
         $stmt = $db->prepare($sql);
-        $stmt->bindValue(':name', "%$aspectName%", PDO::PARAM_STR);
+        $stmt->bindValue(':name', "$aspectName", PDO::PARAM_STR);
         $stmt->execute();
         $row = $stmt->fetch();
         $aspectId = $row['aspect_id'];
@@ -198,7 +198,7 @@
         $db = connect();
         $sql = 'SELECT item_id FROM items WHERE item_name = :name';
         $stmt = $db->prepare($sql);
-        $stmt->bindValue(':name', "%$itemName%", PDO::PARAM_STR);
+        $stmt->bindValue(':name', "$itemName", PDO::PARAM_STR);
         $stmt->execute();
         $row = $stmt->fetch();
         $itemId = $row['item_id'];
@@ -206,7 +206,7 @@
 
         $sql = 'SELECT aspect_id FROM aspects WHERE aspect_name = :name';
         $stmt = $db->prepare($sql);
-        $stmt->bindValue(':name', "%$aspectName%", PDO::PARAM_STR);
+        $stmt->bindValue(':name', "$aspectName", PDO::PARAM_STR);
         $stmt->execute();
         $row = $stmt->fetch();
         $aspectId = $row['aspect_id'];
@@ -214,9 +214,9 @@
 
         $sql = 'UPDATE thaumcraft SET amount = :amount WHERE item = :itemId AND aspect = :aspectId';
         $stmt = $db->prepare($sql);
-        $stmt->bindValue(':amount', "%$amount%", PDO::PARAM_STR);
-        $stmt->bindValue(':itemId', "%$itemId%", PDO::PARAM_STR);
-        $stmt->bindValue(':aspectId', "%$aspectId%", PDO::PARAM_STR);
+        $stmt->bindValue(':amount', "$amount", PDO::PARAM_STR);
+        $stmt->bindValue(':itemId', "$itemId", PDO::PARAM_STR);
+        $stmt->bindValue(':aspectId', "$aspectId", PDO::PARAM_STR);
         $stmt->execute();
         echo "Updated $itemName's $aspectName to $amount";
     }
