@@ -135,24 +135,40 @@ function toggleAspect(id) {
 	aspect4Amount[key] = id;
 	if (aspect.checked == true) {
 		getId(key).classList.remove('inactive');
+
+		// Prepare and send HttpRequest
+		var xmlhttp = new XMLHttpRequest();
+	    xmlhttp.onreadystatechange = function() {
+	        if (this.readyState == 4 && this.status == 200) {
+	            console.log(this.responseText);
+	        }
+	    }
+	    request = {
+	    	"cmd":"addAspect2List",
+	    	"itemName": getId("iLabel" + itemSel).innerHTML,
+	    	"aspectName": getId("aLabel" + aspect.value).innerHTML,
+	    	"amount": getId(key).value
+	    };
+	    xmlhttpSend(xmlhttp, request);
 	} else {
 		getId(key).classList.add('inactive');
+
+		// Prepare and send HttpRequest
+		var xmlhttp = new XMLHttpRequest();
+	    xmlhttp.onreadystatechange = function() {
+	        if (this.readyState == 4 && this.status == 200) {
+	            console.log(this.responseText);
+	        }
+	    }
+	    request = {
+	    	"cmd":"delItemAspect",
+	    	"itemName": getId("iLabel" + itemSel).innerHTML,
+	    	"aspectName": getId("aLabel" + aspect.value).innerHTML
+	    };
+	    xmlhttpSend(xmlhttp, request);
 	}
 
-	// Prepare and send HttpRequest
-	var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
-        }
-    }
-    request = {
-    	"cmd":"addAspect2List",
-    	"itemName": getId("iLabel" + itemSel).innerHTML,
-    	"aspectName": getId("aLabel" + aspect.value).innerHTML,
-    	"amount": getId(key).value
-    };
-    xmlhttpSend(xmlhttp, request);
+	
 }
 
 function toggleItem(id) {

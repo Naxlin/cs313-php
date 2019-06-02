@@ -2,7 +2,7 @@
     $requestString = $_REQUEST['request'];
     $request = json_decode($requestString, true);
 
-    $commandMap = array('singularity'=>'singularity', 'thaumcraft'=>'thaumcraft', 'tinkers'=>'tinkers', 'updateAspectAmount'=>'updateAspectAmount', 'updateItemList'=>'updateItemList', 'updateAspectList'=>'updateAspectList', 'addAspect2List'=>'addAspect2List', 'getItemAspects'=>'getItemAspects');
+    $commandMap = array('singularity'=>'singularity', 'thaumcraft'=>'thaumcraft', 'tinkers'=>'tinkers', 'updateAspectAmount'=>'updateAspectAmount', 'updateItemList'=>'updateItemList', 'updateAspectList'=>'updateAspectList', 'addAspect2List'=>'addAspect2List', 'getItemAspects'=>'getItemAspects', 'delItemAspect'=>'delItemAspect');
     $commandMap[$request['cmd']]($request);
 
     function connect() {
@@ -297,7 +297,7 @@
             $stmt->execute();
             $aRows = $stmt->fetch();
             $itemsAspects = $itemsAspects . '<div id="aspCont' . $inc . '" class="thaum-item">'; 
-            $itemsAspects = $itemsAspects . '<input id="aspect' . $inc . '" type="checkbox" class="radio-check"';
+            $itemsAspects = $itemsAspects . '<input id="aspect' . $inc . '" type="checkbox" class="radio-check" checked ';
             $itemsAspects = $itemsAspects . 'name="aspects[]" value="' . $inc . '" onclick="toggleAspect(this.id)">';
             $itemsAspects = $itemsAspects . '<label id="aLabel' . $inc . '" for="aspect' . $inc . '" class="thaum-label-aspect">';
             $itemsAspects = $itemsAspects . $aRows['aspect_name'] . '</label><input id="amount' . $inc . '" type="number" class=';
@@ -330,5 +330,31 @@
         echo $itemsAspects;
     }
 
+    function delItemAspect($obj) {
+        $itemName = $obj['itemName'];
+        $aspectName = $obj['aspectName'];
+
+        $db = connect();
+        $sql = 'SELECT item_id FROM items WHERE item_name = :name';
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':name', $itemName, PDO::PARAM_STR);
+        $stmt->execute();
+        $row = $stmt->fetch();
+        $itemId = $row['item_id'];
+
+        $sql = 'SELECT aspect_id FROM aspects WHERE aspect_name = :name';
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':name', $aspectName, PDO::PARAM_STR);
+        $stmt->execute();
+        $row = $stmt->fetch();
+        $aspectId = $row['aspect_id'];
+
+        $sql = 'DELETE FROM thaumcraft WHERE item = :itemId AND aspect = :aspectId';
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':itemId', $itemId, PDO::PARAM_STR);
+        $stmt->bindValue(':aspectId', $aspectId, PDO::PARAM_STR);
+        $stmt->execute();
+        echo "Removed $aspectName from $itemName";
+    }
 ?>
 
