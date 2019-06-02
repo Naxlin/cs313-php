@@ -262,7 +262,7 @@
             $aspects = $aspects . 'max="64" onkeyup="updateAspectAmount(this.id)" value="1"></div>';
             $inc++;
         }
-        echo $aspects
+        echo $aspects;
     }
 
 
