@@ -206,6 +206,8 @@ function updateAspectAmount(id) {
             console.log(this.responseText);
         }
     }
+
+    console.log(id.substr(6));
     request = {
     	"cmd":"updateAspectAmount", 
     	"itemName": getId("iLabel" + itemSel).innerHTML,
