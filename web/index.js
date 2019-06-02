@@ -209,7 +209,7 @@ function updateAspectAmount(id) {
     request = {
     	"cmd":"updateAspectAmount", 
     	"itemName": getId("iLabel" + itemSel).innerHTML,
-    	"aspectName": getId("aLabel" + getId(aspect4Amount[id]).value).innerHTML,
+    	"aspectName": getId("aLabel" + getId(id.substr(5)).value).innerHTML,
     	"amount": ele.value,
 
     };
