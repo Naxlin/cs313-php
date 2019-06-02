@@ -100,21 +100,42 @@
     }
 
     function thaumcraft($obj) {
-        // $name = $obj['name'];
-        // $l = '';
-        // $compList = '';
-        // $db = connect();
-        // $sql = 'SELECT (item, aspect, amount) FROM thaumcraft WHERE aspect LIKE :name';
-        // $stmt = $db->prepare($sql);
-        // $stmt->bindValue(':name', "%$name%", PDO::PARAM_STR);
-        // $stmt->execute();
-        // $l = $stmt->fetchAll();
-        // foreach ($l as $row => $item) {
-        //     $items = explode(',', $item['row']);
-        //     $compList = $compList . substr($items[0], 1) . ' ' . $items[1] . ' ' . $items[2] . ' ';
-        // }
-        // $compiled_list = $compiled_list . '</ul>';
-        echo "thaumcraft - "; //. $compList;
+        $name = $obj['name'];
+        $itemList = '<div id="itemSelWarn" class="itemWarn inactive">Please select an Item</div>';
+        $aspectList = '';
+        $db = connect();
+        $sql = 'SELECT item_name FROM items WHERE item_name LIKE :name';
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':name', "%$name%", PDO::PARAM_STR);
+        $stmt->execute();
+        $rows = $stmt->fetchAll();
+        $inc = 1;
+        foreach ($rows as $row => $item) {
+            $itemList = $itemList . '<div id="itemCont' . $inc . '" class="thaum-item">'; 
+            $itemList = $itemList . '<input id="item' . $inc . '" type="radio" name="items[]" class="';
+            $itemList = $itemList . 'radio-check" value="' . $inc . '" onclick="toggleItem(this.id)">';
+            $itemList = $itemList . '<label id="iLabel' . $inc . '" for="item' . $inc . '">';
+            $itemList = $itemList . $item . '</label></div>';
+            $inc++;
+        }
+        $sql = 'SELECT aspect_name FROM aspects WHERE aspect_name LIKE :name';
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':name', "%$name%", PDO::PARAM_STR);
+        $stmt->execute();
+        $rows = $stmt->fetchAll();
+        $inc = 1;
+        foreach ($rows as $row => $item) {
+            $aspectList = $aspectList . '<div id="aspCont' . $inc . '" class="thaum-item">'; 
+            $aspectList = $aspectList . '<input id="aspect' . $inc . '" type="checkbox" class="radio-check"';
+            $aspectList = $aspectList . 'name="aspects[]" value="' . $inc . '" onclick="toggleAspect(this.id)">';
+            $aspectList = $aspectList . '<label id="aLabel' . $inc . '" for="aspect' . $inc . '">';
+            $aspectList = $aspectList . $item . '</label><input id="amount' . $inc . '" type="number" class=';
+            $aspectList = $aspectList . '"thaum-input inactive" name="amounts[]" placeholder="Amount" min="1"';
+            $aspectList = $aspectList . 'max="64" onkeyup="updateAspectAmount(this.id)"></div>';
+            $inc++;
+        }
+        $obj = array('items'=> $itemList, 'aspects'=>$aspectList);
+        echo json_encode($obj);
     }
 
     function tinkers($obj) {
