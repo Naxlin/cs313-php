@@ -182,9 +182,9 @@
 
         $sql = 'INSERT INTO thaumcraft (item, aspect, amount) VALUES (:itemId, :aspectId, :amount)';
         $stmt = $db->prepare($sql);
-        $stmt->bindValue(':itemId', "%$itemId%", PDO::PARAM_STR);
-        $stmt->bindValue(':aspectId', "%$aspectId%", PDO::PARAM_STR);
-        $stmt->bindValue(':amount', "%$amount%", PDO::PARAM_STR);
+        $stmt->bindValue(':itemId', "$itemId", PDO::PARAM_STR);
+        $stmt->bindValue(':aspectId', "$aspectId", PDO::PARAM_STR);
+        $stmt->bindValue(':amount', "$amount", PDO::PARAM_STR);
         $stmt->execute();
         echo "Inserted row for $itemName with $aspectName at $amount";
 
