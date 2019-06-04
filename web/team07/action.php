@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	$stmt->bindValue(':user', $username, PDO::PARAM_STR);
 	$stmt->execute();
 	$row = $stmt->fetch();
-	var_dump($_POST);
+	var_dump(json_encode($_POST));
 	var_dump($row);
 	if (array_key_exists('username', $row)) {
 		if (password_verify($_POST['pass'], $row['password'])) {
