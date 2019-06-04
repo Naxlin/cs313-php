@@ -23,14 +23,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	$stmt->bindValue(':user', $user, PDO::PARAM_STR);
 	$stmt->execute();
 	$row = $stmt->fetch();
+	var_dump($row);
 	if (array_key_exists('username', $row)) {
 		if (password_verify($_POST['pass'], $row['password'])) {
+			session_start();
 			$_SESSION['logged in'] = true;
 			$_SESSION['user'] = $row['username'];
 			header("Location:welcome.php");
 		}
 	} else {
-		header("Location:signup.php");
+		// header("Location:signup.php");
 	}
 }
 

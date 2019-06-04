@@ -13,7 +13,7 @@
 			echo "<p>$user</p>";
 			echo '<a id="logout" href="logout.php">Logout</a>';
 		} else {
-			echo '<a id="signup" href="signup.php">Sign-up</a>';
+			echo '<a id="signup" href="signup.php">Sign-up</a><br>';
 			echo '<a id="login" href="login.php">Login</a>';
 		}
 	?>
