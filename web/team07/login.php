@@ -4,7 +4,8 @@
 	<title>Login Page</title>
 </head>
 <body>
-	<form id="form" method="GET" action="action.php">
+	<form id="form" method="POST" action="action.php">
+		<input type="text" name="check" style="visibility: hidden;" value="true">
 		<label for="1">Username: </label>
 		<input id="1" type="text" name="user" placeholder="Username" required>
 		<label for="2">Password: </label>
