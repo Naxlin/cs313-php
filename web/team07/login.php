@@ -8,8 +8,10 @@
 		<label for="1">Username: </label>
 		<input id="1" type="text" name="user" placeholder="Username" required>
 		<label for="2">Password: </label>
-		<input id="2" type="text" name="pass" placeholder="Password" required>
+		<input id="2" type="password" name="pass" placeholder="Password" required>
 		<button type="submit">login</button>
 	</form>
+
+	<a href="signup.php">Sign-up</a>
 </body>
 </html>

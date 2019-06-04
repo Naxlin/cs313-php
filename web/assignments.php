@@ -39,7 +39,7 @@
 				<a href="team03/form.php" class="item">
 					<div>Student Info</div>
 				</a>
-				<a href="team07/form.php" class="item">
+				<a href="team07/welcome.php" class="item">
 					<div>team07/login.php</div>
 				</a>
 			</nav>
