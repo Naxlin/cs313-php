@@ -21,7 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	$sql = 'SELECT username, password FROM credentials WHERE username = :user';
 	$stmt = $db->prepare($sql);
 	$stmt->bindValue(':user', $user, PDO::PARAM_STR);
-	$stmt->bindValue(':pass', $pass, PDO::PARAM_STR);
 	$stmt->execute();
 	$row = $stmt->fetch();
 	if (array_key_exists('username', $row)) {
