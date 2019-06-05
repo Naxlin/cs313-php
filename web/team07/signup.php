@@ -27,20 +27,27 @@
 				echo 'class="error"';
 			}  
 		?>>
-		<button type="submit">Sign-up</button>
+		<button type="button" onclick="validate()">Sign-up</button>
+		<button type="submit" id="submit" style="display: none;"></button>
 	</form>
 
-	<?php
-		$msg = $_SESSION['valid'];
-		if ($msg == 'mismatch') {
-			echo '<p class="error">The passwords did not match, try again.</p>';
-		} else if ($msg == 'length') {
-			echo '<p class="error">The password must be at least 7 characters.</p>';
-		} else if ($msg == 'number') {
-			echo '<p class="error">The password needs to contain a number and letters.</p>';
-		}
-	?>
+	<p id="match" class="error hide">The passwords did not match, try again.</p>
+	<p id="length" class="error hide">The password must be at least 7 characters.</p>
+	<p id="number" class="error hide">The password needs to contain a number and letters.</p>
+
+	<!-- For stretch 1 & 2 -->
+	<!-- <?php
+		// $msg = $_SESSION['valid'];
+		// if ($msg == 'mismatch') {
+			// echo '<p class="error">The passwords did not match, try again.</p>';
+		// } else if ($msg == 'length') {
+			// echo '<p class="error">The password must be at least 7 characters.</p>';
+		// } else if ($msg == 'number') {
+			// echo '<p class="error">The password needs to contain a number and letters.</p>';
+		// }
+	?> -->
 
 	<a href="login.php">Login</a>
+	<script type="text/javascript" src="cred.js"></script>
 </body>
 </html>
