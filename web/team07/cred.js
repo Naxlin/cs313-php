@@ -25,7 +25,7 @@ function validate() {
 		getId('number').classList.remove('hide');
 		pass.classList.add('error');
 	} else {
-		getId('form').innerHTML += '<button type="submit" id="submit" style="display: none;"></button>';
+		getId('sub').innerHTML = '<button type="submit" form="form" id="submit" style="display: none;"></button>';
 		getId('submit').click();
 	}
 }

@@ -30,6 +30,8 @@
 		<button type="button" onclick="validate()">Sign-up</button>
 	</form>
 
+	<div id="sub"></div>
+
 	<p id="match" class="error hide">The passwords did not match, try again.</p>
 	<p id="length" class="error hide">The password must be at least 7 characters.</p>
 	<p id="number" class="error hide">The password needs to contain a number and letters.</p>
