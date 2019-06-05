@@ -29,7 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$row = $stmt->fetch();
 		if (array_key_exists('username', $row)) {
 			if (password_verify($_POST['pass'], $row['password'])) {
-				session_start();
 				$_SESSION['logged in'] = true;
 				$_SESSION['user'] = $row['username'];
 				header("Location:welcome.php");
