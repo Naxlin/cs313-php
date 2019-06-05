@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Login Page</title>
+	<link rel="stylesheet" type="text/css" href="cred.css">
 </head>
 <body>
 	<form id="form" method="POST" action="action.php">
