@@ -2,10 +2,12 @@
 
 session_start();
 require("connect.php");
+$_SESSION['match'] = 'true';
 
 $username = $_POST['user'];
 $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-
+var_dump($_POST['pass']);
+var_dump($_POST['passC']);
 if (strcmp($_POST['pass'], $_POST['passC']) != 0) {
 	$_SESSION['match'] = 'false';
 	header("Location:signup.php");
@@ -34,13 +36,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				header("Location:welcome.php");
 			}
 		} else {
-			// header("Location:signup.php");
+			header("Location:signup.php");
 		}
 	}
 } 
-
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-	
-}
 
 ?>

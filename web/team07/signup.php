@@ -16,14 +16,14 @@
 		<?php
 			if ($_SESSION['match'] == 'false') {
 				echo 'class="error"';
-			  }  
+			}  
 		?>>
 		<label for="3">Confirm: </label>
 		<input id="3" type="password" name="passC" placeholder="Confirm Pass" required
 		<?php
 			if ($_SESSION['match'] == 'false') {
 				echo 'class="error"';
-			  }  
+			}  
 		?>>
 		<button type="submit">Sign-up</button>
 	</form>
