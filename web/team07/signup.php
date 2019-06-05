@@ -14,19 +14,32 @@
 		<label for="2">Password: </label>
 		<input id="2" type="password" name="pass" placeholder="Password" required
 		<?php
-			if ($_SESSION['match'] == 'false') {
+			$msg = $_SESSION['valid'];
+			if ($msg == 'mismatch' || $msg == 'length' || $msg == 'number') {
 				echo 'class="error"';
 			}  
 		?>>
 		<label for="3">Confirm: </label>
 		<input id="3" type="password" name="passC" placeholder="Confirm Pass" required
 		<?php
-			if ($_SESSION['match'] == 'false') {
+			$msg = $_SESSION['valid'];
+			if ($msg == 'mismatch' || $msg == 'length' || $msg == 'number') {
 				echo 'class="error"';
 			}  
 		?>>
 		<button type="submit">Sign-up</button>
 	</form>
+
+	<?php
+		$msg = $_SESSION['valid'];
+		if ($msg == 'mismatch') {
+			echo '<p class="error">The passwords did not match, try again.</p>';
+		} else if ($msg == 'length') {
+			echo '<p class="error">The password must be at least 7 characters.</p>';
+		} else if ($msg == 'number') {
+			echo '<p class="error">The password needs to contain a number and letters.</p>';
+		}
+	?>
 
 	<a href="login.php">Login</a>
 </body>

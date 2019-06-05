@@ -10,7 +10,13 @@ $db = connect();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if ($_POST['check'] == 'false') {
 		if (strcmp($_POST['pass'], $_POST['passC']) != 0) {
-			$_SESSION['match'] = 'false';
+			$_SESSION['match'] = 'mismatch';
+			header("Location:signup.php");
+		} else if (strlen($_POST['pass']) < 7) {
+			$_SESSION['match'] = 'length';
+			header("Location:signup.php");
+		} else if (preg_match('/[A-Za-z]/', $myString) && preg_match('/[0-9]/', $myString)) {
+			$_SESSION['match'] = 'number';
 			header("Location:signup.php");
 		} else {
 			$sql = 'INSERT INTO credentials (username, password) VALUES (:user, :pass)';
