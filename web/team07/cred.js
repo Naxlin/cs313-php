@@ -16,7 +16,7 @@ function validate() {
 		getId('length').classList.remove('hide');
 		pass.classList.add('error');
 		passC.classList.remove('error');
-	} else if (pass.value) {
+	} else if (!/\d/.test(pass.value)) {
 		getId('length').classList.add('hide');
 		getId('number').classList.remove('hide');
 		pass.classList.add('error');
