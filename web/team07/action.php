@@ -2,7 +2,6 @@
 
 session_start();
 require("connect.php");
-$_SESSION['match'] = 'true';
 $username = $_POST['user'];
 $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 $db = connect();
@@ -10,13 +9,13 @@ $db = connect();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if ($_POST['check'] == 'false') {
 		if (strcmp($_POST['pass'], $_POST['passC']) != 0) {
-			$_SESSION['match'] = 'mismatch';
+			$_SESSION['valid'] = 'mismatch';
 			header("Location:signup.php");
 		} else if (strlen($_POST['pass']) < 7) {
-			$_SESSION['match'] = 'length';
+			$_SESSION['valid'] = 'length';
 			header("Location:signup.php");
 		} else if (preg_match('/[A-Za-z]/', $_POST['pass']) && preg_match('/[0-9]/', $_POST['pass'])) {
-			$_SESSION['match'] = 'number';
+			$_SESSION['valid'] = 'number';
 			header("Location:signup.php");
 		} else {
 			$sql = 'INSERT INTO credentials (username, password) VALUES (:user, :pass)';
