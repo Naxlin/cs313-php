@@ -6,7 +6,7 @@ require("connect.php");
 $username = $_POST['user'];
 $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 
-if ($_POST['pass'] != $_POST['passC']) {
+if (strcmp($_POST['pass'], $_POST['passC']) != 0) {
 	$_SESSION['match'] = 'false';
 	header("Location:signup.php");
 }
