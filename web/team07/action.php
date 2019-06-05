@@ -33,10 +33,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			if (password_verify($_POST['pass'], $row['password'])) {
 				$_SESSION['logged in'] = true;
 				$_SESSION['user'] = $row['username'];
-				header("Location:welcome.php");
+				// header("Location:welcome.php");
 			}
 		} else {
-			header("Location:signup.php");
+			// header("Location:signup.php");
 		}
 	}
 } 
