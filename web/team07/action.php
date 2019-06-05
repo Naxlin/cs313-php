@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		} else if (strlen($_POST['pass']) < 7) {
 			$_SESSION['match'] = 'length';
 			header("Location:signup.php");
-		} else if (preg_match('/[A-Za-z]/', $myString) && preg_match('/[0-9]/', $myString)) {
+		} else if (preg_match('/[A-Za-z]/', $_POST['pass']) && preg_match('/[0-9]/', $_POST['pass'])) {
 			$_SESSION['match'] = 'number';
 			header("Location:signup.php");
 		} else {
