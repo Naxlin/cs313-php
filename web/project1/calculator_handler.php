@@ -2,7 +2,17 @@
     $requestString = $_REQUEST['request'];
     $request = json_decode($requestString, true);
 
-    $commandMap = array('singularity'=>'singularity', 'thaumcraft'=>'thaumcraft', 'tinkers'=>'tinkers', 'updateAspectAmount'=>'updateAspectAmount', 'updateItemList'=>'updateItemList', 'updateAspectList'=>'updateAspectList', 'addAspect2List'=>'addAspect2List', 'getItemAspects'=>'getItemAspects', 'delItemAspect'=>'delItemAspect');
+    $commandMap = array(
+        'singularity'=>'singularity',
+        'thaumcraft'=>'thaumcraft',
+        'tinkers'=>'tinkers', 
+        'updateAspectAmount'=>'updateAspectAmount', 
+        'updateItemList'=>'updateItemList', 
+        'updateAspectList'=>'updateAspectList', 
+        'addAspect2List'=>'addAspect2List', 
+        'getItemAspects'=>'getItemAspects', 
+        'delItemAspect'=>'delItemAspect'
+    );
     $commandMap[$request['cmd']]($request);
 
     function connect() {
@@ -35,7 +45,7 @@
         $name = $obj['name'];
         $l = array();
         $reply = '<select id="singularity-list" class="singularity-list" onChange="activateSingularity(this)">';
-        $compList = '';
+        $list = '';
         $db = connect();
         $sql = "SELECT * FROM singularities NATURAL JOIN items WHERE singularity_name LIKE :name";
         $stmt = $db->prepare($sql);
@@ -57,13 +67,19 @@
 
             if ($l[$id]['name'] != 'No Singularity') {
                 $reply = $reply . '<option class="singularity-opt" value="' . $l[$id]['id'] . '">' . $l[$id]['name'] . '</option>';
-                $compList = $compList . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><div class="header-sing-cont"><img class="img-sing" src="./project1/' . $l[$id]['name'] . '.gif" alt="Image of ' . $l[$id]['name'] . '"><h5 class="header-sing">' . $l[$id]['name'] . '</h5></div>';
-                $compList = $compList . '<div class="ancestors">';
+                $list = $list . '<div id="' . $l[$id]['id'] . '" class="singularity inactive"><div class="header-sing-cont">';
+                $list = $list . '<img class="img-sing" src="./project1/' . $l[$id]['name'] . '.gif" alt="Image of ';
+                $list = $list . $l[$id]['name'] . '"><h5 class="header-sing">' . $l[$id]['name'] . '</h5></div>';
+                $list = $list . '<div class="ancestors">';
                 if ($l[$id]['item'] != 'No Item') {
-                    $compList = $compList . '<p class="sing-item">Item - ' . $l[$id]['item'] . ' (' . number_format($l[$id]['emc'], 0, '.', ',') . ' emc)</p><p class="sing-item">Cost - ' . number_format($l[$id]['cost'], 0, '.', ',') . '</p><p class="sing-item">EMC Cost - ' . number_format($l[$id]['total'], 0, '.', ',') . '</p>';
+                    $list = $list . '<p class="sing-item">Item - ' . $l[$id]['item'] . ' (';
+                    $list = $list . number_format($l[$id]['emc'], 0, '.', ',') . ' emc)</p><p class="sing-item">Cost - ';
+                    $list = $list . number_format($l[$id]['cost'], 0, '.', ',') . '</p><p class="sing-item">EMC Cost - ';
+                    $list = $list . number_format($l[$id]['total'], 0, '.', ',') . '</p>';
                 }
                 if ($l[$id]['comp'] == true) {
-                    $sql = 'SELECT parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9 FROM singularity_parents WHERE singularity = :singularity_id';
+                    $sql = 'SELECT parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9' .
+                           'FROM singularity_parents WHERE singularity = :singularity_id';
                     $stmt = $db->prepare($sql);
                     $stmt->bindValue(':singularity_id', (int) $id, PDO::PARAM_INT);
                     $stmt->execute();
@@ -71,13 +87,15 @@
                     $tot = 0;
                     foreach ($p as $key => $value) {
                         if ($value != 90) {
-                            $compList = $compList . '<div class="header-sing-con">';
-                            $compList = $compList . '<img class="img-sing-parent" src="./project1/' . $l[$value]['name'] . '.gif" alt="Image of ' . $l[$value]['name'] . '">' ;
-                            $compList = $compList . '<p class="parent sing-item">' . $l[$value]['name'] . ' (' . number_format($l[$value]['total'], 0, '.', ',') . ' emc)' . '</p>';
-                            $compList = $compList . '</div>';
+                            $list = $list . '<div class="header-sing-con">';
+                            $list = $list . '<img class="img-sing-parent" src="./project1/' . $l[$value]['name'];
+                            $list = $list . '.gif" alt="Image of ' . $l[$value]['name'] . '"><p class="parent sing-item">';
+                            $list = $list . $l[$value]['name'] . ' (' . number_format($l[$value]['total'], 0, '.', ',');
+                            $list = $list . ' emc)' . '</p></div>';
                             $l[$id]['total'] += $l[$value]['total'];
                             if ($l[$value]['comp']) {
-                                $sql = 'SELECT parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9 FROM singularity_parents WHERE singularity = :singularity_id';
+                                $sql = 'SELECT parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9' .
+                                       'FROM singularity_parents WHERE singularity = :singularity_id';
                                 $stmt = $db->prepare($sql);
                                 $stmt->bindValue(':singularity_id', (int) $value, PDO::PARAM_INT);
                                 $stmt->execute();
@@ -89,14 +107,14 @@
                             $tot += $l[$value]['total'];
                         }
                     }
-                    $compList = $compList . '<p class="sing-item">EMC Total - ' . number_format($tot, 0, '.', ',') . '</p>';
-                    $compList = $compList . '</div>';
+                    $list = $list . '<p class="sing-item">EMC Total - ' . number_format($tot, 0, '.', ',') . '</p>';
+                    $list = $list . '</div>';
                 }
-                $compList = $compList . '</div></div>';
+                $list = $list . '</div></div>';
             }
         }
         $reply = $reply . '</select>';
-        echo $reply . $compList;
+        echo $reply . $list;
     }
 
     function thaumcraft($obj) {
@@ -142,21 +160,7 @@
     }
 
     function tinkers($obj) {
-        // $name = $obj['name'];
-        // $l = '';
-        // $compList = '';
-        // $db = connect();
-        // $sql = 'SELECT part, stat, material, level FROM tinkers WHERE part LIKE :part AND material LIKE :material';
-        // $stmt = $db->prepare($sql);
-        // $stmt->bindValue(':name', "%$name%", PDO::PARAM_STR);
-        // $stmt->execute();
-        // $l = $stmt->fetchAll();
-        // foreach ($l as $row => $item) {
-        //     $items = explode(',', $item['row']);
-        //     $compList = $compList . substr($items[0], 1) . ' ' . $items[1] . ' ' . $items[2] . ' ' . substr($items[3], 0, -1) . ' ';
-        // }
-        // $compiled_list = $compiled_list . '</ul>';
-        echo "tinkers - ";// . $compList;
+        // Planning on implementing this after this semester, there just wasn't time to do so for this project.
     }
 
     function addAspect2List($obj) {
