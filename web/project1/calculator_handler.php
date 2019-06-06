@@ -3,15 +3,15 @@
     $request = json_decode($requestString, true);
 
     $commandMap = array(
-        'singularity'=>'singularity',
-        'thaumcraft'=>'thaumcraft',
-        'tinkers'=>'tinkers', 
-        'updateAspectAmount'=>'updateAspectAmount', 
-        'updateItemList'=>'updateItemList', 
-        'updateAspectList'=>'updateAspectList', 
-        'addAspect2List'=>'addAspect2List', 
-        'getItemAspects'=>'getItemAspects', 
-        'delItemAspect'=>'delItemAspect'
+        'singularity' => 'singularity',
+        'thaumcraft' => 'thaumcraft',
+        'tinkers' => 'tinkers', 
+        'updateAspectAmount' => 'updateAspectAmount', 
+        'updateItemList' => 'updateItemList', 
+        'updateAspectList' => 'updateAspectList', 
+        'addAspect2List' => 'addAspect2List', 
+        'getItemAspects' => 'getItemAspects', 
+        'delItemAspect' => 'delItemAspect'
     );
     $commandMap[$request['cmd']]($request);
 
@@ -78,8 +78,7 @@
                     $list = $list . number_format($l[$id]['total'], 0, '.', ',') . '</p>';
                 }
                 if ($l[$id]['comp'] == true) {
-                    $sql = 'SELECT parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9' .
-                           'FROM singularity_parents WHERE singularity = :singularity_id';
+                    $sql = 'SELECT parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9 FROM singularity_parents WHERE singularity = :singularity_id';
                     $stmt = $db->prepare($sql);
                     $stmt->bindValue(':singularity_id', (int) $id, PDO::PARAM_INT);
                     $stmt->execute();
@@ -94,8 +93,7 @@
                             $list = $list . ' emc)' . '</p></div>';
                             $l[$id]['total'] += $l[$value]['total'];
                             if ($l[$value]['comp']) {
-                                $sql = 'SELECT parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9' .
-                                       'FROM singularity_parents WHERE singularity = :singularity_id';
+                                $sql = 'SELECT parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9 FROM singularity_parents WHERE singularity = :singularity_id';
                                 $stmt = $db->prepare($sql);
                                 $stmt->bindValue(':singularity_id', (int) $value, PDO::PARAM_INT);
                                 $stmt->execute();
