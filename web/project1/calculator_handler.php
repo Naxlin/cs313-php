@@ -92,16 +92,6 @@
                             $list = $list . $l[$value]['name'] . ' (' . number_format($l[$value]['total'], 0, '.', ',');
                             $list = $list . ' emc)' . '</p></div>';
                             $l[$id]['total'] += $l[$value]['total'];
-                            // if ($l[$value]['comp']) {
-                            //     $sql = 'SELECT parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9 FROM singularity_parents WHERE singularity = :singularity_id';
-                            //     $stmt = $db->prepare($sql);
-                            //     $stmt->bindValue(':singularity_id', (int) $value, PDO::PARAM_INT);
-                            //     $stmt->execute();
-                            //     $gp = $stmt->fetch();
-                            //     foreach ($gp as $k => $v) {
-                            //         $tot += $l[$v]['total'];
-                            //     }
-                            // }
                             $tot += $l[$value]['total'];
                         }
                     }
@@ -143,7 +133,8 @@
         $rows = $stmt->fetchAll();
         $inc = 1;
         foreach ($rows as $row => $item) {
-            $aspects = $aspects . '<div id="aspCont' . $inc . '" class="thaum-item">'; 
+            $aspects = $aspects . '<div id="aspCont' . $inc . '" class="thaum-item">';
+            $aspects = $aspects . '<img id="img' . $inc . '" src="' . $item['aspect_name'] . '.png" class="img-aspect">';
             $aspects = $aspects . '<input id="aspect' . $inc . '" type="checkbox" class="radio-check"';
             $aspects = $aspects . 'name="aspects[]" value="' . $inc . '" onclick="toggleAspect(this.id)">';
             $aspects = $aspects . '<label id="aLabel' . $inc . '" for="aspect' . $inc . '" class="thaum-label-aspect">';
