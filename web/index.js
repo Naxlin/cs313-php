@@ -117,10 +117,10 @@ function switchToCalculator(id) {
 
 	getId(calc1).classList.add("calc-active");
 	getId(calc2).classList.remove("calc-active");
-	getId(calc3).classList.remove("calc-active");
+	// getId(calc3).classList.remove("calc-active");
 	getId(calc1 + 1).style.display = "block";
 	getId(calc2 + 1).style.display = "none";
-	getId(calc3 + 1).style.display = "none";
+	// getId(calc3 + 1).style.display = "none";
 }
 
 function toggleAspect(id) {
