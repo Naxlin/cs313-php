@@ -99,20 +99,21 @@ function toggleCalculators(id) {
 function switchToCalculator(id) {
 	var calc1 = id;
 	var calc2;
-	var calc3;
+	// var calc3;
 	if (id == "singularity") {
 		getSingularity('');
 		calc2 = "thaumcraft";
-		calc3 = "tinkers";
+		// calc3 = "tinkers";
 	} else if (id == "thaumcraft") {
 		getThaumcraft('');
 		calc2 = "singularity";
-		calc3 = "tinkers";
-	} else if (id == "tinkers") {
-		getTinkers('');
-		calc2 = "singularity";
-		calc3 = "thaumcraft";
-	}
+		// calc3 = "tinkers";
+	} 
+	// else if (id == "tinkers") {
+		// getTinkers('');
+		// calc2 = "singularity";
+		// calc3 = "thaumcraft";
+	// }
 
 	getId(calc1).classList.add("calc-active");
 	getId(calc2).classList.remove("calc-active");
