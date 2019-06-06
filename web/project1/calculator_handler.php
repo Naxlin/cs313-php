@@ -92,16 +92,16 @@
                             $list = $list . $l[$value]['name'] . ' (' . number_format($l[$value]['total'], 0, '.', ',');
                             $list = $list . ' emc)' . '</p></div>';
                             $l[$id]['total'] += $l[$value]['total'];
-                            if ($l[$value]['comp']) {
-                                $sql = 'SELECT parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9 FROM singularity_parents WHERE singularity = :singularity_id';
-                                $stmt = $db->prepare($sql);
-                                $stmt->bindValue(':singularity_id', (int) $value, PDO::PARAM_INT);
-                                $stmt->execute();
-                                $gp = $stmt->fetch();
-                                foreach ($gp as $k => $v) {
-                                    $tot += $l[$v]['total'];
-                                }
-                            }
+                            // if ($l[$value]['comp']) {
+                            //     $sql = 'SELECT parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9 FROM singularity_parents WHERE singularity = :singularity_id';
+                            //     $stmt = $db->prepare($sql);
+                            //     $stmt->bindValue(':singularity_id', (int) $value, PDO::PARAM_INT);
+                            //     $stmt->execute();
+                            //     $gp = $stmt->fetch();
+                            //     foreach ($gp as $k => $v) {
+                            //         $tot += $l[$v]['total'];
+                            //     }
+                            // }
                             $tot += $l[$value]['total'];
                         }
                     }
