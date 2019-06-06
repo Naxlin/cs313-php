@@ -134,7 +134,7 @@
         $inc = 1;
         foreach ($rows as $row => $item) {
             $aspects = $aspects . '<div id="aspCont' . $inc . '" class="thaum-item">';
-            $aspects = $aspects . '<img id="img' . $inc . '" src="' . $item['aspect_name'] . '.png" class="img-aspect">';
+            $aspects = $aspects . '<img id="img' . $inc . '" src="./project1/' . $item['aspect_name'] . '.png" class="img-aspect">';
             $aspects = $aspects . '<input id="aspect' . $inc . '" type="checkbox" class="radio-check"';
             $aspects = $aspects . 'name="aspects[]" value="' . $inc . '" onclick="toggleAspect(this.id)">';
             $aspects = $aspects . '<label id="aLabel' . $inc . '" for="aspect' . $inc . '" class="thaum-label-aspect">';
