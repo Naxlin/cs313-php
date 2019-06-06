@@ -25,9 +25,9 @@
 
 	<div id="calculators1" class="calculator-container">
 		<div class="calc-list">
-			<div id="singularity" class="button-calc calc-active" onclick="switchToCalculator(this.id)">Singularity Calculator</div>
 			<div id="thaumcraft" class="button-calc" onclick="switchToCalculator(this.id)">Thaumcraft Calculator</div>
-			<div id="tinkers" class="button-calc" onclick="switchToCalculator(this.id)">Tinkers Construct Calculator</div>
+			<div id="singularity" class="button-calc calc-active" onclick="switchToCalculator(this.id)">Singularity Calculator</div>
+			<!-- <div id="tinkers" class="button-calc" onclick="switchToCalculator(this.id)">Tinkers Construct Calculator</div> -->
 		</div>
 
 		<div class="calculator">
@@ -65,7 +65,7 @@
 			</div>
 
 			<div id="tinkers1" class="tinkers" style="display: none;">
-				
+				<!-- This part of the project has been dropped due to biting off more than I could chew in the amount of time available for the project. I will however be implementing this sometime in the future, because it is something that I want to do to help me enjoy one of my hobbies, Minecraft--particularly the Awakening modpack. -->
 			</div>
 		</div>
 

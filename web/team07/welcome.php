@@ -14,7 +14,7 @@
 			echo "<p>Welcome $user</p>";
 			echo '<a id="logout" href="logout.php">Logout</a>';
 		} else {
-			echo '<a id="signup" href="signup.php">Sign-up</a><br>';
+			echo '<a id="signup" href="signup.php">Sign-up</a><br><br>';
 			echo '<a id="login" href="login.php">Login</a>';
 		}
 	?>

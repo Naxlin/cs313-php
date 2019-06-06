@@ -1,12 +1,10 @@
 -- The database structure:
--- INSERTED
 CREATE TABLE aspects (
 	aspect_id SERIAL PRIMARY KEY,
 	aspect_name varchar NOT NULL,
 	compound BOOLEAN NOT NULL DEFAULT FALSE
 );
 
--- INSERTED
 CREATE TABLE items (
 	item_id SERIAL PRIMARY KEY,
 	item_name varchar NOT NULL
@@ -22,7 +20,6 @@ CREATE TABLE emc (
 
 DROP TABLE emc;
 
--- INSERTED
 CREATE TABLE aspect_parents (
 	asp_par_key SERIAL PRIMARY KEY,
 	aspect int NOT NULL references aspects(aspect_id),
@@ -37,7 +34,6 @@ CREATE TABLE thaumcraft (
 	amount int NOT NULL
 );
 
--- INSERTED
 CREATE TABLE singularities (
 	singularity_id SERIAL PRIMARY KEY,
 	singularity_name varchar NOT NULL,
@@ -48,7 +44,6 @@ CREATE TABLE singularities (
 
 ALTER TABLE singularities RENAME COLUMN item TO item_id;
 
--- INSERTED
 CREATE TABLE singularity_parents (
 	sing_par_key SERIAL PRIMARY KEY,
 	singularity int NOT NULL references singularities(singularity_id),
@@ -63,13 +58,11 @@ CREATE TABLE singularity_parents (
 	parent9 int NOT NULL references singularities(singularity_id)
 );
 
--- INSERTED
 CREATE TABLE materials (
 	material_id SERIAL PRIMARY KEY,
 	material_name varchar NOT NULL
 );
 
--- INSERTED
 CREATE TABLE modifiers (
 	modifier_id SERIAL PRIMARY KEY,
 	modifier_name varchar NOT NULL,
@@ -81,7 +74,6 @@ ALTER TABLE traits RENAME COLUMN modifier_id TO trait_id;
 ALTER TABLE traits RENAME COLUMN modifier_name TO trait_name;
 ALTER TABLE traits RENAME COLUMN modifier_desc TO trait_desc;
 
--- INSERTED
 CREATE TABLE material_attributes (
 	mat_att_id SERIAL PRIMARY KEY,
 	level int NOT NULL,
@@ -92,13 +84,11 @@ CREATE TABLE material_attributes (
 ALTER TABLE material_attributes RENAME TO material_traits;
 ALTER TABLE material_traits RENAME COLUMN attribute TO trait;
 
--- INSERTED
 CREATE TABLE part_types (
 	part_id SERIAL PRIMARY KEY,
 	part_name varchar NOT NULL
 );
 
--- INSERTED
 CREATE TABLE stat_types (
 	stat_id SERIAL PRIMARY KEY,
 	stat_name varchar NOT NULL
@@ -199,7 +189,6 @@ UPDATE items SET emc = 4096 WHERE item_id = 79;
 UPDATE items SET emc = 18432 WHERE item_id = 80;
 
 -- The database insertions:
--- INSERTED
 INSERT INTO singularity_parents (singularity, parent1, parent2, parent3, parent4, parent5, parent6, parent7, parent8, parent9) VALUES
 (80, 1, 2, 13, 3, 4, 14, 5, 12, 15),
 (81, 16, 17, 22, 18, 19, 23, 20, 21, 24),
@@ -212,7 +201,6 @@ INSERT INTO singularity_parents (singularity, parent1, parent2, parent3, parent4
 (88, 73, 74, 79, 75, 76, 90, 77, 78, 90),
 (89, 80, 81, 82, 83, 84, 85, 86, 87, 88);
 
--- INSERTED
 INSERT INTO singularities (singularity_name, compound, item_cost, item) VALUES
 ('Iron Singularity', FALSE, 36000, 2),
 ('Golden Singularity', FALSE, 32800, 3),
@@ -305,7 +293,6 @@ INSERT INTO singularities (singularity_name, compound, item_cost, item) VALUES
 ('Eternal Singularity', TRUE, 9, 1),
 ('No Singularity', FALSE, 0, 1);
 
--- INSERTED
 INSERT INTO items (item_name) VALUES
 ('No Item'),
 ('Block of Iron'),
@@ -388,7 +375,6 @@ INSERT INTO items (item_name) VALUES
 ('Block of Solid Ender'),
 ('Block of Manyullyn');
 
--- INSERTED
 INSERT INTO material_traits (level, material, trait) VALUES
 (1, 22, 1),
 (2, 36, 2),
@@ -432,7 +418,6 @@ INSERT INTO material_traits (level, material, trait) VALUES
 (1, 78, 18),
 (1, 79, 12);
 
--- INSERTED
 INSERT INTO traits (trait_name, trait_desc) VALUES
 ('Reinforced', '10% chance per level of not using durability'),
 ('Poison', 'Poisons the enemy'),
@@ -453,7 +438,6 @@ INSERT INTO traits (trait_name, trait_desc) VALUES
 ('Unbreakable', 'The tools effective durability is infinite'),
 ('Thaumic', 'One extra modifier, two extra for 3 pieces or full tool');
 
--- INSERTED
 INSERT INTO aspect_parents (aspect, father, mother) VALUES 
 (7, 3, 5),
 (8, 1, 3),
@@ -505,7 +489,6 @@ INSERT INTO aspect_parents (aspect, father, mother) VALUES
 (54, 45, 6),
 (55, 3, 53);
 
--- INSERTED
 INSERT INTO aspects (aspect_name, compound) VALUES 
 ('Aer', FALSE),
 ('Aqua', FALSE),
@@ -563,7 +546,6 @@ INSERT INTO aspects (aspect_name, compound) VALUES
 ('Tutamen', TRUE),
 ('Ira', TRUE);
 
--- INSERTED
 INSERT INTO stat_types (stat_name) VALUES 
 ('Attack'),
 ('Durability'),
@@ -577,7 +559,6 @@ INSERT INTO stat_types (stat_name) VALUES
 ('Arrow Speed'),
 ('Weight');
 
--- INSERTED
 INSERT INTO materials (material_name) VALUES 
 ('Oureclase'),
 ('Prometheum'),
@@ -658,7 +639,6 @@ INSERT INTO materials (material_name) VALUES
 ('Infinity'),
 ('Thaumium');
 
--- INSERTED
 INSERT INTO part_types (part_name) VALUES 
 ('Tool Rod'),
 ('Tool Binding'),
@@ -688,28 +668,3 @@ INSERT INTO part_types (part_name) VALUES
 ('Crossbow Limb'),
 ('Crossbow Body'),
 ('Shuriken');
-
-
-
--- EXAMPLES:
--- INSERT INTO users (name)
--- 	VALUES ('naxlin')
-
--- INSERT INTO conferences (conferenceName)
--- 	VALUES ('April 2019')
-
--- INSERT INTO talks (talkTitle, speaker, conference, session)
--- 	VALUES ('How Can I Understand?', 1, 1, 1),
--- 	('The Sustaining of Church Officers', 2, 1, 2),
--- 	('Abound with Blessings', 3, 1, 3);
-
--- INSERT INTO notes (noteText, userfk, talk)
--- 	VALUES ('How Can I Understand?', 1, 1),
--- 	('How Can I Understand?', 1, 1),
--- 	('The Sustaining of Church Officers', 1, 2),
--- 	('The Sustaining of Church Officers', 1, 2),
--- 	('Abound with Blessings', 1, 3),
--- 	('Abound with Blessings', 1, 3);
-
--- ALTER TABLE talks
--- 	ADD COLUMN talkTitle varchar NOT NULL;
