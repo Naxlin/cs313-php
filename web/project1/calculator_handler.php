@@ -248,11 +248,12 @@
         $inc = 1;
         foreach ($rows as $row => $item) {
             $aspects = $aspects . '<div id="aspCont' . $inc . '" class="thaum-item">'; 
+            $aspects = $aspects . '<img id="img' . $inc . '" src="./project1/' . $item['aspect_name'] . '.png" class="img-aspect">';
             $aspects = $aspects . '<input id="aspect' . $inc . '" type="checkbox" class="radio-check"';
             $aspects = $aspects . 'name="aspects[]" value="' . $inc . '" onclick="toggleAspect(this.id)">';
             $aspects = $aspects . '<label id="aLabel' . $inc . '" for="aspect' . $inc . '" class="thaum-label-aspect">';
             $aspects = $aspects . $item['aspect_name'] . '</label><input id="amount' . $inc . '" type="number" class=';
-            $aspects = $aspects . '"thaum-input inactive" name="amounts[]" placeholder="Amount" min="1"';
+            $aspects = $aspects . '"thaum-input thaum-inline inactive" name="amounts[]" placeholder="Amount" min="1"';
             $aspects = $aspects . 'max="64" onkeyup="updateAspectAmount(this.id)" value="1"></div>';
             $inc++;
         }
@@ -290,11 +291,12 @@
             $stmt->execute();
             $aRows = $stmt->fetch();
             $itemsAspects = $itemsAspects . '<div id="aspCont' . $inc . '" class="thaum-item">'; 
+            $itemsAspects = $itemsAspects . '<img id="img' . $inc . '" src="./project1/' . $item['aspect_name'] . '.png" class="img-aspect">';
             $itemsAspects = $itemsAspects . '<input id="aspect' . $inc . '" type="checkbox" class="radio-check" checked ';
             $itemsAspects = $itemsAspects . 'name="aspects[]" value="' . $inc . '" onclick="toggleAspect(this.id)">';
             $itemsAspects = $itemsAspects . '<label id="aLabel' . $inc . '" for="aspect' . $inc . '" class="thaum-label-aspect">';
             $itemsAspects = $itemsAspects . $aRows['aspect_name'] . '</label><input id="amount' . $inc . '" type="number" class=';
-            $itemsAspects = $itemsAspects . '"thaum-input" name="amounts[]" placeholder="Amount" min="1"';
+            $itemsAspects = $itemsAspects . '"thaum-input thaum-inline" name="amounts[]" placeholder="Amount" min="1"';
             $itemsAspects = $itemsAspects . 'max="64" onkeyup="updateAspectAmount(this.id)"';
             $itemsAspects = $itemsAspects . 'onclick="updateAspectAmount(this.id)" value="' . $amount . '"></div>';
             $inc++;
@@ -309,11 +311,12 @@
         foreach ($rows as $row => $item) {
             if (!in_array($item['aspect_id'], $aspectIds)) {
                 $aspects = $aspects . '<div id="aspCont' . $inc . '" class="thaum-item">'; 
+                $aspects = $aspects . '<img id="img' . $inc . '" src="./project1/' . $item['aspect_name'] . '.png" class="img-aspect">';
                 $aspects = $aspects . '<input id="aspect' . $inc . '" type="checkbox" class="radio-check"';
                 $aspects = $aspects . 'name="aspects[]" value="' . $inc . '" onclick="toggleAspect(this.id)">';
                 $aspects = $aspects . '<label id="aLabel' . $inc . '" for="aspect' . $inc . '" class="thaum-label-aspect">';
                 $aspects = $aspects . $item['aspect_name'] . '</label><input id="amount' . $inc . '" type="number" class=';
-                $aspects = $aspects . '"thaum-input inactive" name="amounts[]" placeholder="Amount" min="1"';
+                $aspects = $aspects . '"thaum-input thaum-inline inactive" name="amounts[]" placeholder="Amount" min="1"';
                 $aspects = $aspects . 'max="64" onkeyup="updateAspectAmount(this.id)"onclick="updateAspectAmount(this.id)" value="1"></div>';
                 $inc++;
             }
