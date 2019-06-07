@@ -423,7 +423,7 @@ hr {
     margin-top: 6px;
 }
 
-label.radio-check: {
+.radio-check {
 	height: 60px;
 	margin: 0px;
 	width: 20px;
