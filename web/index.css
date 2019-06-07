@@ -239,11 +239,11 @@ hr {
 }
 
 .img-aspect {
-	height: 60px;
-	margin: 0px;
-	margin-left: 10px;
-	margin-right: 20px; 
-	width: 60px;
+    height: 60px;
+    padding: 10px;
+    padding-left: 0px;
+    padding-right: 20px;
+    width: 60px;
 }
 
 .img-sing {
@@ -368,7 +368,7 @@ hr {
 }
 
 .thaum-label {
-	margin-left: 10px;
+	margin-left: 20px;
 }
 
 .width-fourty {
@@ -406,18 +406,27 @@ hr {
 	font-size: 20px;
 	height: 60px;
 	line-height: 60px;
-	padding-left: 20px;
+	padding-left: 10px;
 	text-align: left;
 }
 
 .thaum-label-aspect {
-	display: inline-block;
-	margin-left: 10px;
-	width: 100px;
+    display: inline-block;
+    height: 60px;
+    margin-left: 10px;
+    position: absolute;
+    width: 100px;
+}
+
+.thaum-inline {
+    position: absolute;
+    margin-top: 6px;
+    margin-left: 120px;
 }
 
 .radio-check: {
-	height: 20px;
+	height: 60px;
+	margin: 0px;
 	width: 20px;
 }
 
