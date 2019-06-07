@@ -424,7 +424,7 @@ hr {
     margin-left: 120px;
 }
 
-.radio-check: {
+label.radio-check: {
 	height: 60px;
 	margin: 0px;
 	width: 20px;
