@@ -291,7 +291,7 @@
             $stmt->execute();
             $aRows = $stmt->fetch();
             $itemsAspects = $itemsAspects . '<div id="aspCont' . $inc . '" class="thaum-item">'; 
-            $itemsAspects = $itemsAspects . '<img id="img' . $inc . '" src="./project1/' . $item['aspect_name'] . '.png" class="img-aspect">';
+            $itemsAspects = $itemsAspects . '<img id="img' . $inc . '" src="./project1/' . $aRows['aspect_name'] . '.png" class="img-aspect">';
             $itemsAspects = $itemsAspects . '<input id="aspect' . $inc . '" type="checkbox" class="radio-check" checked ';
             $itemsAspects = $itemsAspects . 'name="aspects[]" value="' . $inc . '" onclick="toggleAspect(this.id)">';
             $itemsAspects = $itemsAspects . '<label id="aLabel' . $inc . '" for="aspect' . $inc . '" class="thaum-label-aspect">';
