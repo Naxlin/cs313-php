@@ -367,7 +367,10 @@ hr {
 }
 
 .thaum-label {
-	margin-left: 20px;
+	display: inline-block;
+    height: 60px;
+	margin-left: 10px;
+    position: absolute;
 }
 
 .width-fourty {
@@ -426,7 +429,7 @@ hr {
 .radio-check {
 	height: 60px;
 	margin: 0px;
-	width: 20px;
+	width: 15px;
 }
 
 .closer-header {
